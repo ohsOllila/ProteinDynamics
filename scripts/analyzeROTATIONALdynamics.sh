@@ -18,7 +18,7 @@ python3  $calcINERTIA $trajPROTcent $gorPROTcent $INERTIAoutput
 # Source for correlation function folders
 # This folder should contain subfolders oriented and unoriented with calculated correlation functions
 # and empty subfolders overall and scaledrotation.
-correlationFUNCfolder=../Data/NHcorrelationFunctions/withCHARMMscaled/
+correlationFUNCfolder=../Data/NHcorrelationFunctions/withAMBERscaled/
 
 for((i=0;i<=144;i++))
 do
@@ -32,6 +32,9 @@ done
 calcROTdiff=~/Dropbox/ProteinDynamics/scripts/calcROTdiff2.py
 
 # File to save the rotational diffusion constants
-ROTdiffs=../Data/rotationalDIFFUSION.dat
+ROTdiffs=../Data/rotationalDIFFUSIONamberSCALED.dat
 
-python3 $calcROTdiff $INERTIAoutput"RMASD.dat" $correlationFUNCfolder > $ROTdiffs
+# Scaling factor for new rotational diffusion constants
+scalingF=2.0
+
+python3 $calcROTdiff $INERTIAoutput"RMASD.dat" $correlationFUNCfolder "2.0" > $ROTdiffs
