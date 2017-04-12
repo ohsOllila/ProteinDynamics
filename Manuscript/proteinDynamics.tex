@@ -83,6 +83,22 @@
 
 Measurable spin relaxation rates are related to the molecular dynamics through
 equations
+$R_1$ defines the time scale of $^{13}$C longitudinal magnetization equilibration, and may be expressed as
+\begin{equation}\label{R1}
+R_{1}=\frac{d_{\rm{NH}}^2N_{\rm{H}}}{20}\bigg[j(\omega_{\rm{H}}-\omega_{\rm{N}})+3j(\omega_{\rm{N}})+6j(\omega_{\rm{N}}+\omega_{\rm{H}})\bigg] +j(\omega_{\rm{N}})[2\pi \omega_{\rm{N}} 160*10^(-6)]^2/15,
+\end{equation}
+\begin{equation}\label{R2}
+R_{2}=\frac{1}{2}\frac{d_{\rm{NH}}^2N_{\rm{H}}}{20}\bigg[j(\omega_{\rm{H}}-\omega_{\rm{N}})+3j(\omega_{\rm{N}})+6j(\omega_{\rm{N}}+\omega_{\rm{H}})+4j(0)+6j(\omega_{\rm{H}})\bigg]+[4j(0) +3j(\omega_{\rm{N}})][2\pi \omega_{\rm{N}} 160*10^(-6)]^2/(15*6),
+\end{equation}
+\begin{equation}\label{NOE}
+NOE=1+\frac{d_{\rm{NH}}^2N_{\rm{H}}}{20}\bigg[6j(\omega_{\rm{N}}+\omega_{\rm{H}})+j(\omega_{\rm{H}}-\omega_{\rm{N}}))\bigg]\frac{\gamma_{\rm{H}}}{\gamma_{\rm{N}}R_1}
+\end{equation}
+in which $\omega_{\rm{C}}$ and $\omega_{\rm{H}}$ are the Larmor angular frequencies of $^{13}$C and $^1$H respectively, $N_{\rm{H}}$ is the number of bound protons, and the dipolar coupling constant is given by
+\begin{equation}
+d_{\rm{NH}}=-\frac{\mu_0\hbar\gamma_{\rm{H}}\gamma_{\rm{N}}}{4\pi\langle r_{\rm{CH}}^3\rangle},\nonumber
+\end{equation}
+where $\mu_0$ is the magnetic constant or vacuum permeability, $\hbar$ is the reduced Planck constant, $\gamma_{\rm{C}}$ and $\gamma_{\rm{H}}$ are the gyromagnetic constants of $^{13}$C and $^1$H, respectively, and $\langle r_{\rm{CH}}^3\rangle$ is the average cubic length of the C--H chemical bond. $d_{\rm{CH}}/2\pi$ is approximately equal to -22 kHz for a methylene C--H bond \cite{Bec05:23285,Dvi05:607}.}
+
 
 ...,
 
