@@ -16,8 +16,8 @@
 %\usepackage{graphicx}
 
 %\draft % marks overfull lines with a black rule on the right
-%\documentclass[pre,aps,floatfix,authordate1-4,twocolumn]{revtex4-1}
-\documentclass[pre,aps,floatfix,authordate1-4]{revtex4-1}
+\documentclass[pre,aps,floatfix,authordate1-4,twocolumn]{revtex4-1}
+%\documentclass[pre,aps,floatfix,authordate1-4]{revtex4-1}
 
 %\documentclass[aps,prl,preprint,superscriptaddress]{revtex4}
 
@@ -85,10 +85,16 @@ Measurable spin relaxation rates are related to the molecular dynamics through
 equations
 $R_1$ defines the time scale of $^{13}$C longitudinal magnetization equilibration, and may be expressed as
 \begin{equation}\label{R1}
-R_{1}=\frac{d_{\rm{NH}}^2N_{\rm{H}}}{20}\bigg[j(\omega_{\rm{H}}-\omega_{\rm{N}})+3j(\omega_{\rm{N}})+6j(\omega_{\rm{N}}+\omega_{\rm{H}})\bigg] +j(\omega_{\rm{N}})[2\pi \omega_{\rm{N}} 160*10^(-6)]^2/15,
+  \begin{aligned}
+  R_{1}= & \frac{d_{\rm{NH}}^2N_{\rm{H}}}{20}\bigg[J(\omega_{\rm{H}}-\omega_{\rm{N}})+3J(\omega_{\rm{N}})+6J(\omega_{\rm{N}}+\omega_{\rm{H}})\bigg] \\
+        & +\frac{(\sigma \omega_{\rm{N}})^2}{15}j(\omega_{\rm{N}}),
+  \end{aligned}
 \end{equation}
 \begin{equation}\label{R2}
-R_{2}=\frac{1}{2}\frac{d_{\rm{NH}}^2N_{\rm{H}}}{20}\bigg[j(\omega_{\rm{H}}-\omega_{\rm{N}})+3j(\omega_{\rm{N}})+6j(\omega_{\rm{N}}+\omega_{\rm{H}})+4j(0)+6j(\omega_{\rm{H}})\bigg]+[4j(0) +3j(\omega_{\rm{N}})][2\pi \omega_{\rm{N}} 160*10^(-6)]^2/(15*6),
+    \begin{aligned}
+  R_{2}= & \frac{1}{2}\frac{d_{\rm{NH}}^2N_{\rm{H}}}{20}\bigg[4J(0)+3j(\omega_{\rm{N}})+J(\omega_{\rm{H}}-\omega_{\rm{N}})+6J(\omega_{\rm{H}})  \\
+    & +6J(\omega_{\rm{N}}+\omega_{\rm{H}})\bigg]+\frac{(\sigma \omega_{\rm{N}})^2}{15*6}[4J(0) +3J(\omega_{\rm{N}})],
+    \end{aligned}
 \end{equation}
 \begin{equation}\label{NOE}
 NOE=1+\frac{d_{\rm{NH}}^2N_{\rm{H}}}{20}\bigg[6j(\omega_{\rm{N}}+\omega_{\rm{H}})+j(\omega_{\rm{H}}-\omega_{\rm{N}}))\bigg]\frac{\gamma_{\rm{H}}}{\gamma_{\rm{N}}R_1}
@@ -97,10 +103,9 @@ in which $\omega_{\rm{C}}$ and $\omega_{\rm{H}}$ are the Larmor angular frequenc
 \begin{equation}
 d_{\rm{NH}}=-\frac{\mu_0\hbar\gamma_{\rm{H}}\gamma_{\rm{N}}}{4\pi\langle r_{\rm{CH}}^3\rangle},\nonumber
 \end{equation}
-where $\mu_0$ is the magnetic constant or vacuum permeability, $\hbar$ is the reduced Planck constant, $\gamma_{\rm{C}}$ and $\gamma_{\rm{H}}$ are the gyromagnetic constants of $^{13}$C and $^1$H, respectively, and $\langle r_{\rm{CH}}^3\rangle$ is the average cubic length of the C--H chemical bond. $d_{\rm{CH}}/2\pi$ is approximately equal to -22 kHz for a methylene C--H bond \cite{Bec05:23285,Dvi05:607}.}
+where $\mu_0$ is the magnetic constant or vacuum permeability, $\hbar$ is the reduced Planck constant, $\gamma_{\rm{C}}$ and $\gamma_{\rm{H}}$ are the gyromagnetic constants of $^{13}$C and $^1$H, respectively, and $\langle r_{\rm{CH}}^3\rangle$ is the average cubic length of the C--H chemical bond. $d_{\rm{CH}}/2\pi$ is approximately equal to -22 kHz for a methylene C--H bond
 
-
-...,
+Chemical shift anisotropy $\Delta \sigma=160*10^(-6)$
 
 where $J(\omega)$ is the spectral density. The spectral density is the
 fourier transformation of the second order rotational correlation function
@@ -303,15 +308,15 @@ are shown in Fig. \ref{relaxationDATAplotSCALED}.
 \centering
 \caption{Rotational diffusion coefficients for different proteins based on MD analysis of NMR relaxation data
 }\label{ROTdiffCOEFFS}
-\begin{tabular}{c c c c c c c }
-  rad$^2$/ns   &    &  HpTonB-92  &   & HpTonB-107  \\
+\begin{tabular}{c c c c c c c}
+  rad$^2$/ns   &    &  HpTonB-92  &   & HpTonB-107 & & PsTonB \\
   \hline
-  D$_{xx}$    &   &   0.027 $\pm$ 0.001  &   &  0.020 $\pm$ 0.001 \\
-  D$_{yy}$   &    &  0.027  $\pm$ 0.001  &    & 0.027 $\pm$ 0.001  \\
-  D$_{zz}$   &    &  0.055   $\pm$ 0.005  &    &  0.050  $\pm$ 0.004 \\
-  2D$_{zz}$/(D$_{xx}$+D$_{yy}$) &  &   2.0  $\pm$ 0.2    &  & 2.2   $\pm$ 0.1\\
-  D$_{av}$  &    &   0.036  $\pm$ 0.003    &    &  0.033  $\pm$ 0.002  \\
-  $\tau_{c}$(ns)  &    &  4.6   $\pm$ 0.4    &    &  5.1  $\pm$ 0.3 \\
+  D$_{xx}$    &   &   0.027 $\pm$ 0.001  &   &  0.020 $\pm$ 0.001 & & 0.015  $\pm$ 0.001\\
+  D$_{yy}$   &    &  0.027  $\pm$ 0.001  &    & 0.027 $\pm$ 0.001 & & 0.017  $\pm$ 0.001\\
+  D$_{zz}$   &    &  0.055   $\pm$ 0.005  &    &  0.050  $\pm$ 0.004 & & 0.039  $\pm$ 0.001\\
+  2D$_{zz}$/(D$_{xx}$+D$_{yy}$) &  &   2.0  $\pm$ 0.2    &  & 2.2   $\pm$ 0.1 & & 2.40 $\pm$ 0.01 \\
+  D$_{av}$  &    &   0.036  $\pm$ 0.003    &    &  0.033  $\pm$ 0.002 & & 0.024  $\pm$ 0.001\\
+  $\tau_{c}$(ns)  &    &  4.6   $\pm$ 0.4    &    &  5.1  $\pm$ 0.3 & & 7.1 \\
   %\hline
 \end{tabular}
 \end{table} 
