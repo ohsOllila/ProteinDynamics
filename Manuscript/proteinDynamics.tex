@@ -81,9 +81,8 @@
 
 \section{Spin relaxation analysis from MD simulations}
 
-Measurable spin relaxation rates are related to the molecular dynamics through
-equations
-$R_1$ defines the time scale of $^{13}$C longitudinal magnetization equilibration, and may be expressed as
+Experimentally measurable spin relaxation rates $R_1$, $R_2$ and $R_{\rm NOE}$ for N-H bonds
+are related to the molecular dynamics through equations \cite{abragam,kay89}
 \begin{equation}\label{R1}
   \begin{aligned}
   R_{1}= & \frac{d_{\rm{NH}}^2N_{\rm{H}}}{20}\bigg[J(\omega_{\rm{H}}-\omega_{\rm{N}})+3J(\omega_{\rm{N}})+6J(\omega_{\rm{N}}+\omega_{\rm{H}})\bigg] \\
@@ -97,19 +96,19 @@ $R_1$ defines the time scale of $^{13}$C longitudinal magnetization equilibratio
     \end{aligned}
 \end{equation}
 \begin{equation}\label{NOE}
-NOE=1+\frac{d_{\rm{NH}}^2N_{\rm{H}}}{20}\bigg[6j(\omega_{\rm{N}}+\omega_{\rm{H}})+j(\omega_{\rm{H}}-\omega_{\rm{N}}))\bigg]\frac{\gamma_{\rm{H}}}{\gamma_{\rm{N}}R_1}
+R_{\rm NOE}=1+\frac{d_{\rm{NH}}^2N_{\rm{H}}}{20}\bigg[6J(\omega_{\rm{N}}+\omega_{\rm{H}})+J(\omega_{\rm{H}}-\omega_{\rm{N}}))\bigg]\frac{\gamma_{\rm{H}}}{\gamma_{\rm{N}}R_1},
 \end{equation}
-in which $\omega_{\rm{C}}$ and $\omega_{\rm{H}}$ are the Larmor angular frequencies of $^{13}$C and $^1$H respectively, $N_{\rm{H}}$ is the number of bound protons, and the dipolar coupling constant is given by
+where $\omega_{\rm{N}}$ and $\omega_{\rm{H}}$ are the Larmor angular frequencies of $^{15}$N and $^1$H respectively,
+$N_{\rm{H}}$ is the number of bound protons. The dipolar coupling constant is given by
 \begin{equation}
-d_{\rm{NH}}=-\frac{\mu_0\hbar\gamma_{\rm{H}}\gamma_{\rm{N}}}{4\pi\langle r_{\rm{CH}}^3\rangle},\nonumber
+d_{\rm{NH}}=-\frac{\mu_0\hbar\gamma_{\rm{H}}\gamma_{\rm{N}}}{4\pi\langle r_{\rm{CN}}^3\rangle},\nonumber
 \end{equation}
-where $\mu_0$ is the magnetic constant or vacuum permeability, $\hbar$ is the reduced Planck constant, $\gamma_{\rm{C}}$ and $\gamma_{\rm{H}}$ are the gyromagnetic constants of $^{13}$C and $^1$H, respectively, and $\langle r_{\rm{CH}}^3\rangle$ is the average cubic length of the C--H chemical bond. $d_{\rm{CH}}/2\pi$ is approximately equal to -22 kHz for a methylene C--H bond
-
-Chemical shift anisotropy $\Delta \sigma=160*10^(-6)$
-
-where $J(\omega)$ is the spectral density. The spectral density is the
-fourier transformation of the second order rotational correlation function
-for the bond under interest
+where $\mu_0$ is the magnetic constant or vacuum permeability, $\hbar$ is the reduced Planck constant,
+$\gamma_{\rm{N}}$ and $\gamma_{\rm{H}}$ are the gyromagnetic constants of $^{13}$C and $^1$H, respectively,
+and $\langle r_{\rm{CN}}^3\rangle$ is the average cubic length of the C--H chemical bond.
+Chemical shift anisotropy is approximately $\Delta \sigma=160*10^{-6}$ for N-H bonds in proteins \cite{??}.
+Spectral density $J(\omega)$ is defined as the Fourier transformation of the second order
+rotational correlation function for N-H bond
 \begin{equation}
   C(t)=\langle P_2(\theta) \rangle,
 \end{equation}
