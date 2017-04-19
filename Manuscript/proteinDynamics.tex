@@ -16,8 +16,8 @@
 %\usepackage{graphicx}
 
 %\draft % marks overfull lines with a black rule on the right
-\documentclass[pre,aps,floatfix,authordate1-4,twocolumn]{revtex4-1}
-%\documentclass[pre,aps,floatfix,authordate1-4]{revtex4-1}
+%\documentclass[pre,aps,floatfix,authordate1-4,twocolumn]{revtex4-1}
+\documentclass[pre,aps,floatfix,authordate1-4]{revtex4-1}
 
 %\documentclass[aps,prl,preprint,superscriptaddress]{revtex4}
 
@@ -226,13 +226,60 @@ multiplying $C_I(t)$ from simulations with new overall correlation functions.
 
 \section{Results and discussion}
 
+\begin{figure*}[!p]
+  \includegraphics[width=13cm]{/Users/osollila/Dropbox/TonB/Figs/shortCONSTRrelDATA.eps}%
+  \caption{A) Structures sampled by HpTonB-92 from MD simulations
+    (100 structures from 300ns long trajectory).
+    B) Spin relaxation rates, order parameters and effective correlation times for
+    internal protein dynamics from experiments and simulations. 
+    \label{HpTonB92}}%
+\end{figure*}
+
+\begin{figure*}[!p]
+  \includegraphics[width=17cm]{/Users/osollila/Dropbox/TonB/Figs/longCONSTRrelDATA.eps}%
+  \caption{A) Structures sampled by HpTonB-107 from MD simulations
+    (100 structures from 100ns long trajectory between 50ns-150ns).
+    B) Structures sampled for HpTonB-107 from MD simulations
+    (100 structures from 200ns long trajectory between 200ns-400ns).
+    C) Spin relaxation rates, order parameters and effective internal correlation
+    times from experiments and simulations.
+    Flexilibilty observed in N terminus between residues 181-186
+    is better described by the dynamical model given by MD simulation between 50ns-150ns.
+    In this model the flexible region (residues 181-186) is characterized by longer $\tau_e$
+    and smaller order parmameter. This means larger conformational space sampled and larger
+    entropy. In addition, the N-terminus part missing from short construct (92-107) interacts with
+    residues where chemical shift differences between short and longer construct were observed.
+    \label{HpTonB92}}%
+\end{figure*}
+
+\begin{figure*}[!p]
+  \includegraphics[width=12cm]{/Users/osollila/Dropbox/PsTonB/Figs/RELdata.eps}%
+  \caption{A) Structures sampled by PsTonB from MD simulations
+    (100 structures from 400ns long trajectory).
+    B) Spin relaxation rates, order parameters and effective internal correlation
+    times from experiments and simulations. Spin relaxation rates indicate increased flexibility
+    only for the last two residues in N terminus. However,
+    MD simulations suggest somewhat smaller order parameters and longer $\tau_e$
+    for residues 246-253. By looking at the sampled structures, it seems that lower
+    order parameters and longer correlation times arise from slower and less extensive
+    conformational sampling than in HpTonB-107. Lower order parameters and larger
+    correlation times are also observed in PsTonB simulations between residues 265-275.
+    This can be explained by the changes in orientation of alpha helix close to this
+    region, as seen in the sampled conformations. Such effect was not seen in the HpTonB
+    simulations, however, NMR data for this region showed some unclarities which may arise
+    from such conformational exchange. Enhanced sampling is also observed between
+    residues 320-326. This was not observed in HpTonB samples, which may be related to the
+    formation of beta sheet between residues 315-318 in PsTonB.
+    \label{HpTonB92}}%
+\end{figure*}
+
 The analysis method is demonstrated here for HpTonB short construct.
 The calculated spin lattice relaxation times from simulations with different
 water models together with experimental data \cite{??} are shown in Fig. \ref{relaxationDATAplot}.
 The rotational diffusion constants for overall 
 
 \begin{figure}[!h]
-  \includegraphics[width=13cm]{../../TonB/Figs/relaxationDATAplot.eps}%
+  \includegraphics[width=13cm]{/Users/osollila/Dropbox/TonB/Figs/relaxationDATAplot.eps}%
   \caption{Relaxation parameters for HpTonB short construct from
     experiments and simulations with Amber-ildn and different water models
     \label{relaxationDATAplot}}%
@@ -264,7 +311,7 @@ The rotational diffusion constants for overall
 Results with rotational diffusion coefficient corrected with constant factor
 are shown in Fig. \ref{relaxationDATAplotSCALED}. 
 \begin{figure}[!h]
-  \includegraphics[width=13cm]{../../TonB/Figs/relaxationDATAplotSCALED.eps}%
+  \includegraphics[width=13cm]{/Users/osollila/Dropbox/TonB/Figs/relaxationDATAplotSCALED.eps}%
   \caption{Relaxation parameters for HpTonB short construct from
     experiments and simulations with Amber-ildn and different water models.
     The rotational diffusion coefficients are divided by 3.0 for tip3p simulation
@@ -274,7 +321,7 @@ are shown in Fig. \ref{relaxationDATAplotSCALED}.
 \end{figure}
 
 \begin{figure}[!h]
-  \includegraphics[width=13cm]{../../TonB/Figs/relaxationDATAplotLONGERconstructSCALED.eps}%
+  \includegraphics[width=13cm]{/Users/osollila/Dropbox/TonB/Figs/relaxationDATAplotLONGERconstructSCALED.eps}%
   \caption{PRELIMINARY RESULTS for relaxation parameters for HpTonB longer construct (107) from
     experiments and simulations with Amber-ildn and tip4p water models.
     The rotational diffusion coefficients are divided by 1.3.
@@ -303,9 +350,13 @@ are shown in Fig. \ref{relaxationDATAplotSCALED}.
 \end{table} 
 
 
-\begin{table}[htb]
+\begin{table}[!p]
 \centering
-\caption{Rotational diffusion coefficients for different proteins based on MD analysis of NMR relaxation data
+\caption{
+  Rotational diffusion coefficients of inertia axes for different proteins based on MD analysis of NMR relaxation data.
+  HpTonB-107 has slighlty slower rotational diffusion and larger anisotropy than HpTonB-92,
+  but difference is not very large. PsTonB has slower rotational diffusion and larger anisotropy than
+  HpTonB constructs.
 }\label{ROTdiffCOEFFS}
 \begin{tabular}{c c c c c c c}
   rad$^2$/ns   &    &  HpTonB-92  &   & HpTonB-107 & & PsTonB \\
@@ -327,7 +378,7 @@ are shown in Fig. \ref{relaxationDATAplotSCALED}.
 \section{Results for PsTonB}
 
 \begin{figure}[!h]
-  \includegraphics[width=13cm]{../../PsTonB/Figs/relaxationDATAplotCOMP.eps}%
+  \includegraphics[width=13cm]{/Users/osollila/Dropbox/PsTonB/Figs/relaxationDATAplotCOMP.eps}%
   \caption{Relaxation parameters for PsTonB short construct from
     experiments and simulations with Amber-ildn and different water models
     \label{hexPHASEdimensionsPLOT}}%
@@ -356,7 +407,7 @@ tau5      & &    9.83	 & &         12.87 \\
 \section{Results for Calmodulin}
 
 \begin{figure}[!h]
-  \includegraphics[width=13cm]{../../Calmodulin/Figs/relaxationDATAplot.eps}%
+  \includegraphics[width=13cm]{/Users/osollila/Dropbox/Calmodulin/Figs/relaxationDATAplot.eps}%
   \caption{Relaxation parameters for Calmodulin from
     experiments and simulations with Amber and CHARMM in tip3p
     \label{hexPHASEdimensionsPLOT}}%
@@ -385,7 +436,7 @@ tau5      &   & 6.91	& &  7.61   & & \\
 \end{table} 
 
 \begin{figure}[!h]
-  \includegraphics[width=13cm]{../../Calmodulin/Figs/relaxationDATAplotREDUCEDrotation.eps}%
+  \includegraphics[width=13cm]{/Users/osollila/Dropbox/Calmodulin/Figs/relaxationDATAplotREDUCEDrotation.eps}%
   \caption{Relaxation parameters for Calmodulin from
     experiments and simulations with Amber and CHARMM in tip3p.
     The overall rotation diffusion coefficiets are reduced to
@@ -394,7 +445,7 @@ tau5      &   & 6.91	& &  7.61   & & \\
 \end{figure}
 
 \begin{figure}[!h]
-  \includegraphics[width=13cm]{../../Calmodulin/Figs/relaxationDATAplotNOIONS.eps}%
+  \includegraphics[width=13cm]{/Users/osollila/Dropbox/Calmodulin/Figs/relaxationDATAplotNOIONS.eps}%
   \caption{Relaxation parameters for Ca2+ free Calmodulin from
     experiments \cite{tjandra95} \label{hexPHASEdimensionsPLOT}}%
 \end{figure}
