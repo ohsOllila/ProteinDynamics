@@ -16,8 +16,8 @@
 %\usepackage{graphicx}
 
 %\draft % marks overfull lines with a black rule on the right
-%\documentclass[pre,aps,floatfix,authordate1-4,twocolumn]{revtex4-1}
-\documentclass[pre,aps,floatfix,authordate1-4]{revtex4-1}
+\documentclass[pre,aps,floatfix,authordate1-4,twocolumn]{revtex4-1}
+%\documentclass[pre,aps,floatfix,authordate1-4]{revtex4-1}
 
 %\documentclass[aps,prl,preprint,superscriptaddress]{revtex4}
 
@@ -78,8 +78,10 @@
 
 
 %\label{}
+\section{Introduction}
 
-\section{Spin relaxation analysis from MD simulations}
+\section{Methods}
+\subsection{Spin relaxation analysis from MD simulations}
 
 Experimentally measurable spin relaxation rates $R_1$, $R_2$ and $R_{\rm NOE}$ for N-H bonds
 are related to the molecular dynamics through equations \cite{abragam,kay89}
@@ -179,30 +181,7 @@ separated. If molecular dynamics simulation model reproduces
 experimental spin relaxation rates, it can be used to interpret
 the different dynamical processes present in the system.
 
-An example of calculated rotational correlation function from
-molecular dynamics simulation is shown in Fig.~\ref{exampleCORFF}.
-Fourier transform of the total correlation function $g(t)$ gives
-spectral density $J(\omega)$, which can be then embedded in Eqs. ??
-to calculate the experimentally measurable spin relaxation rates.
-If MD results agree with experiments, the simulation can be used
-intepret the experimental data.
-\begin{figure}[!h]
-  \includegraphics[width=13cm]{../Figs/exampleCORRF.eps}%
-  \caption{Example correlation functions from residue 269 of PsTonB simulated with OPC water model.
-    Total correlation function $g(t)$ on (top). Correlation function for internal motions
-    calculated from trajectory from which overall rotation of protein is removed.
-    The plateau of this gives the order paramater square $S^2$.
-    \label{exampleCORRF}}%
-\end{figure}
 
-The intertia tensor angles as a function of time and mean square angular
-deviations are shown in Fig. \ref{exampleROTDIFFcalc}
-\begin{figure}[!h]
-  \includegraphics[width=18cm]{../Figs/exampleROTDIFFcalc.eps}%
-  \caption{The intertia tensor angles as a function of time and mean square angular
-    deviations for PsTonB simulation with OPC water model.
-    \label{exampleROTDIFFcalc}}%
-\end{figure}
 
 The following steps are performed in practise. \\
 1) Total rotational correlation functions $C(t)$ for protein N-H bonds are calculated from
@@ -224,10 +203,41 @@ overall rotational correlation functions are calculated from Eq. ref {} by using
 weights from previous step. New total correlation functions are calculated by
 multiplying $C_I(t)$ from simulations with new overall correlation functions.
 
+\subsection{Molecular dynamics simulations}
+
 \section{Results and discussion}
 
+\subsection{Protein overall rotational diffusion constants and relaxation times}
+Rotational correlation functions calculated from
+molecular dynamics simulation are shown in Fig.~\ref{exampleCORRF}.
+\begin{figure}[!h]
+  \includegraphics[width=8.5cm]{../Figs/exampleCORRF.eps}%
+  \caption{Example correlation functions from residue 269 of PsTonB simulated with OPC water model.
+    Total correlation function $g(t)$ on (top). Correlation function for internal motions
+    calculated from trajectory from which overall rotation of protein is removed.
+    The plateau of this gives the order paramater square $S^2$. \label{exampleCORRF}}%
+\end{figure}
+
+The intertia tensor angles as a function of time and mean square angular
+deviations are shown in Fig. \ref{RMASDplot}
+\begin{figure}[!h]
+  \includegraphics[width=8.5cm]{../Figs/RMASDplot.eps}%
+  \caption{The intertia tensor angles as a function of time and mean square angular
+    deviations for PsTonB simulation with OPC water model.
+    \label{RMASDplot}}%
+\end{figure}
+
+\subsection{Protein internal relaxation}
+
+Fourier transform of the total correlation function $g(t)$ gives
+spectral density $J(\omega)$, which can be then embedded in Eqs. ??
+to calculate the experimentally measurable spin relaxation rates.
+If MD results agree with experiments, the simulation can be used
+intepret the experimental data.
+
+
 \begin{figure*}[!p]
-  \includegraphics[width=13cm]{/Users/osollila/Dropbox/TonB/Figs/shortCONSTRrelDATA.eps}%
+  \includegraphics[width=13cm]{/home/samuli/Dropbox/TonB/Figs/shortCONSTRrelDATA.eps}%
   \caption{A) Structures sampled by HpTonB-92 from MD simulations
     (100 structures from 300ns long trajectory).
     B) Spin relaxation rates, order parameters and effective correlation times for
@@ -236,7 +246,7 @@ multiplying $C_I(t)$ from simulations with new overall correlation functions.
 \end{figure*}
 
 \begin{figure*}[!p]
-  \includegraphics[width=17cm]{/Users/osollila/Dropbox/TonB/Figs/longCONSTRrelDATA.eps}%
+  \includegraphics[width=17cm]{/home/samuli/Dropbox/TonB/Figs/longCONSTRrelDATA.eps}%
   \caption{A) Structures sampled by HpTonB-107 from MD simulations
     (100 structures from 100ns long trajectory between 50ns-150ns).
     B) Structures sampled for HpTonB-107 from MD simulations
@@ -253,7 +263,7 @@ multiplying $C_I(t)$ from simulations with new overall correlation functions.
 \end{figure*}
 
 \begin{figure*}[!p]
-  \includegraphics[width=12cm]{/Users/osollila/Dropbox/PsTonB/Figs/RELdata.eps}%
+  \includegraphics[width=12cm]{/home/samuli/Dropbox/PsTonB/Figs/RELdata.eps}%
   \caption{A) Structures sampled by PsTonB from MD simulations
     (100 structures from 400ns long trajectory).
     B) Spin relaxation rates, order parameters and effective internal correlation
@@ -279,7 +289,7 @@ water models together with experimental data \cite{??} are shown in Fig. \ref{re
 The rotational diffusion constants for overall 
 
 \begin{figure}[!h]
-  \includegraphics[width=13cm]{/Users/osollila/Dropbox/TonB/Figs/relaxationDATAplot.eps}%
+  \includegraphics[width=13cm]{/home/samuli/Dropbox/TonB/Figs/relaxationDATAplot.eps}%
   \caption{Relaxation parameters for HpTonB short construct from
     experiments and simulations with Amber-ildn and different water models
     \label{relaxationDATAplot}}%
@@ -311,7 +321,7 @@ The rotational diffusion constants for overall
 Results with rotational diffusion coefficient corrected with constant factor
 are shown in Fig. \ref{relaxationDATAplotSCALED}. 
 \begin{figure}[!h]
-  \includegraphics[width=13cm]{/Users/osollila/Dropbox/TonB/Figs/relaxationDATAplotSCALED.eps}%
+  \includegraphics[width=13cm]{/home/samuli/Dropbox/TonB/Figs/relaxationDATAplotSCALED.eps}%
   \caption{Relaxation parameters for HpTonB short construct from
     experiments and simulations with Amber-ildn and different water models.
     The rotational diffusion coefficients are divided by 3.0 for tip3p simulation
@@ -321,7 +331,7 @@ are shown in Fig. \ref{relaxationDATAplotSCALED}.
 \end{figure}
 
 \begin{figure}[!h]
-  \includegraphics[width=13cm]{/Users/osollila/Dropbox/TonB/Figs/relaxationDATAplotLONGERconstructSCALED.eps}%
+  \includegraphics[width=13cm]{/home/samuli/Dropbox/TonB/Figs/relaxationDATAplotLONGERconstructSCALED.eps}%
   \caption{PRELIMINARY RESULTS for relaxation parameters for HpTonB longer construct (107) from
     experiments and simulations with Amber-ildn and tip4p water models.
     The rotational diffusion coefficients are divided by 1.3.
@@ -378,7 +388,7 @@ are shown in Fig. \ref{relaxationDATAplotSCALED}.
 \section{Results for PsTonB}
 
 \begin{figure}[!h]
-  \includegraphics[width=13cm]{/Users/osollila/Dropbox/PsTonB/Figs/relaxationDATAplotCOMP.eps}%
+  \includegraphics[width=13cm]{/home/samuli/Dropbox/PsTonB/Figs/relaxationDATAplotCOMP.eps}%
   \caption{Relaxation parameters for PsTonB short construct from
     experiments and simulations with Amber-ildn and different water models
     \label{hexPHASEdimensionsPLOT}}%
@@ -407,7 +417,7 @@ tau5      & &    9.83	 & &         12.87 \\
 \section{Results for Calmodulin}
 
 \begin{figure}[!h]
-  \includegraphics[width=13cm]{/Users/osollila/Dropbox/Calmodulin/Figs/relaxationDATAplot.eps}%
+  \includegraphics[width=13cm]{/home/samuli/Dropbox/Calmodulin/Figs/relaxationDATAplot.eps}%
   \caption{Relaxation parameters for Calmodulin from
     experiments and simulations with Amber and CHARMM in tip3p
     \label{hexPHASEdimensionsPLOT}}%
@@ -436,7 +446,7 @@ tau5      &   & 6.91	& &  7.61   & & \\
 \end{table} 
 
 \begin{figure}[!h]
-  \includegraphics[width=13cm]{/Users/osollila/Dropbox/Calmodulin/Figs/relaxationDATAplotREDUCEDrotation.eps}%
+  \includegraphics[width=13cm]{/home/samuli/Dropbox/Calmodulin/Figs/relaxationDATAplotREDUCEDrotation.eps}%
   \caption{Relaxation parameters for Calmodulin from
     experiments and simulations with Amber and CHARMM in tip3p.
     The overall rotation diffusion coefficiets are reduced to
@@ -445,7 +455,7 @@ tau5      &   & 6.91	& &  7.61   & & \\
 \end{figure}
 
 \begin{figure}[!h]
-  \includegraphics[width=13cm]{/Users/osollila/Dropbox/Calmodulin/Figs/relaxationDATAplotNOIONS.eps}%
+  \includegraphics[width=13cm]{/home/samuli/Dropbox/Calmodulin/Figs/relaxationDATAplotNOIONS.eps}%
   \caption{Relaxation parameters for Ca2+ free Calmodulin from
     experiments \cite{tjandra95} \label{hexPHASEdimensionsPLOT}}%
 \end{figure}
