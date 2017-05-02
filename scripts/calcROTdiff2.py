@@ -51,6 +51,11 @@ k3, kcov3 = curve_fit(func, dataLOGx, dataLOGy,p0=(1))
 D1=k1/2
 D2=k2/2
 D3=k3/2
+# ERRORS FOR DIFFUSION CONSTANT
+D1err=numpy.sqrt(numpy.diag(kcov1))
+D2err=numpy.sqrt(numpy.diag(kcov2))
+D3err=numpy.sqrt(numpy.diag(kcov3))
+
 #print D1,D2,D3
 
 # RELAXATION TIMES FOR N-H ROTATIONAL CORRELATION FUNCTION FROM OVERALL DIFFUSION 
@@ -70,9 +75,9 @@ tau5=1/(6*(D-math.sqrt(D**2-L2)))
 
 #print tau1dot,tau2dot,tau3dot
 
-print("D_xx        ", str(*(D3)))
-print("D_yy        ", str(*(D2)))
-print("D_zz        ", str(*(D1)))
+print("D_xx        ", str(*(D3)),str(*(D3err)))
+print("D_yy        ", str(*(D2)),str(*(D2err)))
+print("D_zz        ", str(*(D1)),str(*(D1err)))
 print("D_||/D_+    ", str(*(2*D1/(D3+D2))))
 print("D_av        ", str(*(D)))
 print("tau1        ", str(*(tau1)))
@@ -87,7 +92,7 @@ scalingF=1
 def fiveexpfunc(x,p1,p2,p3,p4,p5):
   return p1**2*numpy.exp(-x/(scalingF*tau1)) + p2**2*numpy.exp(-x/(scalingF*tau2)) + p3**2*numpy.exp(-x/(scalingF*tau3)) + p4**2*numpy.exp(-x/(scalingF*tau4)) + p5**2*numpy.exp(-x/(scalingF*tau5))
 
-for i in range(1,87):
+for i in range(1,92):
   xdata = numpy.loadtxt(sys.argv[2]+'/overall/NHrotaCF_' + str(i) + '.xvg', usecols=range(0,1))
   ydata = numpy.loadtxt(sys.argv[2]+'/overall/NHrotaCF_' + str(i) + '.xvg', usecols=range(1,2))
   xdata = xdata*0.001
@@ -121,12 +126,15 @@ for i in range(1,87):
   scalingF=float(sys.argv[3])
   ydata=ydata*fiveexpfunc(xdata,*popt3)
 
+  #A=numpy.fft.fft([xdata,ydata])
+  #print(A,2)
+  
   scaledCFfile=open(str(sys.argv[2]+'/scaledrotation/NHrotaCF_' +str(i) + '.xvg'), 'w+')
   for j in range(0,len(xdata)):
     print(xdata[j]*1000,ydata[j], file=scaledCFfile)
                   
 #TSTfig2=plt.figure()
-#axes = plt.gca()
+#Axes = plt.gca()
 #axes.set_xlim([0,20])
 #plt.plot(xdata, ydata)
 #TSTfig2.savefig('../scratch/tst3.pdf')

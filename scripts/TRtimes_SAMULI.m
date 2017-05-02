@@ -7,9 +7,9 @@
 %
 
 %NCtimes=3;
-%Ctimes=(-10:0.1:NCtimes);
-%Ctimes=0.1*10.^Ctimes;
-Ctimes=(0.01:0.1:50);
+Ctimes=(-3:0.01:1.7);
+Ctimes=1*10.^Ctimes;
+%Ctimes=(0.01:0.005:50);
 Ctimes=Ctimes*0.1*10^(-9);
 
 % SET ORDER PARAMETER TO ZERO FOR LIQUID SAMPLE
