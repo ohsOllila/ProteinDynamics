@@ -10,7 +10,7 @@ set yrange [-0.1:1]
 #set key box
 #set key above
 
-set key at screen 0.85,screen 1.023 maxcols 2 maxrows 2
+set key at screen 0.9,screen 0.95 maxcols 2 maxrows 2
 set xrange [0:100] 
 #set xtic 10
 #set size 1.0, 0.25
@@ -18,32 +18,38 @@ set xrange [0:100]
 
 set style fill transparent solid 0.5 noborder
 
-
+set format x ""
+set size 1.0, 0.25
 set ylabel "C(t)"
 #set yrange [0.3:1.15]
-plot  "~/Dropbox/PsTonB/Data/NHcorrelationFunctions/withOPCwater/unoriented/NHrotaCF_81.xvg" using ($1*0.001):2 notitle  with lines lc 'black',\
-      "~/Dropbox/PsTonB/Data/NHcorrelationFunctions/T298K/unoriented/NHrotaCF_81.xvg" using ($1*0.001):2 notitle  with lines lc 'black',\
-      "~/Dropbox/PsTonB/Data/NHcorrelationFunctions/unoriented/NHrotaCF_81.xvg" using ($1*0.001):2 notitle  with lines lc 'black'
+plot  "~/Dropbox/PsTonB/Data/NHcorrelationFunctions/withOPCwater/unoriented/NHrotaCF_81.xvg" using ($1*0.001):2 title 'OPC4 (310K)'  with lines lw 3 lc 'black',\
+      "~/Dropbox/PsTonB/Data/NHcorrelationFunctions/T298K/unoriented/NHrotaCF_81.xvg" using ($1*0.001):2 title 'tip4p (298K)'  with lines lw 3 lc 'red',\
+      "~/Dropbox/PsTonB/Data/NHcorrelationFunctions/unoriented/NHrotaCF_81.xvg" using ($1*0.001):2 title 'tip4p (310K)'  with lines lw 3 lc 'green'
 
+set size 1.0, 0.293
 #set label at screen 0.37,screen 0.55 "T2"
 set ylabel "C_{I}(t)"
 #set yrange [0.05:0.45]
-plot  "~/Dropbox/PsTonB/Data/NHcorrelationFunctions/withOPCwater/oriented/NHrotaCF_81.xvg" using ($1*0.001):2 notitle  with lines lc 'black', \
-      "../../scratch/OPforCF20.dat" using ($1*0.001):2 notitle  with lines lc 'black', \
-      "~/Dropbox/PsTonB/Data/NHcorrelationFunctions/T298K/oriented/NHrotaCF_81.xvg" using ($1*0.001):2 notitle  with lines lc 'black', \
+plot  "~/Dropbox/PsTonB/Data/NHcorrelationFunctions/withOPCwater/oriented/NHrotaCF_81.xvg" using ($1*0.001):2 notitle  with lines  lw 3 lc 'black', \
+      "../../scratch/OPforCF20.dat" using ($1*0.001):2 notitle  with lines lw 3 dashtype 2 lc 'black', \
+      "~/Dropbox/PsTonB/Data/NHcorrelationFunctions/T298K/oriented/NHrotaCF_81.xvg" using ($1*0.001):2 notitle  with lines lw 3 lc 'red', \
+      "~/Dropbox/PsTonB/Data/NHcorrelationFunctions/oriented/NHrotaCF_81.xvg" using ($1*0.001):2 notitle  with lines lw 3 lc 'green', \
 
+set size 1.0, 0.293
 set ylabel "C_{O}(t)"
 #set yrange [0.05:0.45]
-plot  "~/Dropbox/PsTonB/Data/NHcorrelationFunctions/withOPCwater/overall/NHrotaCF_81.xvg" using ($1*0.001):2 notitle  with lines lc 'black', \
-      "~/Dropbox/PsTonB/Data/NHcorrelationFunctions/T298K/overall/NHrotaCF_81.xvg" using ($1*0.001):2 notitle  with lines lc 'black', \
-      "~/Dropbox/PsTonB/Data/NHcorrelationFunctions/overall/NHrotaCF_81.xvg" using ($1*0.001):2 notitle  with lines lc 'black', \
+plot  "~/Dropbox/PsTonB/Data/NHcorrelationFunctions/withOPCwater/overall/NHrotaCF_81.xvg" using ($1*0.001):2 notitle  with lines lw 3 lc 'black', \
+      "~/Dropbox/PsTonB/Data/NHcorrelationFunctions/T298K/overall/NHrotaCF_81.xvg" using ($1*0.001):2 notitle  with lines lw 3 lc 'red', \
+      "~/Dropbox/PsTonB/Data/NHcorrelationFunctions/overall/NHrotaCF_81.xvg" using ($1*0.001):2 notitle  with lines lw 3 lc 'green', \
 
+set size 1.0, 0.293
+set format x "%G"
 set ylabel "C_{S}(t)"
 set xlabel "t (ns)"
 #set yrange [0.05:0.45]
-plot  "~/Dropbox/PsTonB/Data/NHcorrelationFunctions/withOPCwater/scaledrotation/NHrotaCF_81.xvg" using ($1*0.001):2 notitle  with lines lc 'black', \
-      "~/Dropbox/PsTonB/Data/NHcorrelationFunctions/T298K/scaledrotation/NHrotaCF_81.xvg" using ($1*0.001):2 notitle  with lines lc 'black', \
-      "~/Dropbox/PsTonB/Data/NHcorrelationFunctions/scaledrotation/NHrotaCF_81.xvg" using ($1*0.001):2 notitle  with lines lc 'black'
+plot  "~/Dropbox/PsTonB/Data/NHcorrelationFunctions/withOPCwater/scaledrotation/NHrotaCF_81.xvg" using ($1*0.001):2 notitle  with lines lw 3 lc 'black', \
+      "~/Dropbox/PsTonB/Data/NHcorrelationFunctions/T298K/scaledrotation/NHrotaCF_81.xvg" using ($1*0.001):2 notitle  with lines lw 3 lc 'red', \
+      "~/Dropbox/PsTonB/Data/NHcorrelationFunctions/scaledrotation/NHrotaCF_81.xvg" using ($1*0.001):2 notitle  with lines lw 3 lc 'green'
 
 unset multiplot
 

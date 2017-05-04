@@ -79,6 +79,35 @@
 
 %\label{}
 \section{Introduction}
+Spin relaxation rates measured with NMR techniques give segmental resolution
+information about rotational dynamics of proteins and macromolecules.
+Various models have been used to separate internal dynamics and order from
+overall rotational diffusion of molecules \cite{??}.
+These techniques have been highly useful in characterization of 
+rotational diffusion and internal flexibility of proteins and other biomolecules.
+On the other hand, segmental level information has been used in validation
+and improvement of molecular dynamics simulation force fields \cite{??}.
+Segmental order has been also related to conformational entropy of proteins \cite{??}.
+
+Spin relaxation rates are typically intepreted by using various dynamical models
+assuming different level of complexity of rotational relaxation processes.
+The most simplistic models assume single timescale and order parameter for internal
+motion and isotropic overall rotational diffusion. However, biomolecules often experience
+anisotropic overall diffusion and several internal timescales. Models for more complicated
+models have been also introduced, however, there are more fitting parameters in these models
+and intepretation of experiments becomes extensively difficult.
+
+Classical molecular dynamics simuations contain, in principle, all the complexity of the
+timescales and could be used to interpret the rotational dynamics measured with spin
+relaxation experiments. However, this has not been a trivial task due to the force field
+issues and limited available time scales in the simulations.
+
+In this work we present approach that can be used to analyze spin relaxation experiments
+by using classical molecular dynamics simulations. The approach can be used for anisotropic
+molecules and allows a correction of anisotropic overall diffusion. We demonstrate
+the usage of the approach for two aniotropic protein constructs from engineered from
+Helicobacteri pyroli and Pseudomonas.
+
 
 \section{Methods}
 \subsection{Spin relaxation analysis from MD simulations}
@@ -214,21 +243,23 @@ in Table \ref{systems}
 NMR structures from \cite{??} and \cite{??} are used as initial structure for 
 PaTonB and HpTonB-92, respectively.
 
-\begin{table}[htb]
+\begin{table*}[htb]
 \centering
-\caption{Systems simulated in this work.
+\caption{Simulated systems and rotational diffusion coefficients (rad$^2\cdot 10^7$/s) calculated from simulations.
 }\label{ROTdiffCOEFFS}
-\begin{tabular}{c c c c c c}
-Protein     & Water model & T (K)  &  $t_{\rm sim}$ (ns)   &  $t_{\rm anal}$ (ns)   &  files \\
-PaTonB      & tip4p       & 298    & ?                   &  ?                   & \cite{??} \\
-PaTonB      & tip4p       &  ?     & 400                 &  390                 & \cite{??} \\
-PaTonB      & OPC4        &  ?     & 1200                &                      & \cite{??}  \\
-HpTonB-92   & tip3p       &        &            	 &                      & \cite{??} \\
-HpTonB-92   & tip4p       &        &            	 &                      & \cite{??} \\
-HpTonB-92   & OPC4        &        &            	 &                      & \cite{??} \\
-  %\hline
+\begin{tabular}{c c c c c c c c c c c c c c c c}
+Protein     & Water model & T (K)  &  $t_{\rm sim}$ (ns)   &  $t_{\rm anal}$ (ns)   & D$_{xx}$ &&D$_{yy}$ &&D$_{zz}$ &&D$_{||}$/D$_+$ & &D$_{av}$& &files \\
+\hline
+PaTonB      & tip4p       & 298    & 400                 &  390                 & 1.81 $\pm$ 0.01 && 2.06$\pm$ 0.03 && 4.55 $\pm$ 0.03 && 2.35 $\pm$ 0.04 && 2.80 $\pm$ 0.02 && \cite{??} \\
+PaTonB      & tip4p       & 310    & 400                 &  390                 &  2.60 $\pm$ 0.02 &&  2.22 $\pm$ 0.05& &  5.0  $\pm$ 0.1  & &  2.07 $\pm$ 0.09& &   3.26 $\pm$  0.07 && \cite{??}\\
+PaTonB      & OPC4        & 310    & 1200                &  1190                &  2.01 $\pm$ 0.01 && 2.19 $\pm$ 0.01 && 5.01$\pm$ 0.03 && 2.39 $\pm$ 0.02 && 3.07 $\pm$ 0.01 && \cite{??}  \\
+HpTonB-92   & tip3p       & 310    & 570           	 &  370                 & 8.25 $\pm$ 0.05 && 7.67 $\pm$ 0.06 && 15.9 $\pm$ 0.3 && 1.99 $\pm$ 0.06 &&  10.6 $\pm$ 0.2 &&  \cite{??} \\
+HpTonB-92   & tip3p       & 303    & 800           	 &  790                 & \cite{??} \\
+HpTonB-92   & tip4p       & 310    & 470           	 &  370                 & 3.6 $\pm$ 0.1 && 3.24 $\pm$ 0.01 && 6.3 $\pm$ 0.3 && 1.8 $\pm$ 0.1 && 4.4 $\pm$ 0.2 && \cite{??} \\
+HpTonB-92   & tip4p       & 303    &            	 &                      & 2.7 $\pm$ 0.1 && 2.71 $\pm$ 0.02 && 5.6 $\pm$ 0.5 && 2.1 $\pm$ 0.2 && 3.7 $\pm$ 0.2 && \cite{??} \\
+HpTonB-92   & OPC4        & 310    &            	 &                      & \cite{??} \\
 \end{tabular}
-\end{table}
+\end{table*}
 
 \section{Results and discussion}
 
@@ -252,25 +283,153 @@ deviations are shown in Fig. \ref{RMASDplot}
     \label{RMASDplot}}%
 \end{figure}
 
-\begin{table}[htb]
-\centering
-\caption{Rotational diffusion coefficients calculated for PsTonB.
-}\label{ROTdiffCOEFFS}
-\begin{tabular}{c c c c c}
-rad$^2$/ns   &   &        TIP4P    &          &          OPC \\
-D$_{xx}$ & &        0.026  & &         0.020 \\
-D$_{yy}$  & &         0.022	 & &  0.022 \\
-D$_{zz}$   & &       0.049	 & &  0.048 \\
-D$_||$/D$_+$   & &   2.04	& &   2.31 \\
-D$_{av}$    & &      0.03   & &       0.030 \\
-tau1     & &     5.67	 & &         6.70 \\
-tau2     & &     6.05	 & &         6.47 \\
-tau3     & &     4.06	 & &         4.29 \\
-tau4      & &    3.45	 & &         3.57 \\
-tau5      & &    9.83	 & &         12.87 \\
+%\begin{table}[htb]
+%\centering
+%\caption{
+%}\label{ROTdiffCOEFFSps}
+%\begin{tabular}{c c c c c c c}
+%                    & &   TIP4P (298K)    & &   TIP4P (310K)       & &          OPC (310K) \\
+%D$_{xx}$             & &                   & &  2.60 $\pm$ 0.02     & &         0.020 \\
+%D$_{yy}$             & &                   & & 2.22 $\pm$ 0.05      & &  0.022 \\
+%D$_{zz}$             & &                   & &  5.0  $\pm$ 0.1      & & 0.048 \\
+%D$_{||}$/D$_+$        & &                   & &  2.07 $\pm$ 0.09    & &  2.31 \\
+%D$_{av}$            & &                    & &   3.26 $\pm$  0.07   & &     0.030 \\
+%tau1     & &     5.67	 & &         6.70 \\
+%tau2     & &     6.05	 & &         6.47 \\
+%tau3     & &     4.06	 & &         4.29 \\
+%tau4      & &    3.45	 & &         3.57 \\
+%tau5      & &    9.83	 & &         12.87 \\
   %\hline
+%\end{tabular}
+%\end{table}
+
+\subsection{Overall rotational diffusion in simulations and experiments}
+Spin relaxation rates calculated from PaTonB simulations with different
+water models are shown in Fig. \ref{PsTonBrelaxationDATA}.
+\begin{figure}[!h]
+  \includegraphics[width=8.5cm]{../Figs/PsTonBrelaxationDATA.eps}%
+  \caption{Relaxation parameters for PsTonB from
+    experiments and simulations with Amber-ildn and different water models
+    \label{PsTonBrelaxationDATA}}%
+\end{figure}
+$T_1$ and $T_1/T_2$ ratio are systemically underestimated in all simulations,
+which is an indication of overestimated overall rotational diffusion.
+Overall rotational diffusion can be slowed down in dynamical model from MD simulations
+by scaling all diffusion constant by a constant factor and generating new
+correlation functions representing overall rotational diffusion. 
+Spin relaxation times calculated from corrected rotational diffusion model
+for PaTonB are shown in Fig. \ref{PsTonBrelaxationDATAscaled}.
+\begin{figure}[!h]
+  \includegraphics[width=8.5cm]{../Figs/PsTonBrelaxationDATAscaled.eps}%
+  \caption{Relaxation parameters for PsTonB from
+    experiments and simulations with Amber-ildn and different water models.
+    Overall rotational diffusion corrected with factor 1.2.    
+    \label{PsTonBrelaxationDATAscaled}}%
+\end{figure}
+
+Spin relaxation rates from dynamical model with 1.2 scaling in overall rotational
+diffusion are is good agreement with experiments. This suggests that the experimental
+relaxation data for PaTonB construct can be iterpreted with dynamical model having
+overall rotational diffusion constants shown in Table \ref{ROTdiffCOEFFS}.
+\begin{table}[!p]
+  \centering
+  \caption{Rotational diffusion coefficients scaled with constant factor which
+    gives a good agreement for spin relaxation data,  ?? for tip3p simulation of HpTonB
+    and by 1.2 for tip4p simulation of PsTonB.}\label{ROTdiffCOEFFS}
+  \begin{tabular}{c c c c c}
+    &    &  HpTonB-92  &  & PsTonB \\
+    \hline
+    D$_{xx}$    &   &   0.027 $\pm$ 0.001  & & 1.51  $\pm$ 0.01\\
+    D$_{yy}$   &    &  0.027  $\pm$ 0.001  & & 1.72  $\pm$ 0.03\\
+    D$_{zz}$   &    &  0.055   $\pm$ 0.005 & & 3.79  $\pm$ 0.03\\
+    D$_{av}$  &    &   0.036  $\pm$ 0.003  & & 2.3  $\pm$ 0.02\\
+    $\tau_{c}$(ns)  &    &  4.6   $\pm$ 0.4  & & 7.2 $\pm$ 0.1 \\
+    %\hline
 \end{tabular}
-\end{table}
+\end{table} 
+
+
+\begin{figure}[!h]
+%  \includegraphics[width=13cm]{/Users/osollila/Dropbox/TonB/Figs/relaxationDATAplot.eps}%
+  \includegraphics[width=8.5cm]{/home/samuli/Dropbox/TonB/Figs/relaxationDATAplot.eps}%
+  \caption{Relaxation parameters for HpTonB short construct from
+    experiments and simulations with Amber-ildn and different water models
+    \label{relaxationDATAplot}}%
+\end{figure}
+The analysis method is demonstrated here for HpTonB short construct.
+The calculated spin lattice relaxation times from simulations with different
+water models together with experimental data \cite{??} are shown in Fig. \ref{relaxationDATAplot}.
+The rotational diffusion constants for overall 
+
+
+
+
+%\begin{table}[htb]
+%\centering
+%\caption{Rotational diffusion coefficients (rad$^2\cdot 10^7$/s) calculated from HpTonB-92 simulations}\label{ROTdiffCOEFFShp}
+%\begin{tabular}{c c c c c c c }
+%            &  &  TIP3P  & &   TIP4P   &  &   OPC \\
+%  \hline
+%  D$_{xx}$   & &   0.083   & &   0.038   &  &   0.030 \\
+%  D$_{yy}$   & &  0.077   &    &   0.033   &  &   0.027 \\
+%  D$_{zz}$   & &  0.16    &    &   0.059   &  &    0.058 \\
+%  2D$_{zz}$/(D$_{xx}$+D$_{yy}$) &  &   1.99    &  & 1.7    &	&  2.03 \\
+%  D$_{av}$  &    &   0.11    &    &   0.043   &  &   0.038 \\
+%  tau1     &  &  1.76	 &       &   4.13    &   &   4.87 \\
+%  tau2     &  &  1.82	 &       &   4.40    &   &   5.14 \\
+%  tau3     &  &  1.26	&        &   3.25    &   &   3.47 \\
+%  tau4     &  &  1.05	 &       &    2.75   &   &  2.94 \\
+%  tau5     &  &  3.05	 &       &    6.48   &   &   8.43 \\
+  
+  %\hline
+%\end{tabular}
+%\end{table} 
+
+%Results with rotational diffusion coefficient corrected with constant factor
+%are shown in Fig. \ref{relaxationDATAplotSCALED}. 
+%\begin{figure}[!h]
+%  \includegraphics[width=13cm]{/Users/osollila/Dropbox/TonB/Figs/relaxationDATAplotSCALED.eps}%
+%  \includegraphics[width=13cm]{/home/samuli/Dropbox/TonB/Figs/relaxationDATAplotSCALED.eps}%
+%  \caption{Relaxation parameters for HpTonB short construct from
+%    experiments and simulations with Amber-ildn and different water models.
+%    The rotational diffusion coefficients are divided by 3.0 for tip3p simulation
+%    and by 1.3 for tip4p simulation.
+%    Experiments are done in 303K and simulations in 310K, simulations in 303K are running.
+%    \label{relaxationDATAplotSCALED}}%
+%\end{figure}
+
+%\begin{figure}[!h]
+%  \includegraphics[width=13cm]{/Users/osollila/Dropbox/TonB/Figs/relaxationDATAplotLONGERconstructSCALED.eps}%
+%  \includegraphics[width=13cm]{/home/samuli/Dropbox/TonB/Figs/relaxationDATAplotLONGERconstructSCALED.eps}%
+%  \caption{PRELIMINARY RESULTS for relaxation parameters for HpTonB longer construct (107) from
+%    experiments and simulations with Amber-ildn and tip4p water models.
+%    The rotational diffusion coefficients are divided by 1.3.
+%    Experiments and simulations are done in 303K.
+%    \label{relaxationDATAplotSCALEDlongerCONSTRUCT}}%
+%\end{figure}
+
+
+%\begin{table}[htb]
+%\centering
+%\caption{Rotational diffusion coefficients scaled with constant factor which
+%  gives a good agreement for spin relaxation data,  3.0 for tip3p simulation
+%    and by 1.3 for tip4p simulation.
+%  OPC RESULTS TO BE CHECKED.
+%}\label{ROTdiffCOEFFS}
+%\begin{tabular}{c c c c c c c }
+%  rad$^2$/ns   &    &  TIP3P  &   &   TIP4P \\%  &  &   OPC \\
+%  \hline
+%  D$_{xx}$    &   &   0.028   &   &   0.029 \\%  &  &   0.030 \\
+%  D$_{yy}$   &    &  0.026   &    &   0.025 \\%  &  &   0.027 \\
+%  D$_{zz}$   &    &  0.053    &    &   0.045 \\%   &  &    0.058 \\
+%  2D$_{zz}$/(D$_{xx}$+D$_{yy}$) &  &   1.99    &  & 1.7 \\%   &	&  2.03 \\
+%  D$_{av}$  &    &   0.034    &    &   0.033 \\%  &  &   0.038 \\
+  %\hline
+%\end{tabular}
+%\end{table} 
+
+
+
 
 
 \subsection{Protein internal relaxation}
@@ -288,24 +447,6 @@ intepret the experimental data.
     (100 structures from 300ns long trajectory).
     B) Spin relaxation rates, order parameters and effective correlation times for
     internal protein dynamics from experiments and simulations. 
-    \label{HpTonB92}}%
-\end{figure}
-
-\begin{figure}[!p]
-%  \includegraphics[width=8.5cm]{/Users/osollila/Dropbox/TonB/Figs/longCONSTRrelDATA.eps}%
-  \includegraphics[width=8.5cm]{/home/samuli/Dropbox/TonB/Figs/longCONSTRrelDATA.eps}%
-  \caption{A) Structures sampled by HpTonB-107 from MD simulations
-    (100 structures from 100ns long trajectory between 50ns-150ns).
-    B) Structures sampled for HpTonB-107 from MD simulations
-    (100 structures from 200ns long trajectory between 200ns-400ns).
-    C) Spin relaxation rates, order parameters and effective internal correlation
-    times from experiments and simulations.
-    Flexilibilty observed in N terminus between residues 181-186
-    is better described by the dynamical model given by MD simulation between 50ns-150ns.
-    In this model the flexible region (residues 181-186) is characterized by longer $\tau_e$
-    and smaller order parmameter. This means larger conformational space sampled and larger
-    entropy. In addition, the N-terminus part missing from short construct (92-107) interacts with
-    residues where chemical shift differences between short and longer construct were observed.
     \label{HpTonB92}}%
 \end{figure}
 
@@ -331,122 +472,8 @@ intepret the experimental data.
     \label{HpTonB92}}%
 \end{figure}
 
-The analysis method is demonstrated here for HpTonB short construct.
-The calculated spin lattice relaxation times from simulations with different
-water models together with experimental data \cite{??} are shown in Fig. \ref{relaxationDATAplot}.
-The rotational diffusion constants for overall 
 
-\begin{figure}[!h]
-%  \includegraphics[width=13cm]{/Users/osollila/Dropbox/TonB/Figs/relaxationDATAplot.eps}%
-  \includegraphics[width=13cm]{/home/samuli/Dropbox/TonB/Figs/relaxationDATAplot.eps}%
-  \caption{Relaxation parameters for HpTonB short construct from
-    experiments and simulations with Amber-ildn and different water models
-    \label{relaxationDATAplot}}%
-\end{figure}
-
-\begin{table}[htb]
-\centering
-\caption{Rotational diffusion coefficients calculated directly from simulations in 303K.
-  OPC RESULTS TO BE CHECKED.
-}\label{ROTdiffCOEFFS}
-\begin{tabular}{c c c c c c c }
-  rad$^2$/ns   &    &  TIP3P  &   &   TIP4P   &  &   OPC \\
-  \hline
-  D$_{xx}$    &   &   0.083   &   &   0.038   &  &   0.030 \\
-  D$_{yy}$   &    &  0.077   &    &   0.033   &  &   0.027 \\
-  D$_{zz}$   &    &  0.16    &    &   0.059   &  &    0.058 \\
-  2D$_{zz}$/(D$_{xx}$+D$_{yy}$) &  &   1.99    &  & 1.7    &	&  2.03 \\
-  D$_{av}$  &    &   0.11    &    &   0.043   &  &   0.038 \\
-  tau1     &  &  1.76	 &       &   4.13    &   &   4.87 \\
-  tau2     &  &  1.82	 &       &   4.40    &   &   5.14 \\
-  tau3     &  &  1.26	&        &   3.25    &   &   3.47 \\
-  tau4     &  &  1.05	 &       &    2.75   &   &  2.94 \\
-  tau5     &  &  3.05	 &       &    6.48   &   &   8.43 \\
-  
-  %\hline
-\end{tabular}
-\end{table} 
-
-Results with rotational diffusion coefficient corrected with constant factor
-are shown in Fig. \ref{relaxationDATAplotSCALED}. 
-\begin{figure}[!h]
-%  \includegraphics[width=13cm]{/Users/osollila/Dropbox/TonB/Figs/relaxationDATAplotSCALED.eps}%
-  \includegraphics[width=13cm]{/home/samuli/Dropbox/TonB/Figs/relaxationDATAplotSCALED.eps}%
-  \caption{Relaxation parameters for HpTonB short construct from
-    experiments and simulations with Amber-ildn and different water models.
-    The rotational diffusion coefficients are divided by 3.0 for tip3p simulation
-    and by 1.3 for tip4p simulation.
-    Experiments are done in 303K and simulations in 310K, simulations in 303K are running.
-    \label{relaxationDATAplotSCALED}}%
-\end{figure}
-
-\begin{figure}[!h]
-%  \includegraphics[width=13cm]{/Users/osollila/Dropbox/TonB/Figs/relaxationDATAplotLONGERconstructSCALED.eps}%
-  \includegraphics[width=13cm]{/home/samuli/Dropbox/TonB/Figs/relaxationDATAplotLONGERconstructSCALED.eps}%
-  \caption{PRELIMINARY RESULTS for relaxation parameters for HpTonB longer construct (107) from
-    experiments and simulations with Amber-ildn and tip4p water models.
-    The rotational diffusion coefficients are divided by 1.3.
-    Experiments and simulations are done in 303K.
-    \label{relaxationDATAplotSCALEDlongerCONSTRUCT}}%
-\end{figure}
-
-
-\begin{table}[htb]
-\centering
-\caption{Rotational diffusion coefficients scaled with constant factor which
-  gives a good agreement for spin relaxation data,  3.0 for tip3p simulation
-    and by 1.3 for tip4p simulation.
-  OPC RESULTS TO BE CHECKED.
-}\label{ROTdiffCOEFFS}
-\begin{tabular}{c c c c c c c }
-  rad$^2$/ns   &    &  TIP3P  &   &   TIP4P \\%  &  &   OPC \\
-  \hline
-  D$_{xx}$    &   &   0.028   &   &   0.029 \\%  &  &   0.030 \\
-  D$_{yy}$   &    &  0.026   &    &   0.025 \\%  &  &   0.027 \\
-  D$_{zz}$   &    &  0.053    &    &   0.045 \\%   &  &    0.058 \\
-  2D$_{zz}$/(D$_{xx}$+D$_{yy}$) &  &   1.99    &  & 1.7 \\%   &	&  2.03 \\
-  D$_{av}$  &    &   0.034    &    &   0.033 \\%  &  &   0.038 \\
-  %\hline
-\end{tabular}
-\end{table} 
-
-
-\begin{table}[!p]
-\centering
-\caption{
-  Rotational diffusion coefficients of inertia axes for different proteins based on MD analysis of NMR relaxation data.
-  HpTonB-107 has slighlty slower rotational diffusion and larger anisotropy than HpTonB-92,
-  but difference is not very large. PsTonB has slower rotational diffusion and larger anisotropy than
-  HpTonB constructs.
-}\label{ROTdiffCOEFFS}
-\begin{tabular}{c c c c c c c}
-  rad$^2$/ns   &    &  HpTonB-92  &   & HpTonB-107 & & PsTonB \\
-  \hline
-  D$_{xx}$    &   &   0.027 $\pm$ 0.001  &   &  0.020 $\pm$ 0.001 & & 0.015  $\pm$ 0.001\\
-  D$_{yy}$   &    &  0.027  $\pm$ 0.001  &    & 0.027 $\pm$ 0.001 & & 0.017  $\pm$ 0.001\\
-  D$_{zz}$   &    &  0.055   $\pm$ 0.005  &    &  0.050  $\pm$ 0.004 & & 0.039  $\pm$ 0.001\\
-  2D$_{zz}$/(D$_{xx}$+D$_{yy}$) &  &   2.0  $\pm$ 0.2    &  & 2.2   $\pm$ 0.1 & & 2.40 $\pm$ 0.01 \\
-  D$_{av}$  &    &   0.036  $\pm$ 0.003    &    &  0.033  $\pm$ 0.002 & & 0.024  $\pm$ 0.001\\
-  $\tau_{c}$(ns)  &    &  4.6   $\pm$ 0.4    &    &  5.1  $\pm$ 0.3 & & 7.1 \\
-  %\hline
-\end{tabular}
-\end{table} 
-
-
-\newpage
-
-
-\section{Results for PsTonB}
-
-\begin{figure}[!h]
-%  \includegraphics[width=13cm]{/Users/osollila/Dropbox/PsTonB/Figs/relaxationDATAplotCOMP.eps}%
-  \includegraphics[width=13cm]{/home/samuli/Dropbox/PsTonB/Figs/relaxationDATAplotCOMP.eps}%
-  \caption{Relaxation parameters for PsTonB short construct from
-    experiments and simulations with Amber-ildn and different water models
-    \label{hexPHASEdimensionsPLOT}}%
-\end{figure}
-
-
+\section{Conclusions}
 
 
 % If you have acknowledgments, this puts in the proper section head.
@@ -459,11 +486,11 @@ are shown in Fig. \ref{relaxationDATAplotSCALED}.
 % Create the reference section using BibTe
 \bibliography{refs.bib}
 
-\newpage
-\appendix
-\begin{center}
-{\bf SUPPLEMENTARY INFORMATION}
-\end{center}
+%\newpage
+%\appendix
+%\begin{center}
+%{\bf SUPPLEMENTARY INFORMATION}
+%\end{center}
 
 
 %\todolist

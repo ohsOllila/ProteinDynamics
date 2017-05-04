@@ -7,37 +7,46 @@ from scipy.optimize import curve_fit
 data1 = numpy.loadtxt(sys.argv[1], usecols=range(0,1)), numpy.loadtxt(sys.argv[1], usecols=range(1,2))
 data2 = numpy.loadtxt(sys.argv[1], usecols=range(0,1)), numpy.loadtxt(sys.argv[1], usecols=range(2,3))
 data3 = numpy.loadtxt(sys.argv[1], usecols=range(0,1)), numpy.loadtxt(sys.argv[1], usecols=range(3,4))
-j=0
-for i in range(0,len(data1[0])):
-  if data1[0][i]<3:
-    j=j+1
-dataLOGx = [0]*j
-dataLOGy = [0]*j
 
-def func(x, k):
-  return k*x
-#CFfig=plt.figure()
+k1=[0]*3
+k2=[0]*3
+k3=[0]*3
+kcov1=[0]*3
+kcov2=[0]*3
+kcov3=[0]*3
+analL=2
+for l in range(-1,2):
+  j=0
+  for i in range(0,len(data1[0])):
+    if data1[0][i]<analL+l:
+      j=j+1
+      dataLOGx = [0]*j
+      dataLOGy = [0]*j
 
-for i in range(0,j):
-  dataLOGx[i]=data1[0][i]
-  dataLOGy[i]=data1[1][i]
-k1, kcov1 = curve_fit(func, dataLOGx, dataLOGy,p0=(1))
-#print k1,kcov1
-#plt.plot(dataLOGx,dataLOGy,dataLOGx,func(dataLOGx,k1))
+  def func(x, k):
+    return k*x
+  #CFfig=plt.figure()
 
-for i in range(0,j):
-  dataLOGx[i]=data2[0][i]
-  dataLOGy[i]=data2[1][i]
-k2, kcov2 = curve_fit(func, dataLOGx, dataLOGy,p0=(1))
-#print k2,kcov2
-#plt.plot(dataLOGx,dataLOGy,dataLOGx,func(dataLOGx,k2))
+  for i in range(0,j):
+    dataLOGx[i]=data1[0][i]
+    dataLOGy[i]=data1[1][i]
+  k1[l+1], kcov1[l+1] = curve_fit(func, dataLOGx, dataLOGy,p0=(1))
+  #print k1,kcov1
+  #plt.plot(dataLOGx,dataLOGy,dataLOGx,func(dataLOGx,k1))
 
-for i in range(0,j):
-  dataLOGx[i]=data3[0][i]
-  dataLOGy[i]=data3[1][i]
-k3, kcov3 = curve_fit(func, dataLOGx, dataLOGy,p0=(1))
-#print k3,kcov3
-#plt.plot(dataLOGx,dataLOGy,dataLOGx,func(dataLOGx,k3))
+  for i in range(0,j):
+    dataLOGx[i]=data2[0][i]
+    dataLOGy[i]=data2[1][i]
+  k2[l+1], kcov2[l+1] = curve_fit(func, dataLOGx, dataLOGy,p0=(1))
+  #print k2,kcov2
+  #plt.plot(dataLOGx,dataLOGy,dataLOGx,func(dataLOGx,k2))
+
+  for i in range(0,j):
+    dataLOGx[i]=data3[0][i]
+    dataLOGy[i]=data3[1][i]
+  k3[l+1], kcov3[l+1] = curve_fit(func, dataLOGx, dataLOGy,p0=(1))
+  #print k3,kcov3
+  #plt.plot(dataLOGx,dataLOGy,dataLOGx,func(dataLOGx,k3))
 
 #CFfig.savefig('../scratch/tst.pdf')
 
@@ -48,13 +57,14 @@ k3, kcov3 = curve_fit(func, dataLOGx, dataLOGy,p0=(1))
 #print tau1,tau2,tau3
 
 # DIFFUSION COEFFICIENTS
-D1=k1/2
-D2=k2/2
-D3=k3/2
+D1=(sum(k1)/len(k1))/2
+D2=(sum(k2)/len(k2))/2
+D3=(sum(k3)/len(k3))/2
 # ERRORS FOR DIFFUSION CONSTANT
-D1err=numpy.sqrt(numpy.diag(kcov1))
-D2err=numpy.sqrt(numpy.diag(kcov2))
-D3err=numpy.sqrt(numpy.diag(kcov3))
+D1err=numpy.sqrt(((k1-D1*2) ** 2).mean())/2
+D2err=numpy.sqrt(((k2-D2*2) ** 2).mean())/2
+D3err=numpy.sqrt(((k3-D3*2) ** 2).mean())/2
+RATIOerr=2*D1err/(D3+D2)+2*D1*D2err/(D3+D2)**2+2*D1*D3err/(D3+D2)**2
 
 #print D1,D2,D3
 
@@ -75,11 +85,11 @@ tau5=1/(6*(D-math.sqrt(D**2-L2)))
 
 #print tau1dot,tau2dot,tau3dot
 
-print("D_xx        ", str(*(D3)),str(*(D3err)))
-print("D_yy        ", str(*(D2)),str(*(D2err)))
-print("D_zz        ", str(*(D1)),str(*(D1err)))
-print("D_||/D_+    ", str(*(2*D1/(D3+D2))))
-print("D_av        ", str(*(D)))
+print("D_xx        ", str(*(D3*100)), D3err*100)
+print("D_yy        ", str(*(D2*100)), D2err*100)
+print("D_zz        ", str(*(D1*100)), D1err*100)
+print("D_||/D_+    ", str(*(2*D1/(D3+D2))), str(*(RATIOerr)))
+print("D_av        ", str(*(D)*100),(D1err+D2err+D3err)*100/3)
 print("tau1        ", str(*(tau1)))
 print("tau2        ", str(*(tau2)))
 print("tau3        ", str(*(tau3)))
@@ -92,7 +102,7 @@ scalingF=1
 def fiveexpfunc(x,p1,p2,p3,p4,p5):
   return p1**2*numpy.exp(-x/(scalingF*tau1)) + p2**2*numpy.exp(-x/(scalingF*tau2)) + p3**2*numpy.exp(-x/(scalingF*tau3)) + p4**2*numpy.exp(-x/(scalingF*tau4)) + p5**2*numpy.exp(-x/(scalingF*tau5))
 
-for i in range(1,92):
+for i in range(1,87):
   xdata = numpy.loadtxt(sys.argv[2]+'/overall/NHrotaCF_' + str(i) + '.xvg', usecols=range(0,1))
   ydata = numpy.loadtxt(sys.argv[2]+'/overall/NHrotaCF_' + str(i) + '.xvg', usecols=range(1,2))
   xdata = xdata*0.001
