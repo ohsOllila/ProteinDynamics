@@ -14,7 +14,7 @@ k3=[0]*3
 kcov1=[0]*3
 kcov2=[0]*3
 kcov3=[0]*3
-analL=8
+analL=4
 for l in range(-1,2):
   j=0
   for i in range(0,len(data1[0])):
