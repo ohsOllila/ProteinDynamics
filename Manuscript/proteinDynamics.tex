@@ -258,11 +258,16 @@ rotational diffusion in rotational dynamics model close to experimental value.
 
 
 \subsection{Simulation and analysis details}
-Simulations were ran using Gromacs 5 \cite{??} and Amber ?? 
-force field for proteins \cite{??}. The proteins were solvated
-to tip3p\cite{??}, tip4p \cite{??} or OPC4 \cite{??} water models.
-Temperature was coupled to desired value with ?? and pressure was 
-isotropically set to 1 bar using ??. The simulated systems are listed
+Simulations were ran using Gromacs 5 \cite{abraham15} And Amber ff99SB- ILDN~\cite{lindorff10}
+force field for proteins . The proteins were solvated
+to tip3p\cite{jorgensen83}, tip4p \cite{jorgensen83} or OPC4 \cite{izadi14} water models.
+Temperature was coupled to desired value with v-rescale thermistat \cite{bussi07} and pressure was 
+isotropically set to 1 bar using Parrinello-Rahman barostat \cite{parrinello81}.
+Timestep was 2~fs, Lennart-Jones interactions were cut-off at 1.0~nm,
+PME~\cite{darden93,essman95} was used for electrostatics and LINCS was used
+to constraint all bond lengths \cite{hess07}. Simulation trajectory and related
+files are available at [??].
+The simulated systems are listed
 in Table \ref{systems}
 
 NMR structures from \cite{??} and \cite{??} are used as initial structure for 
@@ -363,21 +368,49 @@ case are shown in Fig.~\ref{exampleCORRF} D).
 %\end{table}
 
 \subsection{Overall rotational diffusion in simulations and experiments}
-Spin relaxation rates calculated from PaTonB simulations with different
-water models are shown in Fig. \ref{PsTonBrelaxationDATA}.
+Spin relaxation rates calculated from PaTonB and HpTonB simulations with different
+water models are shown in Figs. \ref{PsTonBrelaxationDATA} and \ref{HsTonBrelaxationDATA},
+respectivelty.
 \begin{figure}[!h]
-  \includegraphics[width=8.5cm]{../Figs/PsTonBrelaxationDATA.eps}%
-  \caption{Relaxation parameters for PsTonB from
+  \includegraphics[width=8.5cm]{../Figs/RELdataPsTonB.eps}%
+  \caption{A) Structures sampled by PsTonB from MD simulations
+    (100 structures from 400ns long trajectory).
+    B) Spin relaxation rates, order parameters and effective internal correlation
+    times from experiments and simulations. Spin relaxation rates indicate increased flexibility
+    only for the last two residues in N terminus. However,
+    MD simulations suggest somewhat smaller order parameters and longer $\tau_e$
+    for residues 246-253. By looking at the sampled structures, it seems that lower
+    order parameters and longer correlation times arise from slower and less extensive
+    conformational sampling than in HpTonB-107. Lower order parameters and larger
+    correlation times are also observed in PsTonB simulations between residues 265-275.
+    This can be explained by the changes in orientation of alpha helix close to this
+    region, as seen in the sampled conformations. Such effect was not seen in the HpTonB
+    simulations, however, NMR data for this region showed some unclarities which may arise
+    from such conformational exchange. Enhanced sampling is also observed between
+    residues 320-326. This was not observed in HpTonB samples, which may be related to the
+    formation of beta sheet between residues 315-318 in PsTonB.Relaxation parameters for PsTonB from
     experiments and simulations with Amber-ildn and different water models
     \label{PsTonBrelaxationDATA}}%
 \end{figure}
-$T_1$ and $T_1/T_2$ ratio are systemically underestimated in all simulations,
-which is an indication of overestimated overall rotational diffusion.
-Overall rotational diffusion can be slowed down in dynamical model from MD simulations
-by scaling all diffusion constant by a constant factor and generating new
-correlation functions representing overall rotational diffusion. 
-Spin relaxation times calculated from corrected rotational diffusion model
-for PaTonB are shown in Fig. \ref{PsTonBrelaxationDATAscaled}.
+\begin{figure}[!h]
+  \includegraphics[width=8.5cm]{../Figs/RELdataHpTonB.eps}%
+  \caption{Relaxation parameters for HpTonB short construct from
+    experiments and simulations with Amber-ildn and different water models
+    \label{HpTonBrelaxationDATA}}%
+\end{figure}
+For PaTonB $T_1$ and $T_1/T_2$ ratio are slightly  underestimated  systemically in all simulations.
+For HpTonB tip4p gives good agreement with experiments but tip3p results are
+significantly off. Relation between molecular dynamics and spin relaxation is
+not straightforward, but underestimated $T_1/T_2$ ratio and literature result
+comparion rotational diffusion between MD simulations \cite{??} and experiments
+suggest that global rotational diffusion might be overestimated in simulations.
+
+As described in section \ref{MDanalysis}, the global rotational diffusion coefficients
+around all intertia axes can be scaled with a constants and the resulting rotational
+correlation functions can be calculated. Figs. \ref{PsTonBrelaxationDATAscaled} and
+\ref{HpTonBrelaxationDATAscaled} show spin relaxation times calculated from MD simulations
+where global rotational diffusion coefficients are divided by factors 1.2 and 2.9
+for PaTonB simulation with tip4p and HpTonB simulation with tip3p.
 \begin{figure}[!h]
   \includegraphics[width=8.5cm]{../Figs/PsTonBrelaxationDATAscaled.eps}%
   \caption{Relaxation parameters for PsTonB from
@@ -385,42 +418,32 @@ for PaTonB are shown in Fig. \ref{PsTonBrelaxationDATAscaled}.
     Overall rotational diffusion corrected with factor 1.2.    
     \label{PsTonBrelaxationDATAscaled}}%
 \end{figure}
-
-Spin relaxation rates from dynamical model with 1.2 scaling in overall rotational
-diffusion are is good agreement with experiments. This suggests that the experimental
-relaxation data for PaTonB construct can be iterpreted with dynamical model having
-overall rotational diffusion constants shown in Table \ref{ROTdiffCOEFFS}.
-\begin{table}[!p]
+\begin{figure}[!h]
+  \includegraphics[width=8.5cm]{../Figs/HpTonBrelaxationDATAscaled.eps}%
+  \caption{Relaxation parameters for HpTonB short construct from
+    experiments and simulations with Amber-ildn and different water models
+    \label{HpTonBrelaxationDATAscaled}}%
+\end{figure}
+The results from models with scaled rotational diffusion coefficients
+diffusion are is good agreement with experiments, suggesting that these
+results can be used to interpret the experimental relaxation data.
+The rotational diffusion coefficients after the scaling are shown in Table \ref{ROTdiffCOEFFS}.
+\begin{table}[!h]
   \centering
   \caption{Rotational diffusion coefficients scaled with constant factor which
-    gives a good agreement for spin relaxation data,  ?? for tip3p simulation of HpTonB
+    gives a good agreement for spin relaxation data,  2.9 for tip3p simulation of HpTonB
     and by 1.2 for tip4p simulation of PsTonB.}\label{ROTdiffCOEFFS}
   \begin{tabular}{c c c c c}
     &    &  HpTonB-92  &  & PsTonB \\
     \hline
-    D$_{xx}$    &   &   0.027 $\pm$ 0.001  & & 1.51  $\pm$ 0.01\\
-    D$_{yy}$   &    &  0.027  $\pm$ 0.001  & & 1.72  $\pm$ 0.03\\
-    D$_{zz}$   &    &  0.055   $\pm$ 0.005 & & 3.79  $\pm$ 0.03\\
-    D$_{av}$  &    &   0.036  $\pm$ 0.003  & & 2.3  $\pm$ 0.02\\
-    $\tau_{c}$(ns)  &    &  4.6   $\pm$ 0.4  & & 7.2 $\pm$ 0.1 \\
+    D$_{xx}$    &   &   2.15 $\pm$ 0.01  & & 1.51  $\pm$ 0.01\\
+    D$_{yy}$   &    &  2.43  $\pm$ 0.01  & & 1.72  $\pm$ 0.03\\
+    D$_{zz}$   &    &  4.10   $\pm$ 0.01 & & 3.79  $\pm$ 0.03\\
+    D$_{av}$  &    &   2.90  $\pm$ 0.03  & & 2.3  $\pm$ 0.02\\
+    $\tau_{c}$(ns)  &    &  5.7   $\pm$ 0.1  & & 7.2 $\pm$ 0.1 \\
     %\hline
 \end{tabular}
 \end{table} 
-
-
-\begin{figure}[!h]
-%  \includegraphics[width=13cm]{/Users/osollila/Dropbox/TonB/Figs/relaxationDATAplot.eps}%
-  \includegraphics[width=8.5cm]{/home/samuli/Dropbox/TonB/Figs/relaxationDATAplot.eps}%
-  \caption{Relaxation parameters for HpTonB short construct from
-    experiments and simulations with Amber-ildn and different water models
-    \label{relaxationDATAplot}}%
-\end{figure}
-The analysis method is demonstrated here for HpTonB short construct.
-The calculated spin lattice relaxation times from simulations with different
-water models together with experimental data \cite{??} are shown in Fig. \ref{relaxationDATAplot}.
-The rotational diffusion constants for overall 
-
-
 
 
 %\begin{table}[htb]
@@ -489,48 +512,42 @@ The rotational diffusion constants for overall
 
 
 
-
-
 \subsection{Protein internal relaxation}
 
-Fourier transform of the total correlation function $g(t)$ gives
-spectral density $J(\omega)$, which can be then embedded in Eqs. ??
-to calculate the experimentally measurable spin relaxation rates.
-If MD results agree with experiments, the simulation can be used
-intepret the experimental data.
+Simulations in good agreement with spin relaxation data can be used
+to interpret internal relaxation and order of proteins. For example,
+in PsTonB low order parameters and larger effective correlation times
+are observed in Fig. \ref{PsTonBrelaxationDATA} B) for residues 246-251
+in N-terminus, residues 260-274, residues 300-303, residues 320-326
+and residues 338-342 in C-terminus. The results in terminal ends
+(residues 246-251 and 338-342)
+can be explained by the increased flexibility of unstructured endings
+of the protein, which are also seen in overlayed structures in
+Fig.~\ref{PsTonBrelaxationDATA} A). Low order parameters and
+large effective correlation times between residues 260-274 arise
+from two different orientations sampled by alpha helix on that region, as also
+seen in Fig.~\ref{PsTonBrelaxationDATA} A). This explains also the
+lower resolution in NMR spectra observed for that region \cite{??}.
+Between residues 320-326 decrease in NOE and $T_1/T_2$ ratio and increase
+in $T_2$ are also observed in simulations and experiments. The results
+can be explained by the increased flexbility of the loop in this region
+as also seen in overlayed structures. Low order parameters and large
+effective correlation times between residues 300-303 are not seen
+in spin relaxation data, thus it is not clear if these arise from
+simulation artefact.
 
-\begin{figure}[!p]
-%  \includegraphics[width=8.5cm]{/Users/osollila/Dropbox/TonB/Figs/shortCONSTRrelDATA.eps}%
-  \includegraphics[width=8.5cm]{/home/samuli/Dropbox/TonB/Figs/shortCONSTRrelDATA.eps}%
-  \caption{A) Structures sampled by HpTonB-92 from MD simulations
-    (100 structures from 300ns long trajectory).
-    B) Spin relaxation rates, order parameters and effective correlation times for
-    internal protein dynamics from experiments and simulations. 
-    \label{HpTonB92}}%
-\end{figure}
-
-\begin{figure}[!p]
-%  \includegraphics[width=8.5cm]{/Users/osollila/Dropbox/PsTonB/Figs/RELdata.eps}%
-  \includegraphics[width=8.5cm]{/home/samuli/Dropbox/PsTonB/Figs/RELdata.eps}%
-  \caption{A) Structures sampled by PsTonB from MD simulations
-    (100 structures from 400ns long trajectory).
-    B) Spin relaxation rates, order parameters and effective internal correlation
-    times from experiments and simulations. Spin relaxation rates indicate increased flexibility
-    only for the last two residues in N terminus. However,
-    MD simulations suggest somewhat smaller order parameters and longer $\tau_e$
-    for residues 246-253. By looking at the sampled structures, it seems that lower
-    order parameters and longer correlation times arise from slower and less extensive
-    conformational sampling than in HpTonB-107. Lower order parameters and larger
-    correlation times are also observed in PsTonB simulations between residues 265-275.
-    This can be explained by the changes in orientation of alpha helix close to this
-    region, as seen in the sampled conformations. Such effect was not seen in the HpTonB
-    simulations, however, NMR data for this region showed some unclarities which may arise
-    from such conformational exchange. Enhanced sampling is also observed between
-    residues 320-326. This was not observed in HpTonB samples, which may be related to the
-    formation of beta sheet between residues 315-318 in PsTonB.
-    \label{HpTonB92}}%
-\end{figure}
-
+Also for HpTonB low order parameters and long effetive correlation times
+are observed only for flexible terminal ends (residues 196-197 and 283-285)
+as seen in Fig. \ref{HPTonBrelaxationDATA}. Low order parameters and long
+effetive correlation times and for residues 245-250 probably arise
+(at least partly) from simulation artefacts because deviation form experimental
+relaxation data is relatively large for these residues.
+Different orientations of alpha helix between residues 210-220 and
+decreased order parameters are not observed in contrast to PsTonB,
+except single large effective correlation time value at residue 218.
+The low resolution in NMR spectra \cite{??}, however, suggest that
+the same phenomena is present but not observed in simulations, possibly
+due to timescale or force field issues.
 
 \section{Conclusions}
 
