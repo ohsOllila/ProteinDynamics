@@ -43,6 +43,8 @@ set ylabel "C_{O}(t)"
 plot  "~/Dropbox/PsTonB/Data/NHcorrelationFunctions/withOPCwater/overall/NHrotaCF_81.xvg" using ($1*0.001):2 notitle  with lines lw 3 lc 'black', \
       "~/Dropbox/PsTonB/Data/NHcorrelationFunctions/T298K/overall/NHrotaCF_81.xvg" using ($1*0.001):2 notitle  with lines lw 3 lc 'red', \
       "~/Dropbox/PsTonB/Data/NHcorrelationFunctions/overall/NHrotaCF_81.xvg" using ($1*0.001):2 notitle  with lines lw 3 lc 'green', \
+      "~/Dropbox/PsTonB/Data/NHcorrelationFunctions/overall/NHrotaCF_81.xvg" using ($1*0.001):(2.56270665*10**(-8)*exp(-$1*0.001/5.68223374356)+5.01783014*10**(-8)*exp(-$1*0.001/6.08342230276)+7.38717471*10**(-8)*exp(-$1*0.001/4.04500428041)+5.38372023*10**(-1)*exp(-$1*0.001/3.44001779293)+4.48136164*10**(-1)*exp(-$1*0.001/9.89820966084)) notitle  with lines dashtype 2 lw 3 lc 'green', \
+
 
 set size 1.0, 0.293
 set format x "%G"
