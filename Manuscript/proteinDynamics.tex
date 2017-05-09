@@ -214,7 +214,7 @@ atoms as a function of time, which can be used to calculate rotational
 correlation functions for each bond and explicit separation of internal
 and overall rotational motions of molecules. The rotational
 correlation functions can be used to calculate spin relaxation times
-through Eqs. \ref{T1}-\ref{SPECdens}, which can be then compared to the
+through Eqs. \ref{R1}-\ref{SPECTdens}, which can be then compared to the
 experimental data in order to assess simulation model quality \cite{??} and interpret
 experiments \cite{??}. However, the comparison is often complicated by
 the short simulation times \cite{??} and incorrect overall rotational
@@ -236,7 +236,7 @@ The analysis of rotational dynamics permormed in this work can be
 divided in essentially six steps listed here. \\
 1) Total rotational correlation functions $C(t)$
 for protein N-H bonds are calculated from MD simulation trajectory
-by applying Eq.~\ref{CORRFdef}.
+by applying Eq.~\ref{CORRFdef}. \\
 2) Rotational correlation functions for internal
 dynamics $C_I(t)$ are calculated from a trajectory from where the overall
 rotation of protein is removed. \\
@@ -250,7 +250,7 @@ to mean square angle deviations of inertia axes according to Eq.~\ref{DIFFdef}. 
 weighting factors $A_j$ are determined by fitting the equation to
 rotational correlation functions of overall rotational motion $C_0(t)$ determined in step 3). \\
 7) New total rotational correlation functions $C_N(t)$ are determined by multiplying
-internal correlation function $C_I(t)$ from step 2) by Eq. \ref{CORFFanisot} with
+internal correlation function $C_I(t)$ from step 2) by Eq. \ref{CORRFanisot} with
 parameters from step 6). Rotational diffusion constants (and $\tau_i$ values in Eq. \ref{CORRFanisot})
 can be also divided by a scaling factor at this point to tune overall
 rotational diffusion in rotational dynamics model close to experimental value.
@@ -261,6 +261,8 @@ rotational diffusion in rotational dynamics model close to experimental value.
 Simulations were ran using Gromacs 5 \cite{abraham15} And Amber ff99SB- ILDN~\cite{lindorff10}
 force field for proteins . The proteins were solvated
 to tip3p\cite{jorgensen83}, tip4p \cite{jorgensen83} or OPC4 \cite{izadi14} water models.
+NMR structures from \cite{??} and \cite{ciragan16} are used as initial structure for 
+PaTonB and HpTonB-92, respectively.
 Temperature was coupled to desired value with v-rescale thermistat \cite{bussi07} and pressure was 
 isotropically set to 1 bar using Parrinello-Rahman barostat \cite{parrinello81}.
 Timestep was 2~fs, Lennart-Jones interactions were cut-off at 1.0~nm,
@@ -268,14 +270,26 @@ PME~\cite{darden93,essman95} was used for electrostatics and LINCS was used
 to constraint all bond lengths \cite{hess07}. Simulation trajectory and related
 files are available at [??].
 The simulated systems are listed
-in Table \ref{systems}
+in Table \ref{ROTdiffCOEFFS}
 
-NMR structures from \cite{??} and \cite{??} are used as initial structure for 
-PaTonB and HpTonB-92, respectively.
-
-The rotation is removed by using fit option in gmx trjconv and rotational
-correlation functions are calculated with gmx rotacf. Intertia axes of protein
-are calculated as ??.
+The rotation is removed by using fit option in {\it gmx trjconv} and rotational
+correlation functions are calculated with {\it gmx rotacf} \cite{gromacsMANUAL}.
+Intertia axes of protein are calculated with {\it compute\_inertia\_tensor} from
+MDTraj python library~\cite{McGibbon2015MDTraj}.
+The spectral density was calculated by first fitting the sum of 471 exponentials
+having correlation times from 1 ps and 50 ns with logarithmic spacing to the new
+correlation function 
+\begin{equation}\label{gprime_fit}
+C_N(t)=\sum_{i=1}^{N}\alpha_i e^{-t/\tau_i},
+\end{equation}
+by using the {\it lsqnonneg} routine in MATLAB \cite{matlab}.
+The Fourier transform is then calculated by using analytical function
+for the sum of exponentials 
+\begin{equation}\label{FTanal}
+J(\omega) =  4 \sum_{i=1}^{N}\alpha_i\frac{\tau_i}{1+\omega^2\tau_i^2}.
+\end{equation}
+Similar approach is used previously for lamellar systems in combination
+with solid state NMR experiements \cite{nowacka13,ferreira15}.
 
 \begin{table*}[htb]
 \centering
@@ -297,27 +311,50 @@ HpTonB-92   & OPC4        & 310    & 800           	 &  790                 & 2.
 
 \section{Results and discussion}
 
-\subsection{Protein overall rotational diffusion constants and relaxation times}
-The presented rotational dynamics analysis from MD simulations is
-exemplified in this section for residue ?? located in alpha helix of PaTonB protein.
-The analysis of all other bonds are essentially similar.
-%Rotational correlation functions calculated from 
-%molecular dynamics simulations of PaTonB with different water models
-%are exemplified in Fig.~\ref{exampleCORRF}.
-%As expected,
+\subsection{Global rotational dynamics of protein}
+Mean square angle deviations of protein intertia axes as a function of time
+from PsTonB simulations are shown in Fig. \ref{RMASDplot}.
+Diffusion coefficients are calculated from linear fits by taking into
+account lag times less than hundredth of the total simulation length,
+which is expected to give good statistics for rotation of single molecules
+in MD simulations \cite{??}. Linear diffusion fit to mean square angle
+displacement seems farily good in Fig.~\ref{RMASDplot}, however,
+log-log plot shown in \ref{RMASDplotLOG} reveals some anomalous
+diffusion behaviour at time scales below 0.12~ns. Here we use diffusion
+coeffiecents to include protein overall motion in spin relaxation
+calculations and the effect of small anymaly with short timescales
+is beyond the scope of the work. 
+\begin{figure}[!h]
+  \includegraphics[width=8.5cm]{../Figs/RMASDplot.eps}%
+  \caption{The intertia tensor angles as a function of time and mean square angular
+    deviations for PsTonB simulation with OPC water model.
+    \label{RMASDplot}}%
+\end{figure}
 
-The total correlation functions calculated from original MD trajectory
-are shown in Fig.~\ref{exampleCORRF} A). As expected, they decay
-to fluctuate approximately around zero after $\sim$20ns. Fluctuations from
-ideal relaxation behaviour are seen already with shorter times, which is also
-expected because good statistic for single molecule correlation functions
-is expected only for timescales less than hundredth of total simulation time \cite{??},
-i.e. approximately 4-12ns for the studied systems. Internal correlation functions
-calculated from trajectory with overall protein rotation removed are shown in
-Fig.~\ref{exampleCORRF} B). As expected, they decay very fast to a plateau value, which is used
-to determine $S^2$. Overall rotational correlation functions calculated as $C_O(t)=C(t)/C_I(t)$
-are shown in Fig.~\ref{exampleCORRF} C). MAYBE WE SHOULD SHOW THE FITS HERE?
+The results for diffusion constants
+from different simulations shown in Table \ref{ROTdiffCOEFFS}
+are in line with previous results from experiments \cite{??} and
+simulations \cite{??} for more isotropic proteins. As expected,
+rotational diffusion is faster in simulations with higher temperature
+or smaller protein. Also the larger diffusion constants for simulations
+with tip3p are expected due to the low viscosity of the model \cite{??}.
 
+Inclusion of rotational diffusion coefficients in N-H bond
+rotational correlation functions is exemplified in in Fig.~\ref{exampleCORRF}
+for residue ?? located in alpha helix of PaTonB protein. 
+The same analysis is performed also to other bonds and the resulting
+correlation functions are used to calculate spin relaxation rates.
+As expected, the N-H bond correlation functions calculated from original MD trajectories
+shown in Fig.~\ref{exampleCORRF} A)  decay to fluctuate approximately around zero
+after $\sim$20ns. Fluctuations from
+ideal relaxation behaviour begin already close to one
+hundredth of total simulation time (approximately 4-12ns for the studied systems),
+which is expected to be the limit for good
+statistic for rotational dynamics analyzed from single molecule MD simulation \cite{??}.
+Internal correlation functions, calculated from trajectory with overall protein rotation removed,
+in Fig.~\ref{exampleCORRF} B) show rapid decay to a plateau value, which defines the square of the order
+parameter $S^2$. The global rotational correlation functions calculated as $C_O(t)=C(t)/C_I(t)$
+are shown in Fig.~\ref{exampleCORRF} C). 
 \begin{figure}[!h]
   \includegraphics[width=8.5cm]{../Figs/exampleCORRF.eps}%
   \caption{Example correlation functions for residue ?? of PsTonB calculated from MD simulations with different water models.
@@ -329,20 +366,11 @@ are shown in Fig.~\ref{exampleCORRF} C). MAYBE WE SHOULD SHOW THE FITS HERE?
     }\label{exampleCORRF}
 \end{figure}
 
+MAYBE WE SHOULD SHOW THE FITS HERE?
 Overall rotational correlation functions are used to determine prefactors $A_j$ in Eq. \ref{CORRFanisot}
 by fitting the equation to the calculated correlation functions. For this purpose timescales $\tau_j$
 in Eq. \ref{CORRFanisot} are determined by calculatin the rotational diffusion coefficients of
-protein intertia axes. Mean square angle deviations of protein intertia axes from different simulations
-are shown in Fig. \ref{RMASDplot}. By taking in to account only hundredth of the total simulation
-length, mean square angle deviations can be considered linear and diffusion constants can be calculated
-from linear fit. The results for diffusion constants are shown in Table \ref{ROTdiffCOEFFS}.
-\begin{figure}[!h]
-  \includegraphics[width=8.5cm]{../Figs/RMASDplot.eps}%
-  \caption{The intertia tensor angles as a function of time and mean square angular
-    deviations for PsTonB simulation with OPC water model.
-    \label{RMASDplot}}%
-\end{figure}
-
+protein intertia axes. 
 After determining the prefactors by fitting Eq. \ref{CORRFanisot}, new correlation functions
 were calculated as $C_N(t)=C_I(t)\sum_{j=1}^5 A_j e^{-t/\tau_j}$. These functions for the example
 case are shown in Fig.~\ref{exampleCORRF} D).
@@ -584,10 +612,15 @@ models, which is the case in simulations with tip3p.
 
 %\newpage
 %\appendix
-%\begin{center}
-%{\bf SUPPLEMENTARY INFORMATION}
-%\end{center}
-
+\begin{center}
+{\bf SUPPLEMENTARY INFORMATION}
+\end{center}
+\begin{figure}[!h]
+  \includegraphics[width=8.5cm]{../Figs/RMASDplotLOG.eps}%
+  \caption{The intertia tensor angles as a function of time and mean square angular
+    deviations for PsTonB simulation with OPC water model.
+    \label{RMASDplotLOG}}%
+\end{figure}
 
 %\todolist
 \end{document}

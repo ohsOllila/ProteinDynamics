@@ -17,8 +17,8 @@ set output "../RMASDplot.eps"
 
 set style fill transparent solid 0.5 noborder
 
-set logscale x
-set logscale y
+#set logscale x
+#set logscale y
 
 set size 0.9, 0.45
 set origin 1.05,0
@@ -28,9 +28,9 @@ set ylabel "Mean square angle deviation (rad^2)"
 set xlabel "t (ns)"
 set xrange [0.01:12]
 #set yrange [0.05:0.45]
-plot  "~/Dropbox/PsTonB/Data/tip4p_T298K_RMASD.dat" using ($1):2 title 'tip4p (298K)' pt 4  lc 'red', \
+plot  "~/Dropbox/PsTonB/Data/tip4p_T298K_RMASD.dat" using ($1):2 title 'tip4p (298K)' with lines dashtype 1 lw 8 lc 'red', \
       "~/Dropbox/PsTonB/Data/tip4p_T298K_RMASD.dat" using ($1):(2*0.0455*$1) notitle with lines dashtype 1 lw 2 lc 'red', \
-      "~/Dropbox/PsTonB/Data/tip4p_T298K_RMASD.dat" using ($1):3 notitle  with lines dashtype 1 lw 4 lc 'red', \
+       "~/Dropbox/PsTonB/Data/tip4p_T298K_RMASD.dat" using ($1):3 notitle  with lines dashtype 1 lw 4 lc 'red', \
       "~/Dropbox/PsTonB/Data/tip4p_T298K_RMASD.dat" using ($1):(2*0.0206*$1) notitle  with lines dashtype 1 lw 1 lc 'red', \
       "~/Dropbox/PsTonB/Data/tip4p_T298K_RMASD.dat" using ($1):4 notitle  with lines dashtype 2 lw 8 lc 'red', \
       "~/Dropbox/PsTonB/Data/tip4p_T298K_RMASD.dat" using ($1):(2*0.0181*$1) notitle  with lines dashtype 2 lw 2 lc 'red', \
@@ -47,7 +47,6 @@ plot  "~/Dropbox/PsTonB/Data/tip4p_T298K_RMASD.dat" using ($1):2 title 'tip4p (2
       "~/Dropbox/PsTonB/Data/opcRMASD.dat" using ($1):4 notitle  with lines dashtype 2 lw 8 lc 'black', \
       "~/Dropbox/PsTonB/Data/opcRMASD.dat" using ($1):(2*0.0201*$1) notitle  with lines dashtype 2 lw 2 lc 'black', \
       "~/Dropbox/PsTonB/Data/tip4p_RMASD.dat" using ($1):(2*0.05*$1) notitle  with lines dashtype 1 lw 2 lc 'green', \
-#      "~/Dropbox/PsTonB/Data/tip4p_T298K_RMASD.dat" using ($1):(2*0.0455*sqrt($1)) notitle with lines dashtype 1 lw 2 lc 'red', \
 
 #set ylabel "g_{o}(t)"
 #set yrange [0.05:0.45]
