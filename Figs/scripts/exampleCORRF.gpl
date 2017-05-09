@@ -30,10 +30,12 @@ set size 1.0, 0.293
 #set label at screen 0.37,screen 0.55 "T2"
 set ylabel "C_{I}(t)"
 #set yrange [0.05:0.45]
-plot  "~/Dropbox/PsTonB/Data/NHcorrelationFunctions/withOPCwater/oriented/NHrotaCF_81.xvg" using ($1*0.001):2 notitle  with lines  lw 3 lc 'black', \
-      "../../scratch/OPforCF20.dat" using ($1*0.001):2 notitle  with lines lw 3 dashtype 2 lc 'black', \
-      "~/Dropbox/PsTonB/Data/NHcorrelationFunctions/T298K/oriented/NHrotaCF_81.xvg" using ($1*0.001):2 notitle  with lines lw 3 lc 'red', \
+plot  "~/Dropbox/PsTonB/Data/NHcorrelationFunctions/T298K/oriented/NHrotaCF_81.xvg" using ($1*0.001):2 notitle  with lines lw 3 lc 'red', \
       "~/Dropbox/PsTonB/Data/NHcorrelationFunctions/oriented/NHrotaCF_81.xvg" using ($1*0.001):2 notitle  with lines lw 3 lc 'green', \
+      "~/Dropbox/PsTonB/Data/NHcorrelationFunctions/withOPCwater/oriented/NHrotaCF_81.xvg" using ($1*0.001):2 notitle  with lines  lw 3 lc 'black', \
+      "~/Dropbox/PsTonB/Data/OPres331withOPC.dat" using 1:2 notitle  with lines lw 3 dashtype 2 lc 'black', \
+      "~/Dropbox/PsTonB/Data/OPres331.dat" using 1:2 notitle  with lines lw 3 dashtype 2 lc 'green', \
+      "~/Dropbox/PsTonB/Data/OPres331_298K.dat" using 1:2 notitle  with lines lw 3 dashtype 2 lc 'red', \
 
 set size 1.0, 0.293
 set ylabel "C_{O}(t)"
