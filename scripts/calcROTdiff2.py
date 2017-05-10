@@ -14,7 +14,7 @@ k3=[0]*3
 kcov1=[0]*3
 kcov2=[0]*3
 kcov3=[0]*3
-analL=4
+analL=8
 for l in range(-1,2):
   j=0
   for i in range(0,len(data1[0])):
@@ -109,7 +109,7 @@ for i in range(1,87):
 
   j=0
   for k in range(0,len(xdata)):
-    if xdata[k]<5:
+    if xdata[k]<analL:
       j=j+1
       dataLOGx = [0]*j
       dataLOGy = [0]*j
@@ -120,7 +120,7 @@ for i in range(1,87):
 
   scalingF=1.0
   popt3, pcov3 = curve_fit(fiveexpfunc, dataLOGx, dataLOGy,p0=(0.45,0.45,0.45,0.45,0.45),maxfev=100000)
-  print(popt3**2)
+  print(i,*(popt3**2))
 
   #TSTfig=plt.figure()
   #axes = plt.gca()
@@ -142,6 +142,10 @@ for i in range(1,87):
   scaledCFfile=open(str(sys.argv[2]+'/scaledrotation/NHrotaCF_' +str(i) + '.xvg'), 'w+')
   for j in range(0,len(xdata)):
     print(xdata[j]*1000,ydata[j], file=scaledCFfile)
+
+  overallfitCFfile=open(str(sys.argv[2]+'/overallFIT/NHrotaCF_' +str(i) + '.xvg'), 'w+')
+  for j in range(0,len(xdata)):
+    print(xdata[j]*1000,*(fiveexpfunc(xdata[j],*popt3)), file=overallfitCFfile)
                   
 #TSTfig2=plt.figure()
 #Axes = plt.gca()
