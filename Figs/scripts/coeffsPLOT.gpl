@@ -1,0 +1,41 @@
+#set term postscript enhanced color  
+set size 2, 0.5
+set terminal postscript portrait enhanced color dashed lw 1 "Helvetica" 14 
+#set terminal png enhanced color dashed lw 1 "Helvetica" 14 
+#set terminal png size 555,880 enhanced font "Helvetica,20"
+set output "../coeffsPLOT.eps"
+#set multiplot  layout 1,2
+#set yrange [-0.1:1]
+#set ytic 0.05
+#set key box
+#set key above
+
+#set xrange [0:100] 
+
+
+
+
+set style fill transparent solid 0.5 noborder
+
+set size 0.9, 0.45
+set origin 1.05,0
+#set label at screen 0.37,screen 0.55 "T2"
+set key at graph 0.45,graph 0.9 maxcols 1 maxrows 3
+set ylabel "A_i"
+set xlabel "{/Symbol t}_i (ns)"
+set xrange [-0.2:15]
+set xtic 1
+#set yrange [0.05:0.45]
+set boxwidth 0.2 
+plot  "~/Dropbox/PsTonB/Data/coeffs322.dat" using 1:2 title 'Residue 322' with boxes  lc 'black' ,\
+       "~/Dropbox/PsTonB/Data/coeffs331.dat" using ($1):2 title 'Residue 331' with boxes  lc 'red', \
+      "~/Dropbox/PsTonB/Data/coeffs341.dat" using ($1):2 title 'Residue 341' with boxes  lc 'green', \
+      "~/Dropbox/PsTonB/Data/coeffs331.dat" using ($1):2 notitle  with boxes  lc 'red', \
+
+
+#set ylabel "g_{o}(t)"
+#set yrange [0.05:0.45]
+#plot  "../../../PsTonB/Data/NHcorrelationFunctions/withOPCwater/overall/NHrotaCF_20.xvg" using ($1*0.001):2 notitle  with lines lc 'black', \
+
+unset multiplot
+

@@ -356,7 +356,7 @@ in Fig.~\ref{exampleCORRF} B) show rapid decay to a plateau value, which defines
 parameter $S^2$. The global rotational correlation functions calculated as $C_O(t)=C(t)/C_I(t)$
 are shown in Fig.~\ref{exampleCORRF} C). 
 \begin{figure}[!h]
-  \includegraphics[width=8.5cm]{../Figs/exampleCORRF.eps}%
+  \includegraphics[width=8.5cm]{../Figs/exampleCORRF2.eps}%
   \caption{Example correlation functions for residue 331 of PsTonB calculated from MD simulations with different water models.
     A) total correlation functions $C(t)$ calculated from MD simulation (solid lines) and
     new correlation functions determined from Eqs. \ref{CORRFsep} and \ref{CORRFanisot} by
@@ -407,23 +407,12 @@ respectivelty.
 \begin{figure}[!h]
   \includegraphics[width=8.5cm]{../Figs/RELdataPsTonB.eps}%
   \caption{A) Structures sampled by PsTonB from MD simulations
-    (100 structures from 400ns long trajectory).
+    (100 structures from 400ns long trajectory). Alpha helixces are
+    shown with red, beta sheets with blue and residues 246-251, 320-326 and 338-342
+    with increased internal dynamics are colored yellow.
+    Alphahelix sampling between two orientations (residues 266-270) is shown with pink in left column.
     B) Spin relaxation rates, order parameters and effective internal correlation
-    times from experiments and simulations. Spin relaxation rates indicate increased flexibility
-    only for the last two residues in N terminus. However,
-    MD simulations suggest somewhat smaller order parameters and longer $\tau_e$
-    for residues 246-253. By looking at the sampled structures, it seems that lower
-    order parameters and longer correlation times arise from slower and less extensive
-    conformational sampling than in HpTonB-107. Lower order parameters and larger
-    correlation times are also observed in PsTonB simulations between residues 265-275.
-    This can be explained by the changes in orientation of alpha helix close to this
-    region, as seen in the sampled conformations. Such effect was not seen in the HpTonB
-    simulations, however, NMR data for this region showed some unclarities which may arise
-    from such conformational exchange. Enhanced sampling is also observed between
-    residues 320-326. This was not observed in HpTonB samples, which may be related to the
-    formation of beta sheet between residues 315-318 in PsTonB.Relaxation parameters for PsTonB from
-    experiments and simulations with Amber-ildn and different water models
-    \label{PsTonBrelaxationDATA}}%
+    times from experiments and simulations.\label{PsTonBrelaxationDATA}}%
 \end{figure}
 \begin{figure}[!h]
   \includegraphics[width=8.5cm]{../Figs/RELdataHpTonB.eps}%
@@ -557,42 +546,71 @@ better interpretation for experiments.
 
 
 
-\subsection{Protein internal relaxation}
+\subsection{Interpretation of protein internal relaxation from MD simulations}
+Spin relaxation rates from tip4p simulations for PsTonB are in good agreement with
+experimetns (see Figs \ref{??}), thus the simulations can be used to give interpretation
+for rotational relaxation processes in proteins, which correspond the
+NMR relaxation results. Spin relaxation rate deviations from baseline
+are observed for residues 246-251 in N-terminus, residues 320-326
+and residues 338-342 in C-terminus. These segments are coloured in yellow
+in Fig. \ref{??} A), which already revels ecnhanged conformational sampling
+in these regions. Also order parameters are low and effective internal
+relaxation times long for these segements as seen in Fig. \ref{??} B).
 
-Simulations in good agreement with spin relaxation data can be used
-to interpret internal relaxation and order of proteins. For example,
-in PsTonB low order parameters and larger effective correlation times
-are observed in Fig. \ref{PsTonBrelaxationDATA} B) for residues 246-251
-in N-terminus, residues 260-274, residues 300-303, residues 320-326
-and residues 338-342 in C-terminus. The results in terminal ends
-(residues 246-251 and 338-342)
-can be explained by the increased flexibility of unstructured endings
-of the protein, which are also seen in overlayed structures in
-Fig.~\ref{PsTonBrelaxationDATA} A). Low order parameters and
-large effective correlation times between residues 260-274 arise
-from two different orientations sampled by alpha helix on that region, as also
-seen in Fig.~\ref{PsTonBrelaxationDATA} A). This explains also the
-lower resolution in NMR spectra observed for that region \cite{??}.
-Between residues 320-326 decrease in NOE and $T_1/T_2$ ratio and increase
-in $T_2$ are also observed in simulations and experiments. The results
-can be explained by the increased flexbility of the loop in this region
-as also seen in overlayed structures. Low order parameters and large
+More detailed interpretation of different relaxation processes experienced
+by different residues can be done by analysing timescales which leads in simulation
+model to the spin relaxation rates in agreement with experiments. Prefactors
+from Eq. \ref{??} fitted in rotational correlation functions in agreement
+with spin relaxation data are shown in Fig \ref{coeffsPLOT} for different residues
+in PsTonB. Residue 331 represents the last alpha helix before C terminus and its rotational
+relaxation is mostly dominated by relaxations with timescales $\sim$5.5~ns and $\sim$8~ns,
+which arise from global rotation of protein an only small fraction of relaxation arises from
+fast internal motions, in accordance with large order parameter value (??).
+Relaxation of residue 322 is also dominated by relaxation processes with timescale
+around $\sim$8~ns, but fast motions related to internal protein dynamics are more
+significant than for alpha helix residue 331. This explains the low order parameter (??)
+measured small NOE and large $T_2$ relaxation times values shown in Fig. \ref{??}.
+Rotational dynamics of residue 341 located in N terminus is dominated by the fast
+motions related to the internal protein relaxation, as expected from the low order
+parameter. The contribution from timescales close to $\sim$13~ns are probably related
+to slower conformational sampling of the N terminus, which is also seen in sampled
+conformations and large effective correlation times in Fig. \ref{??}.
+\begin{figure}[!h]
+  \includegraphics[width=8.5cm]{../Figs/coeffsPLOT.eps}%
+  \caption{Prefactors $A_i$ corresponding different timescales $\tau_i$ in Eq.\ref{??}
+    resulting from a fit in correlation functions giving good agreement with spin
+    relaxation rates in experimetns for PsTonB. 
+    \label{coeffsPLOT}}%
+\end{figure}
+
+In addition, low order parameters and larger effective correlation times
+are observed for PsTonB residues 260-274 and 300-303
+in Fig. \ref{PsTonBrelaxationDATA} B).
+For residues 260-274 this can be explained by two different orientations
+sampled by alpha helix on that region, as highlighted with pink
+in Fig.~\ref{PsTonBrelaxationDATA} A). This explains also the
+lower resolution in NMR spectra observed for this and similar region in
+HpTonB structures \cite{??}. Low order parameters and large
 effective correlation times between residues 300-303 are not seen
 in spin relaxation data, thus it is not clear if these arise from
 simulation artefact.
 
-Also for HpTonB low order parameters and long effetive correlation times
-are observed only for flexible terminal ends (residues 196-197 and 283-285)
-as seen in Fig. \ref{HPTonBrelaxationDATA}. Low order parameters and long
-effetive correlation times and for residues 245-250 probably arise
+Spin relaxation rate deviations from baseline are observed only few residues in
+terminal ends for HpTonB-92 as seen in Fig. \ref{HPTonBrelaxationDATA}.
+This is the case also in simulations, except that
+the N terminus flexibility seems to be somewhat overestimated and 
+low order parameters and long effetive correlation times are also observed
+for residues 245-250. The latter observation probably arises
 (at least partly) from simulation artefacts because deviation form experimental
 relaxation data is relatively large for these residues.
-Different orientations of alpha helix between residues 210-220 and
-decreased order parameters are not observed in contrast to PsTonB,
-except single large effective correlation time value at residue 218.
-The low resolution in NMR spectra \cite{??}, however, suggest that
-the same phenomena is present but not observed in simulations, possibly
-due to timescale or force field issues.
+More detailed discussion together with longer HpTonB construct is
+presented elsewhere \cite{??}.
+%Different orientations of alpha helix between residues 210-220 and
+%decreased order parameters are not observed in contrast to PsTonB,
+%except single large effective correlation time value at residue 218.
+%The low resolution in NMR spectra \cite{??}, however, suggest that
+%the same phenomena is present but not observed in simulations, possibly
+%due to timescale or force field issues.
 
 \section{Conclusions}
 

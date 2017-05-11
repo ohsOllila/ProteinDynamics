@@ -1,0 +1,68 @@
+#set term postscript enhanced color  
+set size 1, 1
+set terminal postscript portrait enhanced color dashed lw 1 "Helvetica" 14 
+#set terminal png enhanced color dashed lw 1 "Helvetica" 14 
+#set terminal png size 555,880 enhanced font "Helvetica,20"
+set output "../exampleCORRF2.eps"
+set multiplot  layout 3,1
+set yrange [-0.1:1]
+#set ytic 0.05
+#set key box
+#set key above
+
+set key at screen 0.9,screen 0.85 maxcols 2 maxrows 3
+set xrange [0:50] 
+#set xtic 10
+#set size 1.0, 0.25
+
+
+set style fill transparent solid 0.5 noborder
+
+set format x ""
+set size 1.0, 0.25
+set ylabel "C(t)"
+#set yrange [0.3:1.15]
+plot  "~/Dropbox/PsTonB/Data/NHcorrelationFunctions/T298K/unoriented/NHrotaCF_72.xvg" using ($1*0.001):2 title 'Residue 322'  with lines lw 3 lc 'black',\
+      "~/Dropbox/PsTonB/Data/NHcorrelationFunctions/T298K/scaledrotation/NHrotaCF_72.xvg" using ($1*0.001):2 notitle  with lines dashtype 2 lw 3 lc 'black', \
+      "~/Dropbox/PsTonB/Data/NHcorrelationFunctions/T298K/unoriented/NHrotaCF_81.xvg" using ($1*0.001):2 title 'Residue 331'  with lines lw 3 lc 'red',\
+      "~/Dropbox/PsTonB/Data/NHcorrelationFunctions/T298K/scaledrotation/NHrotaCF_81.xvg" using ($1*0.001):2 notitle  with lines dashtype 2 lw 3 lc 'red', \
+      "~/Dropbox/PsTonB/Data/NHcorrelationFunctions/T298K/unoriented/NHrotaCF_91.xvg" using ($1*0.001):2 title 'Residue 341'  with lines lw 3 lc 'green',\
+      "~/Dropbox/PsTonB/Data/NHcorrelationFunctions/T298K/scaledrotation/NHrotaCF_91.xvg" using ($1*0.001):2 notitle  with lines dashtype 2 lw 3 lc 'green', \
+
+
+set size 1.0, 0.293
+#set label at screen 0.37,screen 0.55 "T2"
+set ylabel "C_{I}(t)"
+#set yrange [0.05:0.45]
+plot  "~/Dropbox/PsTonB/Data/NHcorrelationFunctions/T298K/oriented/NHrotaCF_72.xvg" using ($1*0.001):2 notitle  with lines lw 3 lc 'black', \
+      "~/Dropbox/PsTonB/Data/NHcorrelationFunctions/T298K/oriented/NHrotaCF_81.xvg" using ($1*0.001):2 notitle  with lines lw 3 lc 'red', \
+      "~/Dropbox/PsTonB/Data/NHcorrelationFunctions/T298K/oriented/NHrotaCF_91.xvg" using ($1*0.001):2 notitle  with lines lw 3 lc 'green', \
+#      "~/Dropbox/PsTonB/Data/OPres331withOPC.dat" using 1:2 notitle  with lines lw 3 dashtype 2 lc 'black', \
+#      "~/Dropbox/PsTonB/Data/OPres331.dat" using 1:2 notitle  with lines lw 3 dashtype 2 lc 'green', \
+#      "~/Dropbox/PsTonB/Data/OPres331_298K.dat" using 1:2 notitle  with lines lw 3 dashtype 2 lc 'red', \
+
+set format x "%G"
+set xlabel "t (ns)"
+set size 1.0, 0.293
+set ylabel "C_{O}(t)"
+#set yrange [0.05:0.45]
+plot  "~/Dropbox/PsTonB/Data/NHcorrelationFunctions/T298K/overall/NHrotaCF_72.xvg" using ($1*0.001):2 notitle  with lines lw 3 lc 'black', \
+      "~/Dropbox/PsTonB/Data/NHcorrelationFunctions/T298K/overallFIT/NHrotaCF_72.xvg" using ($1*0.001):2 notitle  with lines dashtype 2lw 3 lc 'black', \
+      "~/Dropbox/PsTonB/Data/NHcorrelationFunctions/T298K/overall/NHrotaCF_81.xvg" using ($1*0.001):2 notitle  with lines lw 3 lc 'red', \
+      "~/Dropbox/PsTonB/Data/NHcorrelationFunctions/T298K/overallFIT/NHrotaCF_81.xvg" using ($1*0.001):2 notitle  with lines dashtype 2lw 3 lc 'red', \
+      "~/Dropbox/PsTonB/Data/NHcorrelationFunctions/T298K/overall/NHrotaCF_91.xvg" using ($1*0.001):2 notitle  with lines lw 3 lc 'green', \
+      "~/Dropbox/PsTonB/Data/NHcorrelationFunctions/T298K/overallFIT/NHrotaCF_91.xvg" using ($1*0.001):2 notitle  with lines dashtype 2lw 3 lc 'green', \
+
+
+
+#set size 1.0, 0.293
+#set format x "%G"
+#set ylabel "C_{S}(t)"
+#set xlabel "t (ns)"
+#set yrange [0.05:0.45]
+#plot  "~/Dropbox/PsTonB/Data/NHcorrelationFunctions/withOPCwater/scaledrotation/NHrotaCF_81.xvg" using ($1*0.001):2 notitle  with lines lw 3 lc 'black', \
+#      "~/Dropbox/PsTonB/Data/NHcorrelationFunctions/T298K/scaledrotation/NHrotaCF_81.xvg" using ($1*0.001):2 notitle  with lines lw 3 lc 'red', \
+#      "~/Dropbox/PsTonB/Data/NHcorrelationFunctions/scaledrotation/NHrotaCF_81.xvg" using ($1*0.001):2 notitle  with lines lw 3 lc 'green'
+
+unset multiplot
+
