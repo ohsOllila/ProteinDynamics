@@ -1,7 +1,7 @@
 import sys
 import numpy
 import math
-import matplotlib.pyplot as plt
+#import matplotlib.pyplot as plt
 from scipy.optimize import curve_fit
 
 data1 = numpy.loadtxt(sys.argv[1], usecols=range(0,1)), numpy.loadtxt(sys.argv[1], usecols=range(1,2))
@@ -14,7 +14,7 @@ k3=[0]*3
 kcov1=[0]*3
 kcov2=[0]*3
 kcov3=[0]*3
-analL=8
+analL=float(sys.argv[4])
 for l in range(-1,2):
   j=0
   for i in range(0,len(data1[0])):
@@ -102,7 +102,8 @@ scalingF=1
 def fiveexpfunc(x,p1,p2,p3,p4,p5):
   return p1**2*numpy.exp(-x/(scalingF*tau1)) + p2**2*numpy.exp(-x/(scalingF*tau2)) + p3**2*numpy.exp(-x/(scalingF*tau3)) + p4**2*numpy.exp(-x/(scalingF*tau4)) + p5**2*numpy.exp(-x/(scalingF*tau5))
 
-for i in range(1,87):
+NumberOfCorrfs=int(sys.argv[5])
+for i in range(1,NumberOfCorrfs+1):
   xdata = numpy.loadtxt(sys.argv[2]+'/overall/NHrotaCF_' + str(i) + '.xvg', usecols=range(0,1))
   ydata = numpy.loadtxt(sys.argv[2]+'/overall/NHrotaCF_' + str(i) + '.xvg', usecols=range(1,2))
   xdata = xdata*0.001
