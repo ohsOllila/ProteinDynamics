@@ -10,7 +10,7 @@ for ac = 1:1:144
     corrF=[corrFtmp(1:5000,1),corrFtmp(1:5000,2)];
     %ordP=sqrt(OPs(ac,2));
     ordP=0;
-    TRtimes_SAMULIcalmo
+    TRtimes_SAMULIcalmo500MHz
     R_1(ac+1)=R1;
     R_2(ac+1)=R2;
     J_0(ac+1)=J0;
