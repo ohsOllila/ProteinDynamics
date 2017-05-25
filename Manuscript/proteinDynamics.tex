@@ -286,21 +286,29 @@ However, the comparison is often complicated by
 the short simulation times \cite{??} and incorrect overall rotational
 diffusion due to water models \cite{??}.
 
-Here we use directly calculated overall rotational diffusion constants
-directly from Eq. \ref{DIFFdef} and use those to determine 
-the rotational correlation functions for global rotational
-dynamics accorfing to Eq. \ref{CORRFanisot}. The rotational diffusion coefficients
-are determined by fitting a linear line with one fitting parameter (slope) to
-the  mean square angle deviation of intertia axes calculated from
-simulations (see results and discussion). In contrast, ten parameters should be
-determined in a direct fit of Eq. \ref{CORRFanisot} to the rotational
-correlation functions calculated from simulations.
-Thus, the determination of correlation functions through overall
+Here we use overall rotational diffusion constants
+calculated from Eq. \ref{DIFFdef} to determine 
+the timescales of global rotational correlation function
+in Eq. \ref{CORRFanisot}. The rotational
+diffusion coefficients are given by a linear fit
+to the mean square angle deviation of intertia axes calculated from
+simulations (see results and discussion).
+Straight line has only one parameter (slope) to be fitted,
+in contrast to multiexponential sum in Eq. \ref{CORRFanisot}
+with ten parameters. 
+Thus, the calculation of timescales through overall
 rotational diffusion constants is numerically more robust and requires
-less simulation data for good statistics. In addition, the incorrect
-rotational diffusion due to water model can be corrected by scaling
-the rotational diffusion constants with a constant factor before
-calculating new correlation functions.
+less simulation data than a direct fit of
+Eq. \ref{CORRFanisot} to the rotational correlation function calculated
+from simulation.
+The prefactors in \ref{CORRFanisot} are determined by
+fitting to correlation function calculated from simulations,
+but timescales from rotational diffusion coefficients are
+used. The rotational diffusion constants
+can be also scaled with a constant factor and new correlation functions
+calculated to compensate the incorrect rotational diffusion due to
+water model in spin relaxation rate calculations.
+
 
 The analysis can be divided in essentially six steps: \\
 1) Total rotational correlation functions $C(t)$
@@ -317,12 +325,16 @@ time are calculated from MD simulation trajectory. \\
 to mean square angle deviations of inertia axes according to Eq.~\ref{DIFFdef}. \\
 6) Timescales in Eq.~\ref{CORRFanisot} are calculated from diffusion constants and
 weighting factors $A_j$ are determined by fitting the equation to
-rotational correlation functions of overall rotational motion $C_0(t)$ determined in step 3). \\
-7) New total rotational correlation functions $C_N(t)$ are determined by multiplying
-internal correlation function $C_I(t)$ from step 2) by Eq. \ref{CORRFanisot} with
-parameters from step 6). Rotational diffusion constants (and $\tau_i$ values in Eq. \ref{CORRFanisot})
-can be also divided by a scaling factor at this point to tune overall
-rotational diffusion in rotational dynamics model close to experimental value.
+rotational correlation functions of overall rotational motion $C_0(t)$ determined in step 3. \\
+7) New total rotational correlation functions based on Eqs. \ref{CORRFsep} and \ref{CORRFanisot}
+are determined as
+$C_N(t)=C_I(t)\sum_{j=1}^5 A_j e^{-t/\tau_j}$,
+where internal correlation function $C_I(t)$ is taken from step 2,
+$\tau_i$ values from rotational diffusion constants (step 5) and
+prefactors $A_j$ from step 6. The incorrect rotational
+diffusion due to water model can be compensated in new correlation
+functions at this point
+ by scaling the rotational diffusion coefficients with a constant factor.
 
 
 
