@@ -328,7 +328,9 @@ weighting factors $A_j$ are determined by fitting the equation to
 rotational correlation functions of overall rotational motion $C_0(t)$ determined in step 3. \\
 7) New total rotational correlation functions based on Eqs. \ref{CORRFsep} and \ref{CORRFanisot}
 are determined as
-$C_N(t)=C_I(t)\sum_{j=1}^5 A_j e^{-t/\tau_j}$,
+\begin{equation}\label{newCORRF}
+  C_N(t)=C_I(t)\sum_{j=1}^5 A_j e^{-t/\tau_j},
+\end{equation}
 where internal correlation function $C_I(t)$ is taken from step 2,
 $\tau_i$ values from rotational diffusion constants (step 5) and
 prefactors $A_j$ from step 6. The incorrect rotational
@@ -353,16 +355,20 @@ files are available at [??].
 The simulated systems are listed
 in Table \ref{ROTdiffCOEFFS}
 
-The rotation is removed by using fit option in {\it gmx trjconv} and rotational
-correlation functions are calculated with {\it gmx rotacf} \cite{gromacsMANUAL}.
-Intertia axes of protein are calculated with {\it compute\_inertia\_tensor} from
+Rotational correlation functions are calculated with {\it gmx rotacf}
+and overall rotation for $C_I(t)$ calculation is removed by using fit option
+in {\it gmx trjconv} grom Gromacs package \cite{gromacsMANUAL}.
+Inertia axes of protein for rotational diffusion calculation
+are calculated with {\it compute\_inertia\_tensor} from
 MDTraj python library~\cite{McGibbon2015MDTraj}.
-The spectral density was calculated by first fitting the sum of 471 exponentials
-having correlation times from 1 ps and 50 ns with logarithmic spacing to the new
-correlation function 
+For spectral density calculation a sum of 471 exponentials
+having correlation times from 1 ps to 50 ns with logarithmic
+spacing
 \begin{equation}\label{gprime_fit}
-C_N(t)=\sum_{i=1}^{N}\alpha_i e^{-t/\tau_i},
+C_N(t)=\sum_{i=1}^{N}\alpha_i e^{-t/\tau_i}
 \end{equation}
+were fitted to the new correlation function
+calculated from Eq.~\ref{newCORRF}
 by using the {\it lsqnonneg} routine in MATLAB \cite{matlab}.
 The Fourier transform is then calculated by using analytical function
 for the sum of exponentials 
@@ -393,18 +399,23 @@ HpTonB-92   & OPC4        & 310    & 800           	 &  790                 & 2.
 \section{Results and discussion}
 
 \subsection{Global rotational dynamics of protein}
-Mean square angle deviations of protein intertia axes as a function of time
-from PsTonB simulations are shown in Fig. \ref{RMASDplot}.
-Diffusion coefficients are calculated from linear fits by taking into
-account lag times less than hundredth of the total simulation length,
+Rotational diffusion coefficients are calculated
+according to Eq. \ref{DIFFdef} by fitting a
+linear slope to the mean square angle deviations of protein intertia
+axes as a function of time. The mean square angle deviations
+and linear fits are exemplified for different simulations of PsTonB
+in Fig. \ref{RMASDplot}. The overall rotational dynamics can be considered
+to be diffusive with a good approximation; the data plotted with
+log-log scale in Fig.~\ref{RMASDplotLOG} reveal a weakly subdiffusive region
+only below 0.12~ns. Also visual inspection of the data plotted with
+linear scale in Fig. \ref{RMASDplot} reveals very linear behaviour
+with lag times less than one hundredth of the total simulation length,
 which is expected to give good statistics for rotation of single molecules
-in MD simulations \cite{??}. Linear diffusion fit to mean square angle
-displacement seems farily good in Fig.~\ref{RMASDplot}, however,
-log-log plot shown in \ref{RMASDplotLOG} reveals some anomalous
-diffusion behaviour at time scales below 0.12~ns. Here we use diffusion
-coeffiecents to include protein overall motion in spin relaxation
-calculations and the effect of small anymaly with short timescales
-is beyond the scope of the work. 
+in MD simulations \cite{??}. The deviations from linear behaviour seen with
+longer timescales are considired to arise from insufficient statistics.
+Thus, the diffusion coefficients are
+calculated by fitting linear line to the mean square angle deviations with
+lag times less than one hundreth of the total simulation lenght.
 \begin{figure}[!h]
   \includegraphics[width=8.5cm]{../Figs/RMASDplot.eps}%
   \caption{The intertia tensor angles as a function of time and mean square angular
@@ -412,10 +423,11 @@ is beyond the scope of the work.
     \label{RMASDplot}}%
 \end{figure}
 
-The results for diffusion constants
-from different simulations shown in Table \ref{ROTdiffCOEFFS}
-are in line with previous results from experiments \cite{??} and
-simulations \cite{??} for more isotropic proteins. As expected,
+The diffusion constants calculated from different simulations are
+shown in Table \ref{ROTdiffCOEFFS}. The results are in line with
+previously reported experimental and simulation for different proteins.
+
+As expected,
 rotational diffusion is faster in simulations with higher temperature
 or smaller protein. Also the larger diffusion constants for simulations
 with tip3p are expected due to the low viscosity of the model \cite{??}.
