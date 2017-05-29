@@ -410,11 +410,10 @@ log-log scale in Fig.~\ref{RMASDplotLOG} reveal a weakly subdiffusive region
 only below 0.12~ns. Also visual inspection of the data plotted with
 linear scale in Fig. \ref{RMASDplot} reveals very linear behaviour
 with lag times less than one hundredth of the total simulation length,
-which is expected to give good statistics for rotation of single molecules
-in MD simulations \cite{??}. The deviations from linear behaviour seen with
-longer timescales are considired to arise from insufficient statistics.
-Thus, the diffusion coefficients are
-calculated by fitting linear line to the mean square angle deviations with
+which is expected to be maximum for a statistics for rotation of single molecules
+in MD simulations \cite{lu06}. Thus, the deviations from linear behaviour with
+longer timescales are considered to arise from insufficient statistics
+and diffusion coefficients are calculated by fitting linear line to the mean square angle deviations with
 lag times less than one hundreth of the total simulation lenght.
 \begin{figure}[!h]
   \includegraphics[width=8.5cm]{../Figs/RMASDplot.eps}%
@@ -424,30 +423,35 @@ lag times less than one hundreth of the total simulation lenght.
 \end{figure}
 
 The diffusion constants calculated from different simulations are
-shown in Table \ref{ROTdiffCOEFFS}. The results are in line with
-previously reported experimental and simulation for different proteins.
+shown in Table \ref{ROTdiffCOEFFS}. The values are in line with
+previously reported experimental and simulation for different proteins
+with similar size~\cite{wong08,krishnan98}. As expected, increase in
+rotational diffusion is observed with increasing temperature and decreasing
+protein size. Also the overestimated diffusion constants from simulations
+with tip3p are in line with previous studies \cite{wong08}.
 
-As expected,
-rotational diffusion is faster in simulations with higher temperature
-or smaller protein. Also the larger diffusion constants for simulations
-with tip3p are expected due to the low viscosity of the model \cite{??}.
-
-Inclusion of rotational diffusion coefficients in N-H bond
-rotational correlation functions is exemplified in in Fig.~\ref{exampleCORRF}
-for residue 331 located in alpha helix of PaTonB protein. 
-The same analysis is performed also to other bonds and the resulting
-correlation functions are used to calculate spin relaxation rates.
-As expected, the N-H bond correlation functions calculated from original MD trajectories
-shown in Fig.~\ref{exampleCORRF} A)  decay to fluctuate approximately around zero
-after $\sim$20ns. Fluctuations from
-ideal relaxation behaviour begin already close to one
+Separation of N-H bond rotational correlation functions
+to internal and overall contributions is exemplified in
+Fig.~\ref{exampleCORRF} for flexible loop (residue 322),
+$\beta$-sheet (residue 331) and flexible C-terminus (residue) of PsTonB.
+The total correlation functions calculated from original MD trajectories
+in Fig.~\ref{exampleCORRF} A) (solid lines) decay toward zero within $\sim$10-50~ns.
+Statistical fluctuations become visible with lag times close to one
 hundredth of total simulation time (approximately 4-12ns for the studied systems),
-which is expected to be the limit for good
-statistic for rotational dynamics analyzed from single molecule MD simulation \cite{??}.
-Internal correlation functions, calculated from trajectory with overall protein rotation removed,
-in Fig.~\ref{exampleCORRF} B) show rapid decay to a plateau value, which defines the square of the order
-parameter $S^2$. The global rotational correlation functions calculated as $C_O(t)=C(t)/C_I(t)$
-are shown in Fig.~\ref{exampleCORRF} C). 
+which is expected to be the limit for good statistic from single molecule MD simulation \cite{lu06}.
+The internal correlation functions calculated from trajectory with removed overall
+protein rotation removed in Fig.~\ref{exampleCORRF} B) show a rapid decay to a
+plateau value, which defines the square of the order parameter $S^2$.
+The order parameter value is largest for N-H bond in alpha helix, while
+bonds in loop and C-terminus give significanlty smaller values
+indicating more disordered structures on these regions.
+The rapid decay is not present in global rotational correlation
+functions, which show a slow decay toward zero in Fig.~\ref{exampleCORRF} C) (solid lines)
+due to rotational diffusion of  proteins. Large statistical fluctuations are
+seen in correlation function for flexible C-terminus (residue 341) due
+to a small contribution from overall rotation dynamics to the total correlation
+function for segments with small order parameters.
+%calculated from $C_O(t)=C(t)/C_I(t)$.
 \begin{figure}[!h]
   \includegraphics[width=8.5cm]{../Figs/exampleCORRF2.eps}%
   \caption{Example correlation functions for residue 331 of PsTonB calculated from MD simulations with different water models.
@@ -460,15 +464,16 @@ are shown in Fig.~\ref{exampleCORRF} C).
     }\label{exampleCORRF}
 \end{figure}
 
-Overall rotational correlation functions were fit to Eq.  \ref{CORRFanisot}, where
-timescales for anisotropic rotation~\cite{Note1} were determined by using rotational diffusion constants
-from Table \ref{ROTdiffCOEFFS}, to determine the prefactors $A_j$ for all residues.
-Resulst for such fit are exemplified with dashed lines in Fig. \ref{exampleCORRF} C) for residue 331 of PsTonB.
-The prefactors, global rotational timescales and correlation functions for internal relaxation
-were used to determine new correlation function $C_N(t)=C_I(t)\sum_{j=1}^5 A_j e^{-t/\tau_j}$,
-where internal correlation comes directly from MD simulation and global rotational correlation
-function from diffusion coefficients calculated from MD and Eq. \ref{CORRFanisot}. The new correlation
-functions are exemplified with dashed lines in Fig. \ref{exampleCORRF} A) for residue 331 of PsTonB.
+The overall rotational correlation functions by Eq. \ref{CORRFanisot}
+are shown in Fig.~\ref{exampleCORRF} C) with dashed lines. Timescales
+for the equation were determined from rotational diffusion constants~\cite{Note1}
+and prefactors $A_j$ by fitting against overall rotational correlation functions calculated from MD.
+The new total correlation functions were then determined from Eq. \ref{newCORRF} by using these
+parameters and internal correlation function from simulations.
+The new correlation functions are exemplified with dashed lines in Fig. \ref{exampleCORRF} A).
+
+The same analysis is performed also to other bonds and the resulting
+correlation functions are used to calculate spin relaxation rates.
 
 %\begin{table}[htb]
 %\centering
