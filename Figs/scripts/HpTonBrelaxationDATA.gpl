@@ -1,10 +1,10 @@
 #set term postscript enhanced color  
-set size 1, 1.1
+set size 1, 0.83
 set terminal postscript portrait enhanced color dashed lw 1 "Helvetica" 14 
 #set terminal png enhanced color dashed lw 1 "Helvetica" 14 
 #set terminal png size 555,880 enhanced font "Helvetica,20"
 set output "../HpTonBrelaxationDATA.eps"
-set multiplot  layout 6,1
+set multiplot  layout 4,1
 #set yrange [-0.01:0.19]
 #set ytic 0.05
 #set key box
@@ -17,10 +17,11 @@ set xtic 10
 
 set style fill transparent solid 0.5 noborder
 
-set key at screen 0.5,screen 1.1 maxcols 2 maxrows 4
+set origin 0,0.56
+set key at screen 0.5,screen 0.81 maxcols 2 maxrows 4
 set size 1.0, 0.21
 set ylabel "T_{1} (s)"
-set yrange [0.35:1.4]
+set yrange [0.35:1.0]
 #set ytic 0.1
 set format x ""
 plot  "~/Dropbox/TonB/Data/alphaHELIXES.dat" using 1:2 with filledcurves below x1 lc 'grey' notitle,\
@@ -30,11 +31,13 @@ plot  "~/Dropbox/TonB/Data/alphaHELIXES.dat" using 1:2 with filledcurves below x
       "~/Dropbox/TonB/Data/experimentalRELAXATIONdata/T1experimentalDATA850MHz.dat" using 1:2:3 notitle  with yerrorbars pt 5 lc 'black', \
       "~/Dropbox/TonB/Data/experimentalRELAXATIONdata/T1experimentalDATA850MHz.dat" using 1:2:3 title 'Experiments (298K)' with linespoint pt 5 linetype 1 lw 2 lc 'black', \
 
+set origin 0,0.38
 set size 1.0, 0.21
-set key at screen 0.98,screen 1.1 maxcols 2 maxrows 4
+set key at screen 0.98,screen 0.81 maxcols 2 maxrows 4
 #set label at screen 0.37,screen 0.55 "T2"
 set ylabel "T_{2} (s)"
 set yrange [0.01:0.49]
+set ytic 0.1
 plot  "~/Dropbox/TonB/Data/alphaHELIXES.dat" using 1:2 with filledcurves below x1 lc 'grey' title 'alpha helix' ,\
       "~/Dropbox/TonB/Data/betaSHEETS.dat" using 1:2 with filledcurves below x1 lc 'grey50' title 'beta sheets' ,\
       "~/Dropbox/TonB/Data/T2fromSmulationsTIP3P_T303K.dat" using 1:2 notitle with linespoint pt 5 linetype 1 lw 2  lc rgb 'blue',\
@@ -42,7 +45,7 @@ plot  "~/Dropbox/TonB/Data/alphaHELIXES.dat" using 1:2 with filledcurves below x
       "~/Dropbox/TonB/Data/experimentalRELAXATIONdata/T2experimentalDATA850MHz.dat" using 1:2:3 notitle with yerrorbars pt 5 lc 'black', \
       "~/Dropbox/TonB/Data/experimentalRELAXATIONdata/T2experimentalDATA850MHz.dat" using 1:2:3 notitle with linespoint pt 5 linetype 1 lw 2 lc 'black', \
 
-
+set origin 0,0.2
 set lmargin 8.17
 set size 1.0, 0.21
 set ylabel "T_{1}/T_{2}"
@@ -56,11 +59,11 @@ plot  "~/Dropbox/TonB/Data/alphaHELIXES.dat" using 1:2 with filledcurves below x
       "~/Dropbox/TonB/Data/experimentalRELAXATIONdata/T1T2ratioEXPERIMENTS850MHz.dat" using 1:2:3 notitle with linespoint pt 5 linetype 1 lw 2 lc 'black', \
 
 
-
-#set label at screen 0.37,screen 0.35 "Orange (510 mM)"
+set format x "%G"
+set xlabel "Residue"
 set ylabel "NOE"
-set size 1.0, 0.21
-set yrange [-0.6:1.0]
+set size 1.0, 0.23
+set yrange [-0.6:1.1]
 set ytic 0.2
 plot  "~/Dropbox/TonB/Data/alphaHELIXES.dat" using 1:2 with filledcurves below x1 lc 'grey' notitle,\
       "~/Dropbox/TonB/Data/betaSHEETS.dat" using 1:2 with filledcurves below x1 lc 'grey50' notitle,\
@@ -69,26 +72,26 @@ plot  "~/Dropbox/TonB/Data/alphaHELIXES.dat" using 1:2 with filledcurves below x
       "~/Dropbox/TonB/Data/experimentalRELAXATIONdata/15N-NOEexperimentalDATA850MHz.dat" using 1:2:3 notitle with yerrorbars pt 5 lc 'black',\
       "~/Dropbox/TonB/Data/experimentalRELAXATIONdata/15N-NOEexperimentalDATA850MHz.dat" using 1:2:3 notitle with linespoint pt 5 linetype 1 lw 2 lc 'black',\
 
-set size 1.0, 0.21
-set ylabel "S^2"
-set yrange [0.01:0.99]
-set ytic 0.2
-plot  "~/Dropbox/TonB/Data/alphaHELIXES.dat" using 1:2 with filledcurves below x1 lc 'grey' notitle ,\
-      "~/Dropbox/TonB/Data/betaSHEETS.dat" using 1:2 with filledcurves below x1 lc 'grey50' notitle,\
-      "~/Dropbox/TonB/Data/OPfromPLATEAUwithTIP3P_T303K.dat" using 1:2 notitle with linespoint pt 5 linetype 1 lw 2 lc rgb 'blue',\
-      "~/Dropbox/TonB/Data/OPfromPLATEAUwithTIP4P_T303K.dat" using 1:2 notitle with linespoint pt 5 linetype 1 lw 2 lc rgb 'red',\
+#set size 1.0, 0.21
+#set ylabel "S^2"
+#set yrange [0.01:0.99]
+#set ytic 0.2
+#plot  "~/Dropbox/TonB/Data/alphaHELIXES.dat" using 1:2 with filledcurves below x1 lc 'grey' notitle ,\
+#      "~/Dropbox/TonB/Data/betaSHEETS.dat" using 1:2 with filledcurves below x1 lc 'grey50' notitle,\
+#      "~/Dropbox/TonB/Data/OPfromPLATEAUwithTIP3P_T303K.dat" using 1:2 notitle with linespoint pt 5 linetype 1 lw 2 lc rgb 'blue',\
+#      "~/Dropbox/TonB/Data/OPfromPLATEAUwithTIP4P_T303K.dat" using 1:2 notitle with linespoint pt 5 linetype 1 lw 2 lc rgb 'red',\
 
 
-set size 1.0, 0.21
-set format x "%G"
-set ylabel "{/Symbol t}_e (ns)"
-set xlabel "Residue"
-set yrange [0.0:15]
-set ytic 4
+#set size 1.0, 0.21
+#set format x "%G"
+#set ylabel "{/Symbol t}_e (ns)"
+#set xlabel "Residue"
+#set yrange [0.0:15]
+#set ytic 4
 #set logscale y
-plot  "~/Dropbox/TonB/Data/alphaHELIXES.dat" using 1:2 with filledcurves below x1 lc 'grey' notitle ,\
-      "~/Dropbox/TonB/Data/betaSHEETS.dat" using 1:2 with filledcurves below x1 lc 'grey50' notitle,\
-      "~/Dropbox/TonB/Data/effCTtip3p_T303K.dat" using 1:2 notitle with linespoint pt 5 linetype 1 lw 2 lc rgb 'blue',\
-      "~/Dropbox/TonB/Data/effCTtip4p_T303K.dat" using 1:2 notitle with linespoint pt 5 linetype 1 lw 2 lc rgb 'red'
+#plot  "~/Dropbox/TonB/Data/alphaHELIXES.dat" using 1:2 with filledcurves below x1 lc 'grey' notitle ,\
+#      "~/Dropbox/TonB/Data/betaSHEETS.dat" using 1:2 with filledcurves below x1 lc 'grey50' notitle,\
+#      "~/Dropbox/TonB/Data/effCTtip3p_T303K.dat" using 1:2 notitle with linespoint pt 5 linetype 1 lw 2 lc rgb 'blue',\
+#      "~/Dropbox/TonB/Data/effCTtip4p_T303K.dat" using 1:2 notitle with linespoint pt 5 linetype 1 lw 2 lc rgb 'red'
 unset multiplot
 
