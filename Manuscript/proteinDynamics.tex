@@ -399,41 +399,59 @@ HpTonB-92   & OPC4        & 310    & 800           	 &  790                 & 2.
 \section{Results and discussion}
 
 \subsection{Global rotational dynamics of protein}
-Rotational diffusion coefficients are calculated
-according to Eq. \ref{DIFFdef} by fitting a
-linear slope to the mean square angle deviations of protein intertia
-axes as a function of time. The mean square angle deviations
-and linear fits are exemplified for different simulations of PsTonB
-in Fig. \ref{RMASDplot}. The overall rotational dynamics can be considered
-to be diffusive with a good approximation; the data plotted with
-log-log scale in Fig.~\ref{RMASDplotLOG} reveal a weakly subdiffusive region
-only below 0.12~ns. Also visual inspection of the data plotted with
-linear scale in Fig. \ref{RMASDplot} reveals very linear behaviour
-with lag times less than one hundredth of the total simulation length,
-which is expected to be maximum for a statistics for rotation of single molecules
-in MD simulations \cite{lu06}. Thus, the deviations from linear behaviour with
-longer timescales are considered to arise from insufficient statistics
-and diffusion coefficients are calculated by fitting linear line to the mean square angle deviations with
-lag times less than one hundreth of the total simulation lenght.
-\begin{figure}[!h]
-  \includegraphics[width=8.5cm]{../Figs/RMASDplot.eps}%
+The mean square angle deviations as a function of time
+for protein inertia axes are shown in Fig. \ref{RMASDplot}
+for PsTonB simulation with OPC4 water model, which the longest
+data set in this work (1.2$\mu$s).
+Linear behaviour of root mean square angle deviations are observed
+for the lag times up to 12~ns, suggesting that the protein follows linear diffusion model with a
+good approximation. Plot with log-log scale in Fig.~\ref{RMASDplotLOG} B)
+reveals a weakly subdiffusive region only below very short timescales
+of approximately~0.12~ns. Deviations from linear behaviour are also
+seen with longer lag times than the one hundreth of the simulation lenght as
+demontrated for shorter simulations in Figs. \ref{??}.
+This is expected to be the maximum lag time for a good statistics
+for rotational dynamics analyzed from a single molecule in MD simulations \cite{lu06}.
+Thus, we conclude that the rotational diffusion coefficients of protein can
+be calculated from the slope of mean square angle
+deviations according to Eq. \ref{DIFFdef} by using lag times less than
+one hundreth of the total MD simulation length.
+\begin{figure*}[htb]
+  \includegraphics[width=16.5cm]{../Figs/RMASDplotPsTonBOPC4.eps}%
   \caption{The intertia tensor angles as a function of time and mean square angular
     deviations for PsTonB simulation with OPC water model.
     \label{RMASDplot}}%
-\end{figure}
+\end{figure*}
 
-The diffusion constants calculated from different simulations are
+The resulting rotational diffusion constants from different simulations are
 shown in Table \ref{ROTdiffCOEFFS}. The values are in line with
 previously reported experimental and simulation for different proteins
-with similar size~\cite{wong08,krishnan98}. As expected, increase in
-rotational diffusion is observed with increasing temperature and decreasing
-protein size. Also the overestimated diffusion constants from simulations
-with tip3p are in line with previous studies \cite{wong08}.
+with similar size~\cite{wong08,krishnan98}. As expected,
+rotational diffusion increase with the temperature and decrease with the
+size of a protein.  Exceptionally large diffusion constants from simulations
+with tip3p water model are also previously observed and explained with
+overestimated water self diffusion \cite{wong08}.
 
-Separation of N-H bond rotational correlation functions
-to internal and overall contributions is exemplified in
-Fig.~\ref{exampleCORRF} for flexible loop (residue 322),
-$\beta$-sheet (residue 331) and flexible C-terminus (residue 341) of PsTonB.
+The calculated rotational diffusion constants can be used to determine
+the timescales in Eq. \ref{CORRFanisot} for the part arising from overall
+protein dynamics of rotational correlation functions. To determine the overall
+rotational correlation functions completely we need information also of the
+prefactors, which depend on the orientations of the each N-H bond respect to
+intertia axes in a complicated way \cite{??}. Instead of the direct analysis,
+we determine the prefactors by fitting the Eq. \ref{CORRFanisot} with timescales
+from diffusion coeffiecients to the overall rotational correlation function
+calculated from MD simulations. The prefactors and timescales for overall
+rotational correlation functions can be then combined with internal
+correlation function calculated from oriented MD simulations to determine
+the new correlation functions from Eq.~\ref{??}. The main advantage of this
+new correlation function are the smaller fluctuations with longer time
+scales.
+
+The rotational correlation function analysis is exemplified in
+Fig.~\ref{exampleCORRF} for residues in different parts of PsTonB.
+Flexible loop is represented by residue 322, $\beta$-sheet by residue 331
+and flexible C-terminus by residue 341. 
+
 The total correlation functions calculated from original MD trajectories
 in Fig.~\ref{exampleCORRF} A) (solid lines) decay toward zero within $\sim$10-50~ns.
 Statistical fluctuations become visible with lag times close to one
@@ -446,6 +464,11 @@ The N-H bond in $\alpha$-helix has largest order parameter value
 and fastest decay to it. Significantly lower order parameters and
 slower decay are observed for bonds in loop and C-terminus 
 can be exlpained by a larger ensemble of sampled conformations for these regions.
+
+Assuming 
+Separation of N-H bond rotational correlation functions
+to internal and overall contributions
+
 The global rotational correlation functions shown similar slow decay
 from the overall rotational diffusion
 for all the analyzed bonds in different protein regions in Fig.~\ref{exampleCORRF} C) (solid lines).
@@ -789,12 +812,19 @@ models, which is the case in simulations with tip3p.
 \begin{center}
 {\bf SUPPLEMENTARY INFORMATION}
 \end{center}
-\begin{figure}[!h]
-  \includegraphics[width=8.5cm]{../Figs/RMASDplotLOG.eps}%
+\begin{figure*}[!h]
+  \includegraphics[width=16.5cm]{../Figs/RMASDplotPsTonBtip4pT310K.eps}%
   \caption{The intertia tensor angles as a function of time and mean square angular
     deviations for PsTonB simulation with OPC water model.
     \label{RMASDplotLOG}}%
-\end{figure}
+\end{figure*}
+\begin{figure*}[!h]
+  \includegraphics[width=16.5cm]{../Figs/RMASDplotPsTonBtip4pT298K.eps}%                                                                                                    
+  \caption{The intertia tensor angles as a function of time and mean square angular
+    deviations for PsTonB simulation with OPC water model.
+    \label{RMASDplotLOG}}%                                                                                                                                                  
+\end{figure*}
+
 
 %\todolist
 \end{document}
