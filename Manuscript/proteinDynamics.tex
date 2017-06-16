@@ -80,25 +80,30 @@
 %\label{}
 \section{Introduction}
 Protein conformational sampling and entropy
-plays significant role in protein functionality
+play a significant role in protein functionality
 and interactions with other biomolecules.
-The related Protein backbone and side chains dynamics 
-as well as protein overall brownian tumbling
-can be experimentally studied by using NMR relaxation experiments of backbone N-H
-or side chain ?? bonds \cite{jarymowycz06,korzhnev01,bedem15}.
-Spin relaxation data is usually analyzed by describing the sampled bond
-orientations with order parameter $S^2$ respect to the protein reference frame
-and assuming that overall and internal motions are independt \cite{??,korzhnev01}.
-Order parameters and timescales for overall and internal motions can be then
-extracted by fitting various functional forms to spin relaxation data
-measured with different magnetic field strengths \cite{jarymowycz06,korzhnev01}.
-
-This approach has been successfully applied for large amount of proteins
-with isotropic shape and overall rotational diffusion \cite{jarymowycz06}.
-The resulting order parameters and overall rotational diffusion coefficients
-have been used in wide range applications, including analysis of conformational
-entropy \cite{??}, binding entropy of ?? \cite{??}, resolving sampled structures \cite{??}
+In addition to internal dynamics due to conformation sampling, the
+proteins also experience overall brownian tumbling.
+These properties are experimentally accessible through 
+spin relaxation rates of $15$N and $13$C nucleai measured
+wth nuclaer magnetic resonance (NMR) 
+techniques \cite{jarymowycz06,korzhnev01,bedem15}. 
+Spin relaxation rate experiments have been used to analyze,
+for example, conformational
+entropy \cite{??}, binding entropy of ?? \cite{??}, resolve sampled structures \cite{??}
 and validating molecular dynamics simulations \cite{??}.
+These analyzes are almost exclusively based on assumption
+of separable motions of internal conformational sampling 
+and overall rotational tumbling \cite{??}. In addition, most studies
+assume isotropic diffusion for overall tumbling, while
+inclusion of anisotropic models in the analysis is a significant
+complication \cite{jarymowycz06,korzhnev01,lenhningbuhl??}.
+
+
+%This approach has been successfully applied for large amount of proteins
+%with isotropic shape and overall rotational diffusion \cite{jarymowycz06}.
+%The resulting order parameters and overall rotational diffusion coefficients
+%
 %, however, proteins
 %with anisotropic shape or large amount of internal motional timescales
 %are 
@@ -108,26 +113,12 @@ and validating molecular dynamics simulations \cite{??}.
 %and improvement of molecular dynamics simulation force fields \cite{??}.
 %Segmental order has been also related to conformational entropy of proteins \cite{??}.
 
-Two different approaches have been commonly used to analyze
-rotational dynamics from NMR relaxation experiments. In
-''model free analysis'' the fundamental idea is to separate
-interal dynamics from global rotation and assume exponential
-forms for rotational correlation functions. The parameters of
-rotational correlation functions are then fitted the experimental
-data to solve time scales and order parameters for different dynamical
-processes \cite{??}. Alternative approach is to use bead models and hydrodynamical
-calculations to describe protein dynamics and predict spin relaxation rates \cite{??}.
-The approaches have been successfull or several proteins, but both suffer
-from significant limitations which limit the general applicability \cite{??}.
-Main practical issue in the ''model free analysis'' is that the amount of
-freen parameters to be fitted in the experiments becomes large for anitoropic
-proteins experiencing complex dynamics \cite{??}. On the other hand,
-hydrodynamical calculations are sentitive for the assumptions about
-protein hydration shell \cite{??}.
  
-Classical molecular dynamics simulations have been considered as a
-promising tool for interpretation of rotational motions from NMR
-relaxation data, because they simultaneously contain internal rotation,
+Classical molecular dynamics simulation methods are
+promising tools to interpretate spin relaxation rates from NMR
+relaxation data for proteins with significant anisotropy or
+correlated internal and overall rotational motions.
+, because they simultaneously contain internal rotation,
 global browian tumbling, anisotropy and hydration shell effects \cite{??}.
 However, practical applications have been limited by the inaccuracies
 in force field descriptions and available time scales in the simulations.
@@ -154,6 +145,32 @@ into Gran-negative bacteria \cite{??}.
 \section{Methods}
 
 \subsection{Spin relaxation and rotational dynamics of molecules}
+
+Two different approaches have been commonly used to analyze
+rotational dynamics from NMR relaxation experiments. In
+''model free analysis'' the fundamental idea is to separate
+interal dynamics from global rotation and assume exponential
+forms for rotational correlation functions. The parameters of
+rotational correlation functions are then fitted the experimental
+data to solve time scales and order parameters for different dynamical
+processes \cite{??}. Alternative approach is to use bead models and hydrodynamical
+calculations to describe protein dynamics and predict spin relaxation rates \cite{??}.
+The approaches have been successfull or several proteins, but both suffer
+from significant limitations which limit the general applicability \cite{??}.
+Main practical issue in the ''model free analysis'' is that the amount of
+freen parameters to be fitted in the experiments becomes large for anitoropic
+proteins experiencing complex dynamics \cite{??}. On the other hand,
+hydrodynamical calculations are sentitive for the assumptions about
+protein hydration shell \cite{??}.
+
+
+Spin relaxation data is usually analyzed by describing the sampled bond
+orientations with order parameter $S^2$ respect to the protein reference frame
+and assuming that overall and internal motions are independt \cite{??,korzhnev01}.
+Order parameters and timescales for overall and internal motions can be then
+extracted by fitting various functional forms to spin relaxation data
+measured with different magnetic field strengths \cite{jarymowycz06,korzhnev01}.
+
 
 Practical approaches to analyze molecular dynamics from
 NMR relaxation data are usually based on the connection between
