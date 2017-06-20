@@ -5,7 +5,7 @@ load /home/samuli/Dropbox/Calmodulin/Data/residues.dat
 
 figure(2),clf
 for ac = 1:1:144
-    filename=['./scaledrotation/NHrotaCF_' num2str(ac) '.xvg']  
+    filename=['./scaledrotation650-900ns/NHrotaCF_' num2str(ac) '.xvg']  
     corrFtmp=load(filename);
     corrF=[corrFtmp(1:5000,1),corrFtmp(1:5000,2)];
     %ordP=sqrt(OPs(ac,2));
