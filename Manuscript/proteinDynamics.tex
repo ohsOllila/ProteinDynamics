@@ -96,9 +96,9 @@ spin relaxation times of $^{15}$N and $^{13}$C nucleai measured
 with nuclaer magnetic resonance (NMR) 
 techniques \cite{jarymowycz06,korzhnev01,bedem15,lewandowski15,lamley15}. 
 Spin relaxation rate experiments have been used to analyze,
-for example, conformational entropies \cite{kasinath13,allner14,jarymowycz06}, binding entropies \cite{akke93,jarymowycz06},
+for example, conformational entropies \cite{kasinath13,allner15,jarymowycz06}, binding entropies \cite{akke93,jarymowycz06},
 resolve sampled structures \cite{bedem15}
-and validating molecular dynamics simulations \cite{best04,showalter07a,showalter07b,marakagis08,trbovic08}.
+and validating molecular dynamics simulations \cite{best04,showalter07a,showalter07b,maragakis08,trbovic08}.
 These analyzes are almost exclusively based on assumption
 of separable motions of internal conformational sampling 
 and overall rotational tumbling \cite{??}. In addition, most studies
@@ -126,7 +126,7 @@ promising tools to interpretate spin relaxation time experiments
 for molecules with significant anisotropy or correlations between
 internal and overall rotational motions. However, practical applications
 are often limited by inaccuracies in the force field descriptions
-and available time scales in the simulations \cite{prompers02,marakagis08,trbovic08,anderson12}.
+and available time scales in the simulations \cite{prompers02,maragakis08,trbovic08,anderson12}.
 The most used water model in rotational dynamics studies, tip3p \cite{jorgensen83},
 predicts too fast rotational diffusion \cite{wong08}. On the other hand, very long
 simulations are needed to collect enough statistics to calculate rotational
@@ -808,6 +808,20 @@ conformations leads to small order parameters and large effective correlation ti
 
 
 \section{Discussion and conclusions}
+Protein rotational dynamics was separated to the overall
+brownian tumbling around protein intertia axes and internal
+conformational sampling. The overall rotational diffusion constants
+were calculated from the slope of mean square angle deviations (Eq. \ref{??}),
+which were found to be essentially linear for all inertia axes.
+The results indicate that monomeric proteins in dilute solution
+experiense brownian tumbling with only small subdiffusive behaviour
+with short timescales below 0.12 ns. 
+
+Overall diffusion component of rotational 
+correlation functions of individual N-H bonds can can be successfully 
+fitted to the model assuming anitropic diffusion for whole molecule.
+
+
 
  and it is typically
 overcame by introducing isotropic rotational diffusion term in the correlation
@@ -837,11 +851,6 @@ factor before calculating the new correlation functions to compensate
 the overestimated rotational diffusion due to inaccuracies in some
 water models.
 
-
-Rotation of protein intertia axes is observed to experience linear
-diffusion behaviour and overall diffusion component of rotational 
-correlation functions of individual N-H bonds can can be successfully 
-fitted to the model assuming anitropic diffusion for whole molecule.
 
 Rotational diffusion of whole molecules is overestimated by a factor
 of $\sim$3 in simulations with tip3p water, in agreement with previous
