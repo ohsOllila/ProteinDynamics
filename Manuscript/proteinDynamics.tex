@@ -154,47 +154,115 @@ Pyroli and Pseudomonas bacteria, respectively.
 \section{Methods}
 
 \subsection{Spin relaxation experiments and rotational dynamics of molecules}
-Connection between molecular dynamics and spin relaxation experiments can
-be drawn by using the spectral density $J(\omega)$ 
+Molecular dynamics of protein backbone residues and spin relaxation experiments can
+be connected by using the spectral density $J(\omega)$ 
 \begin{equation}\label{SPECTdens}
   J(\omega)=2\int_0^\infty C(t) \cos(\omega t) {\rm d}t,
 \end{equation}
 which is the Fourier transformation of the second order
 rotational correlation function for N-H bond vector
 \begin{equation}\label{CORRFdef}
-  C(t)=\langle (3\cos^2\theta_{t';t'+t}-1)/2 \rangle_{t'},
+  C(t)=\langle \frac{3}{2}\cos^2\theta_{t'+t}-\frac{1}{2} \rangle_{t'},
 \end{equation}
-where average is ensemble average and $\theta$ is the angle between N-H bonds at times $t'$ and $t'+t$.
+where $\theta_{t'+t}$ is the N-H bond angle between times $t'$ and $t'+t$
+and angular brackets refer to the ensemble average.
+Connection to experimentally measured spin relaxation times $T_1$, $T_2$
+and $T_{\rm NOE}$ is given by Redfield equations \cite{abragam,kay89}
+\begin{equation}\label{R1}
+  \begin{aligned}
+  \frac{1}{T_1}= & \frac{d_{\rm{NH}}^2N_{\rm{H}}}{20}\bigg[J(\omega_{\rm{H}}-\omega_{\rm{N}})+3J(\omega_{\rm{N}})+6J(\omega_{\rm{N}}+\omega_{\rm{H}})\bigg] \\
+        & +\frac{(\sigma \omega_{\rm{N}})^2}{15}j(\omega_{\rm{N}}),
+  \end{aligned}
+\end{equation}
+\begin{equation}\label{R2}
+    \begin{aligned}
+  \frac{1}{T_2}= & \frac{1}{2}\frac{d_{\rm{NH}}^2N_{\rm{H}}}{20}\bigg[4J(0)+3j(\omega_{\rm{N}})+J(\omega_{\rm{H}}-\omega_{\rm{N}})+6J(\omega_{\rm{H}})  \\
+    & +6J(\omega_{\rm{N}}+\omega_{\rm{H}})\bigg]+\frac{(\sigma \omega_{\rm{N}})^2}{90}[4J(0) +3J(\omega_{\rm{N}})],
+    \end{aligned}
+\end{equation}
+\begin{equation}\label{NOE}
+  \frac{1}{T_{\rm NOE}}=1+\frac{d_{\rm{NH}}^2N_{\rm{H}}}{20}\bigg[6J(\omega_{\rm{N}}+\omega_{\rm{H}})+J(\omega_{\rm{H}}-\omega_{\rm{N}}))\bigg]\frac{\gamma_{\rm{H}}}{\gamma_{\rm{N}}R_1},
+\end{equation}
+where $\omega_{\rm{N}}$ and $\omega_{\rm{H}}$ are the Larmor angular
+frequencies of $^{15}$N and $^1$H respectively, and
+$N_{\rm{H}}$ is the number of bound protons.
 The dipolar coupling constant is given by
 \begin{equation}
 d_{\rm{NH}}=-\frac{\mu_0\hbar\gamma_{\rm{H}}\gamma_{\rm{N}}}{4\pi\langle r_{\rm{CN}}^3\rangle},\nonumber
 \end{equation}
 where $\mu_0$ is the magnetic constant or vacuum permeability, $\hbar$ is the reduced Planck constant,
 $\gamma_{\rm{N}}$ and $\gamma_{\rm{H}}$ are the gyromagnetic constants of $^{15}$N and $^1$H, respectively.
-Average cubic length is $\langle r_{\rm{CN}}^3\rangle \approx$ and the 
-chemical shift anisotropy is $\Delta \sigma \approx 160*10^{-6}$ for N-H bonds in proteins \cite{??}.
-Same equations can be used, for example, to C-H bond by changing the
-constants related to nitrogen to the ones corresponding carbon. 
+Average cubic length is calculated as $\langle r_{\rm{CN}}^3\rangle = (0.101{\rm nm})^3$ and the 
+value of $\Delta \sigma = -160$ ppm is used for the chemical shift anisotropy of N-H bonds in 
+proteins \cite{kay89,hiyama88}.
+%Same equations can be used, for example, to C-H bond by changing the
+%constants related to nitrogen to the ones corresponding carbon. 
 
 Spin relaxation experiments are typically interpreted by
-dividing the rotational dynamics of a molecular in overall tumbling 
-and internal relaxation due to conformational sampling \cite{wennerstrom79,Lipari82,jarymowycz06,korzhnev01}.
-Assuming that the overall and internal rotational dynamics are independent,
-the rotational correlation function for chemical bonds can be then written as \cite{??}
+dividing the rotational dynamics in overall tumbling 
+and internal relaxation due to conformational sampling 
+and assuming that the motions are 
+independent \cite{wennerstrom79,Lipari82,jarymowycz06,korzhnev01}.
+The rotational correlation function for chemical bonds can be then written as
 \begin{equation}\label{CORRFsep}
   C(t)=C_I(t)C_O(t),
 \end{equation}
 where $C_I(t)$ and $C_O(t)$ are correlation functions for internal and overall
-rotiations, respectively. Within this approximation 
-the internal rotational correlation function decays to a plateau, which
-defines the square of order parameter respect to molecular axes $S^2$.
-Timescale for internal relaxation dynamics can be estimated by using the
-effective internal correlation time 
+rotations, respectively. Conformational sampling can be described
+in this approximation by using the square of order parameter respect to 
+molecular axes $S^2$, which is given by the plateau of the internal rotational 
+correlation function, and the effective correlation time 
 \begin{equation}
   \tau_{\rm eff}=\int_0^\infty C_I'(t) \mathrm{d}t,
 \end{equation}
-where $C_I'(t)=(C_I-S^2)/(1-S^2)$ is the reduced correlation function \cite{??}.
+where $C_I'(t)=\frac{C_I-S^2}{1-S^2}$ is the reduced correlation function \cite{Lipari82}.
 
+The overall rotational correlation function is often described
+by approximating protein as a rigid body, which gives 
+a sum of five exponentials for fully anisotropic molecule \cite{woessner62,korzhnev01}
+\begin{equation}\label{CORRFanisot}
+  C_O(t)=\sum_{j=1}^5 A_j e^{-t/\tau_j},
+\end{equation}
+where time constants $\tau_j$ are related 
+to the diffusion constants around
+three principal axes of a molecule
+($D_{xx}$, $D_{yy}$ and $D_{zz}$)  
+\footnote{
+$\tau_1=(4D_{xx}+D_{yy}+D_{zz})^{-1}$,
+$\tau_2=(D_{xx}+4D_{yy}+D_{zz})^{-1}$,
+$\tau_3=(D_{xx}+D_{yy}+4D_{zz})^{-1}$,
+$\tau_4=[6(D+(D^2-L^2)^{-1/2}]^{-1}$,
+$\tau_5=[6(D-(D^2-L^2)^{-1/2}]^{-1}$,
+$D=\frac{1}{3}(D_{xx}+D_{yy}+D_{zz})$ and 
+$L^2=\frac{1}{3}(D_{xx}D_{yy}+D_{xx}D_{zz}+D_{yy}D_{zz})$}
+and prefactors $A_j$ to the directions of chemical bonds 
+respect to the molecular axes \cite{woessner62,luginbuhl97}.
+
+The simplest approach to extract molecular dynamics from experimental
+data is the original ''model free analysis'', where monoexponential
+decay with time constant $\tau_{\rm eff}$ is assumed for internal correlation
+function and isotropic diffusion for overall rotational correlation function \cite{??}.
+Equation \ref{CORRFanisot} is monoexponential for isotropic diffusion
+and the overall dynamics of such protein can described with single time constant $\tau_c$.
+Dynamics for each residue can be described with internal rotational relaxation 
+time $\tau_{\rm eff}$ and the order parameter $S^2$. For this simple model
+the parameters can be successfully fitted to the experimental data,
+however the fitting becomes significantly more difficult for proteins 
+with anisotropic overall diffusion or several internal timescales \cite{dosset00,luginbuhl97}.
+
+
+%Standard analyses of experimental relaxation data usually assume
+%fully or axially isotropic overall rotational motion and single
+%decay constant for interal motion. Then the free parameters
+%($S^2$, $\tau_j$, $A_j$) are fit against spin relaxation data
+%from experiments. This gives most likely very good results for
+%isotropic molecules for which the assumption of single internal
+%motional timescale is reasonable. However, for molecules with
+%significant shape anisotropy or several timescales in internal
+%motions the amoount parameters to be fitted becomes large compared
+%with the typical amount of experimental points.
+
+The 
 Two different approaches have been commonly used to analyze
 rotational dynamics from NMR relaxation experiments. In
 ''model free analysis'' the fundamental idea is to separate
@@ -220,91 +288,10 @@ Order parameters and timescales for overall and internal motions can be then
 extracted by fitting various functional forms to spin relaxation data
 measured with different magnetic field strengths \cite{jarymowycz06,korzhnev01}.
 
-
-Practical approaches to analyze molecular dynamics from
-NMR relaxation data are usually based on the connection between
-second order rotational correlation function $C(t)$ of N-H bond
-and experimentally measured spin relaxation rates $R_1$, $R_2$
-and $R_{\rm NOE}$ through Redfield equations \cite{abragam,kay89}
-\begin{equation}\label{R1}
-  \begin{aligned}
-  R_{1}= & \frac{d_{\rm{NH}}^2N_{\rm{H}}}{20}\bigg[J(\omega_{\rm{H}}-\omega_{\rm{N}})+3J(\omega_{\rm{N}})+6J(\omega_{\rm{N}}+\omega_{\rm{H}})\bigg] \\
-        & +\frac{(\sigma \omega_{\rm{N}})^2}{15}j(\omega_{\rm{N}}),
-  \end{aligned}
-\end{equation}
-\begin{equation}\label{R2}
-    \begin{aligned}
-  R_{2}= & \frac{1}{2}\frac{d_{\rm{NH}}^2N_{\rm{H}}}{20}\bigg[4J(0)+3j(\omega_{\rm{N}})+J(\omega_{\rm{H}}-\omega_{\rm{N}})+6J(\omega_{\rm{H}})  \\
-    & +6J(\omega_{\rm{N}}+\omega_{\rm{H}})\bigg]+\frac{(\sigma \omega_{\rm{N}})^2}{15*6}[4J(0) +3J(\omega_{\rm{N}})],
-    \end{aligned}
-\end{equation}
-\begin{equation}\label{NOE}
-R_{\rm NOE}=1+\frac{d_{\rm{NH}}^2N_{\rm{H}}}{20}\bigg[6J(\omega_{\rm{N}}+\omega_{\rm{H}})+J(\omega_{\rm{H}}-\omega_{\rm{N}}))\bigg]\frac{\gamma_{\rm{H}}}{\gamma_{\rm{N}}R_1},
-\end{equation}
-where $\omega_{\rm{N}}$ and $\omega_{\rm{H}}$ are the Larmor angular
-frequencies of $^{15}$N and $^1$H respectively, and
-$N_{\rm{H}}$ is the number of bound protons.
-
-
-
-
-The global rotational dynamics for fully anisotropic molecule
-can be described as a sum of five exponentials \cite{woessner62,korzhnev01}
-\begin{equation}\label{CORRFanisot}
-  C_O(t)=\sum_{j=1}^5 A_j e^{-t/\tau_j},
-\end{equation}
-where time constants $\tau_j$ are related \footnote{
-$\tau_1=(4D_{xx}+D_{yy}+D_{zz})^{-1}$,
-$\tau_2=(D_{xx}+4D_{yy}+D_{zz})^{-1}$,
-$\tau_3=(D_{xx}+D_{yy}+4D_{zz})^{-1}$,
-$\tau_4=[6(D+(D^2-L^2)^{-1/2}]^{-1}$,
-$\tau_5=[6(D-(D^2-L^2)^{-1/2}]^{-1}$,
-$D=\frac{1}{3}(D_{xx}+D_{yy}+D_{zz})$ and 
-$L^2=\frac{1}{3}(D_{xx}D_{yy}+D_{xx}D_{zz}+D_{yy}D_{zz})$} to
-the diffusion constants around
-three principal axes of a molecule
-($D_{xx}$, $D_{yy}$ and $D_{zz}$)  and prefactors $A_j$
-can be related to the directions of bond respect to the
-principal axes.
-The rotational diffusion constants are defined as 
-\begin{equation}\label{DIFFdef}
-  \begin{aligned}
-    \langle (\Delta \alpha_{t';t'+t})^2 \rangle_{t'} = 2 D_{xx} t \\
-    \langle (\Delta \beta_{t';t'+t})^2 \rangle_{t'} = 2 D_{yy} t \\
-    \langle (\Delta \gamma_{t';t'+t})^2 \rangle_{t'} = 2 D_{zz} t, \\
-  \end{aligned}
-\end{equation}
-where $\langle (\Delta \alpha_{t';t'+t})^2 \rangle_{t'}$,
-$\langle (\Delta \beta_{t';t'+t})^2 \rangle_{t'}$ and
-$\langle (\Delta \gamma_{t';t'+t})^2 \rangle_{t'}$ are mean
-square angle deviations of protein intertia axes.
 %\begin{equation}
 %  C'_I(t)= e^{-t/\tau_c},
 %\end{equation}
 
-The internal and overall correlation functions are monoexponential for proteins 
-with isotropic overall rotational diffusion and single timescale for internal motion. 
-The dynamics of such proteins is described with three parameters in the
-original ''model free analysis''; internal rotational relaxation time $\tau_e$,
-global rotaional relaxation time $\tau_c$ and the order parameter $S^2$.
-The values for these parameters can be then determined by fitting the 
-Eqs. \ref{R1}-\ref{CORRFanisot} to experimental spin relaxation data \cite{??}.
-However, the amount of exponentials needed to describe correlation functions,
-and thus the free parameters, in such fit increases if 
-proteins experience anisotropic overall diffusion or several internal timescales.
-Thus the ''model free analysis'' becomes less applicable for proteins with significant
-anisotropy or more complicated internal dynamics.
-
-%Standard analyses of experimental relaxation data usually assume
-%fully or axially isotropic overall rotational motion and single
-%decay constant for interal motion. Then the free parameters
-%($S^2$, $\tau_j$, $A_j$) are fit against spin relaxation data
-%from experiments. This gives most likely very good results for
-%isotropic molecules for which the assumption of single internal
-%motional timescale is reasonable. However, for molecules with
-%significant shape anisotropy or several timescales in internal
-%motions the amoount parameters to be fitted becomes large compared
-%with the typical amount of experimental points.
 
 \subsection{Rotational dynamics from molecular dynamics simulations}\label{MDanalysis}
 Classical molecular dynamics simulation gives a trajectory for each atom in
@@ -354,7 +341,19 @@ rotational correlation function is calculated as $C_O(t)=C(t)/C_I(t)$ according 
 4) The protein axes of inertia and their mean square deviations as function of
 time are calculated from MD simulation trajectory. \\
 5) Rotational diffusion constants $D_x$, $D_y$ and $D_z$ are calculated by fitting a straight line
-to mean square angle deviations of inertia axes according to Eq.~\ref{DIFFdef}. \\
+to mean square angle deviations of inertia axes according to Eq.~\ref{DIFFdef}. 
+The rotational diffusion constants are defined as 
+\begin{equation}\label{DIFFdef}
+  \begin{aligned}
+    \langle (\Delta \alpha_{t';t'+t})^2 \rangle_{t'} = 2 D_{xx} t \\
+    \langle (\Delta \beta_{t';t'+t})^2 \rangle_{t'} = 2 D_{yy} t \\
+    \langle (\Delta \gamma_{t';t'+t})^2 \rangle_{t'} = 2 D_{zz} t, \\
+  \end{aligned}
+\end{equation}
+where $\langle (\Delta \alpha_{t';t'+t})^2 \rangle_{t'}$,
+$\langle (\Delta \beta_{t';t'+t})^2 \rangle_{t'}$ and
+$\langle (\Delta \gamma_{t';t'+t})^2 \rangle_{t'}$ are mean
+square angle deviations of protein intertia axes.\\
 6) Timescales in Eq.~\ref{CORRFanisot} are calculated from diffusion constants and
 weighting factors $A_j$ are determined by fitting the equation to
 rotational correlation functions of overall rotational motion $C_0(t)$ determined in step 3. \\
