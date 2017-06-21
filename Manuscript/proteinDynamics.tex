@@ -86,8 +86,8 @@ Prague 6, Czech Republic}
 
 %\label{}
 \section{Introduction}
-Protein conformational sampling and entropy
-play a significant role in protein functionality
+Conformational sampling and entropy of proteins
+play a significant role in functionality
 and interactions with other biomolecules.
 In addition to internal dynamics due to conformation sampling, the
 proteins also experience overall brownian tumbling.
@@ -101,12 +101,12 @@ resolve sampled structures \cite{bedem15}
 and validate molecular dynamics simulations \cite{best04,showalter07a,showalter07b,maragakis08,trbovic08}.
 These analyzes are almost exclusively based on the
 separation of internal conformational sampling 
-and overall rotational tumbling \cite{wennerstrom79,Lipari82} and often
-isotropic diffusion for overall tumbling is assumed, while
-analysis of anisotropic molecules significantly more
+and overall rotational tumbling \cite{wennerstrom79,Lipari82} and
+isotropic overall diffusion is often assumed, while
+analysis of anisotropic molecules is significantly more
 complicated \cite{jarymowycz06,korzhnev01,luginbuhl97,hall04}.
-Thus, new methods are needed to intepret spin relaxation times
-measured from samples with anisotropic or intrinsically disordered molecules.
+Thus, new approaches are needed to intepret spin relaxation times
+measured from anisotropic or intrinsically disordered molecules.
 
 
 %This approach has been successfully applied for large amount of proteins
@@ -126,32 +126,74 @@ measured from samples with anisotropic or intrinsically disordered molecules.
 Classical molecular dynamics simulation methods are
 promising tools to interpretate spin relaxation time experiments
 for molecules with significant anisotropy or correlations between
-internal and overall rotational motions. However, practical applications
-are often limited by inaccuracies in the force field descriptions
+internal and overall rotational motions. Practical applications
+are, however, limited by inaccuracies in the force field descriptions
 and available time scales in the simulations \cite{prompers02,maragakis08,trbovic08,wong08,anderson12}.
 The overestimation of overall rotational diffusion due to inaccuracies in 
 water models~\cite{wong08} and very long simulations required to calculate rotational
 correlation functions with sufficient accuracy from single molecules in MD
 simulations \cite{lu06,anderson12} have been the main complications.
 
-In this work we present a practical approach to overcome these issues
-by assuming that the overall rotational dynamics of protein follows
+In this work we overcome these issues by assuming that the overall
+rotational dynamics of protein follows
 anisotropic rigid body diffusion around inertia axes. 
-overcome these issues by directly calculating diffusion
-coefficients from protein intertia axes. Diffusion coefficients can be then
-used to determine global rotational correlation functions from shorter simulations
-than with direct calculation. Furthermore, the oversestimated dynamics due to water model
-can be anisotropically corrected by scaling the diffusion coefficients with a constant
-factor. The usefullness of the approach is demonstrated by interpreting the
-spi relaxation data from aniotropic protein constructs from TonB
-of Helicobacteri pyroli \cite{??} and Pseudomonas \cite{??}.
-These segments are considered as vital parts related to iron transport
-into Gran-negative bacteria \cite{??}.
+Diffusion coefficients are directly calculated from angular displacements of
+protein intertia axes and used to determine overall rotation part
+of backbone N-H bonds correlation functions.
+This reduces the simulation length required for accurate determination
+of rotational correlation functions. Furthermore, the overestimated
+rotational diffusion due to water model can be anisotropically corrected
+by scaling the diffusion coefficients in all directions with a constant
+factor. The approach is demonstrated by interpreting the experimental
+spin relaxation times of HpTonB-92 \cite{ciragan16} and PsTonB \cite{??}
+protein constructs, both having significantly anisotropic shape. 
+These protein segments are critical for iron transport into Helicbacteri
+Pyroli and Pseudomonas bacteria, respectively.
 
 
 \section{Methods}
 
-\subsection{Spin relaxation and rotational dynamics of molecules}
+\subsection{Spin relaxation experiments and rotational dynamics of molecules}
+Connection between molecular dynamics and spin relaxation experiments can
+be drawn by using the spectral density $J(\omega)$ 
+\begin{equation}\label{SPECTdens}
+  J(\omega)=2\int_0^\infty C(t) \cos(\omega t) {\rm d}t,
+\end{equation}
+which is the Fourier transformation of the second order
+rotational correlation function for N-H bond vector
+\begin{equation}\label{CORRFdef}
+  C(t)=\langle (3\cos^2\theta_{t';t'+t}-1)/2 \rangle_{t'},
+\end{equation}
+where average is ensemble average and $\theta$ is the angle between N-H bonds at times $t'$ and $t'+t$.
+The dipolar coupling constant is given by
+\begin{equation}
+d_{\rm{NH}}=-\frac{\mu_0\hbar\gamma_{\rm{H}}\gamma_{\rm{N}}}{4\pi\langle r_{\rm{CN}}^3\rangle},\nonumber
+\end{equation}
+where $\mu_0$ is the magnetic constant or vacuum permeability, $\hbar$ is the reduced Planck constant,
+$\gamma_{\rm{N}}$ and $\gamma_{\rm{H}}$ are the gyromagnetic constants of $^{15}$N and $^1$H, respectively.
+Average cubic length is $\langle r_{\rm{CN}}^3\rangle \approx$ and the 
+chemical shift anisotropy is $\Delta \sigma \approx 160*10^{-6}$ for N-H bonds in proteins \cite{??}.
+Same equations can be used, for example, to C-H bond by changing the
+constants related to nitrogen to the ones corresponding carbon. 
+
+Spin relaxation experiments are typically interpreted by
+dividing the rotational dynamics of a molecular in overall tumbling 
+and internal relaxation due to conformational sampling \cite{wennerstrom79,Lipari82,jarymowycz06,korzhnev01}.
+Assuming that the overall and internal rotational dynamics are independent,
+the rotational correlation function for chemical bonds can be then written as \cite{??}
+\begin{equation}\label{CORRFsep}
+  C(t)=C_I(t)C_O(t),
+\end{equation}
+where $C_I(t)$ and $C_O(t)$ are correlation functions for internal and overall
+rotiations, respectively. Within this approximation 
+the internal rotational correlation function decays to a plateau, which
+defines the square of order parameter respect to molecular axes $S^2$.
+Timescale for internal relaxation dynamics can be estimated by using the
+effective internal correlation time 
+\begin{equation}
+  \tau_{\rm eff}=\int_0^\infty C_I'(t) \mathrm{d}t,
+\end{equation}
+where $C_I'(t)=(C_I-S^2)/(1-S^2)$ is the reduced correlation function \cite{??}.
 
 Two different approaches have been commonly used to analyze
 rotational dynamics from NMR relaxation experiments. In
@@ -202,43 +244,9 @@ R_{\rm NOE}=1+\frac{d_{\rm{NH}}^2N_{\rm{H}}}{20}\bigg[6J(\omega_{\rm{N}}+\omega_
 where $\omega_{\rm{N}}$ and $\omega_{\rm{H}}$ are the Larmor angular
 frequencies of $^{15}$N and $^1$H respectively, and
 $N_{\rm{H}}$ is the number of bound protons.
-Spectral density $J(\omega)$ is the Fourier transformation of the second order
-rotational correlation function for N-H bond
-\begin{equation}\label{SPECTdens}
-  J(\omega)=2\int_0^\infty C(t) \cos(\omega t) {\rm d}t.
-\end{equation}
-The second order rotational correlation is defined as
-\begin{equation}\label{CORRFdef}
-  C(t)=\langle (3\cos^2\theta_{t';t'+t}-1)/2 \rangle_{t'},
-\end{equation}
-where average is ensemble average and $\theta$ is the angle between N-H bonds at times $t'$ and $t'+t$.
-The dipolar coupling constant is given by
-\begin{equation}
-d_{\rm{NH}}=-\frac{\mu_0\hbar\gamma_{\rm{H}}\gamma_{\rm{N}}}{4\pi\langle r_{\rm{CN}}^3\rangle},\nonumber
-\end{equation}
-where $\mu_0$ is the magnetic constant or vacuum permeability, $\hbar$ is the reduced Planck constant,
-$\gamma_{\rm{N}}$ and $\gamma_{\rm{H}}$ are the gyromagnetic constants of $^{15}$N and $^1$H, respectively.
-Average cubic length is $\langle r_{\rm{CN}}^3\rangle \approx$ and the 
-chemical shift anisotropy is $\Delta \sigma \approx 160*10^{-6}$ for N-H bonds in proteins \cite{??}.
-Same equations can be used, for example, to C-H bond by changing the
-constants related to nitrogen to the ones corresponding carbon. 
 
-Experimental spin relaxation rates of proteins are typically intepreted by
-assuming that the global and interal rotational dynamics are independent.
-The rotational correlation function for each bond can be then written as \cite{??}
-\begin{equation}\label{CORRFsep}
-  C(t)=C_I(t)C_O(t),
-\end{equation}
-where $C_I(t)$ and $C_O(t)$ are correlation functions for internal and overall
-rotiations, respectively. Within this approximation 
-the internal rotational correlation function decays to a plateau, which
-defines the square of order parameter respect to molecular axes $S^2$.
-Timescale for internal relaxation dynamics can be estimated by using the
-effective internal correlation time 
-\begin{equation}
-  \tau_{\rm eff}=\int_0^\infty C_I'(t) \mathrm{d}t,
-\end{equation}
-where $C_I'(t)=(C_I-S^2)/(1-S^2)$ is the reduced correlation function \cite{??}.
+
+
 
 The global rotational dynamics for fully anisotropic molecule
 can be described as a sum of five exponentials \cite{woessner62,korzhnev01}
