@@ -826,20 +826,20 @@ the total correlation functions calculated from original trajectories.
 The results suggest that the intertia axes can be used to describe
 the overall rotational diffusion as a good approximation and that
 the assumption of separation of internal and overall rotational
-relaxation (Eq.~\ref{??}) is a good approximation for the studied
+relaxation (Eq.~\ref{CORRFsep}) is a good approximation for the studied
 proteins, as observed previously also for other protein~\cite{wong08,allner15}.
 
-Using the new correlation functions from Eq.~\ref{newCORRF} in
+Usage of the new correlation functions from Eq.~\ref{newCORRF} in
 spin relaxation time calculations reduces the statistical fluctuations
-arising from longer lag times in correlation function calculation,
+with long lag times in correlation function calculation,
 which allows the higher accuracy with less simulation data.
 The essential reason is that the rotational diffusion constants
 can be determined by fitting a single parameter (linear slope) which is
-more robust than fitting exponential function with several parameters to
-a correlation function calculated from MD simulation. After determining
-the diffusion constants and using Eq.~\ref{newCORRF} the overall
-part of correlation functions do not have statistical fluctuations
-in spin relaxation time calculations.
+more robust than a direct fit of multiexponential correlation function
+to MD simulation result. After determining
+the diffusion constants and using Eq.~\ref{newCORRF},
+the contribution from overall rotation do not have statistical
+fluctuations in correlation functions used in spin relaxation time calculations.
 
 Comparison to experimental results revealed that overall rotational diffusion
 coefficients were overestimated by a factor of $\sim$3 in simulations with tip3p
@@ -861,7 +861,7 @@ the separation between internal and overall rotational dynamics is not
 required, thus they would be applicable also for intrinsically disoredered
 proteins. However, the correction of overall rotational diffusion is based on
 the assumption that incorrect diffusion arises from incorrect water viscosity.
-Thus, a model with correct overall rotational diffusion is required to
+Thus, a water model reproducing correct overall rotational diffusion is required to
 compare intrinsically disordered molecule simulations to experimental
 relaxation data.
 
@@ -890,7 +890,7 @@ Here we use the approach to indentify dynamical regions in two proteins,
 HpTonB-92 and PsTonB with relatively rigid structures. However, the
 approach could be useful for intepretation of spin relaxation data from
 proteins with more regions containing complicated local dynamics, like
-Calmodulin~\cite{trjandra95}.
+Calmodulin~\cite{barbato92}.
 
 
 % If you have acknowledgments, this puts in the proper section head.
