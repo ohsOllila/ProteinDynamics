@@ -22,7 +22,7 @@ set origin 1.05,0
 #set label at screen 0.37,screen 0.55 "T2"
 #set key at graph 1.2,graph 0.9 maxcols 1 maxrows 3
 set key above
-set ylabel "A_i"
+set ylabel "{/Symbol a}_i"
 set xlabel "{/Symbol t}_i (ns)"
 set xrange [-0.2:15]
 set xtic 1
