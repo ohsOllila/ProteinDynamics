@@ -390,7 +390,7 @@ new correlation functions from Eq. \ref{newCORRF}.
 \caption{Simulated systems and rotational diffusion coefficients (rad$^2\cdot 10^7$/s) calculated from simulations.
 }\label{ROTdiffCOEFFS}
 \begin{tabular}{c c c c c c c c c c c c c c c c}
-Protein     & Water model & T (K) \footnote{Simulation temperature}  &  $t_{\rm sim}$ (ns) \footnote{Total simulation time}  &  $t_{\rm anal}$ (ns) \footnote{Analyzed simulation time}  & D$_{xx}$ &&D$_{yy}$ &&D$_{zz}$ &&D$_{||}$/D$_\perp$ \footnote{$D_{||}=D_{zz}$, $D_\perp=\frac{1}{2}(D_{xx}+D_{yy})$} & &D \footnote{$D=\frac{1}{3}(D_{xx}+D_{yy}+D_{zz} )$}& &files \\
+Protein     & Water model & T (K) \footnote{Simulation temperature}  &  $t_{\rm sim}$ (ns) \footnote{Total simulation time}  &  $t_{\rm anal}$ (ns) \footnote{Analyzed simulation time}  & $D_{xx}$ &&$D_{yy}$ &&$D_{zz}$ &&$D_{||}/D_\perp$ \footnote{$D_{||}=D_{zz}$, $D_\perp=\frac{1}{2}(D_{xx}+D_{yy})$} & &$D_{\rm av}$ \footnote{$D_{\rm av}=\frac{1}{3}(D_{xx}+D_{yy}+D_{zz} )$}& &files \\
 \hline
 {\it Pa}TonB      & tip4p       & 298    & 400                 &  390                 & 1.81 $\pm$ 0.01 && 2.06$\pm$ 0.03 && 4.55 $\pm$ 0.03 && 2.35 $\pm$ 0.04 && 2.80 $\pm$ 0.02 && \cite{??} \\
 {\it Pa}TonB      & tip4p       & 310    & 400                 &  390                 &  2.60 $\pm$ 0.02 &&  2.22 $\pm$ 0.05& &  5.0  $\pm$ 0.1  & &  2.07 $\pm$ 0.09& &   3.26 $\pm$  0.07 && \cite{??}\\
@@ -405,7 +405,7 @@ Protein     & Water model & T (K) \footnote{Simulation temperature}  &  $t_{\rm 
 All simulations were ran using Gromacs 5 \cite{abraham15}
 and Amber ff99SB- ILDN~\cite{lindorff10} force field for proteins . The proteins were solvated
 to tip3p\cite{jorgensen83}, tip4p \cite{jorgensen83} or OPC4 \cite{izadi14} water models.
-Initial structures were taken from NMR structures for {\it Hp}TonB \cite{ciragan16} and
+Initial structures were taken from NMR structures of {\it Hp}TonB \cite{ciragan16} and
 {\it Pa}TonB \cite{??}.
 Temperature was coupled to desired value with v-rescale thermostat \cite{bussi07} and pressure was 
 isotropically set to 1 bar using Parrinello-Rahman barostat \cite{parrinello81}.
@@ -418,12 +418,12 @@ in Table \ref{ROTdiffCOEFFS}
 
 Rotational correlation functions are calculated with {\it gmx rotacf} from
 Gromacs package \cite{gromacsMANUAL}. Overall rotation was removed
-for $C_I(t)$ calculation by using fit option in {\it gmx trjconv}
-from Gromacs package \cite{gromacsMANUAL}. The order parameters $S^2$
+for $C_I(t)$ calculation by using a fit option of the {\it gmx trjconv} tool
+in Gromacs package \cite{gromacsMANUAL}. The order parameters $S^2$
 were determined by averaging rotational correlation functions from
 oriented trajectory, $C_I(t)$, over lag times above 50~ns. Effective correlation times were then
 calculated by using Eq.~\ref{effCT}. 
-Inertia axes of protein were calculated with {\it compute\_inertia\_tensor}
+Inertia axes of proteins were calculated with {\it compute\_inertia\_tensor}
 function from MDTraj python library~\cite{McGibbon2015MDTraj}.
 
 Spectral density was calculated by fitting a
@@ -439,7 +439,7 @@ for the sum of exponentials
 \begin{equation}\label{FTanal}
 J(\omega) =  4 \sum_{i=1}^{N}\alpha_i\frac{\tau_i}{1+\omega^2\tau_i^2}.
 \end{equation}
-Similar approach is used previously for lamellar systems in combination
+A similar approach is used previously for lamellar systems in combination
 with solid state NMR experiements \cite{nowacka13,ferreira15}.
 
 
@@ -452,7 +452,7 @@ ARE READY.
 
 \subsection{Global rotational dynamics of protein}
 Mean square angle deviations for rotation around inertia axes
-of {\it Pa}TonB protein in simulation with OPC4 water model
+of {\it Pa}TonB protein in the simulation with OPC4 water model
 are shown in Fig. \ref{RMASDplot}. This is the longest
 simulation data set in this work (1.2$\mu$s) and
 linear behaviour of mean square angle deviations are observed
@@ -461,7 +461,7 @@ which is expected to be the maximum lag time for a good statistics
 for rotational dynamics analyzed from a single molecule in MD simulations \cite{lu06}.
 Deviations from linear behaviour are only seen with lag times longer
 than this limit, as also demonstrated for shorter simulations in
-Figs.~\ref{RMASDplotLOG310}~and~\ref{RMASDplotLOG298} for simulations with tip4p water at
+Figs.~\ref{RMASDplotLOG310}~and~\ref{RMASDplotLOG298} with tip4p water at
 two different temperatures. The plots with log-log scale in
 Figs.~\ref{RMASDplot},~\ref{RMASDplotLOG310}~and~\ref{RMASDplotLOG298} B)
 reveals a weakly subdiffusive region only below very short timescales
@@ -480,12 +480,12 @@ The data from {\it Hp}TonB protein (not shown) led to similar conclusions.
 \end{figure*}
 
 The resulting rotational diffusion constants from different simulations are
-shown in Table \ref{ROTdiffCOEFFS}. The values are larger than would be
-expected from experiments for different proteins with similar
-size~\cite{krishnan98}, especially when tip3p water model is used.
+shown in Table \ref{ROTdiffCOEFFS}. The values are larger than 
+expected from the experiments for different proteins with similar
+sizes~\cite{krishnan98}, especially when tip3p water model is used.
 This is in line with previously reported simulation results,
-where the results were explained by overestimated water self
-diffusion \cite{wong08}. As expected, rotational diffusion coefficients
+where the results were explained by overestimated water
+self-diffusion \cite{wong08}. As expected, rotational diffusion coefficients
 increase with the temperature and decreasing size of a protein.
 
 %The rotational diffusion coefficients are used to determine
@@ -538,7 +538,7 @@ shown in Fig. \ref{exampleCORRF} (bottom, dashed lines). New correlation functio
 from Eq. \ref{newCORRF} are shown in Fig. \ref{exampleCORRF} (top, dashed lines).
 The new correlation functions are indistinguishable
 from the original MD simulation results with lag times shorter than one
-hundredth of total simulation time (approximately 4-12ns for the studied systems),
+hundredth of total simulation time (approximately 4-12~ns for the studied systems),
 which is the expected limit for a good statistics in single molecule MD simulations \cite{lu06}.
 This suggests that the anisotropic rigid body diffusion model (Eq. \ref{CORRFanisot}) and
 separation of internal and global motions (Eq. \ref{CORRFsep}) are
@@ -582,36 +582,36 @@ is small due to the small order parameters values.
 %spectral densities from Eqs.~\ref{gprime_fit}-\ref{FTanal} and
 %spin relaxation times were then calculated from Eqs.~\ref{R1}-\ref{NOE}.
 
-Spin relaxation times are compared between experiments and simulations from two
-different water models in Fig.~\ref{HpTonBrelaxationDATA} for {\it Hp}TonB construct.
+Spin relaxation times are compared between the experiments and simulations using two
+different water models in Fig.~\ref{HpTonBrelaxationDATA} for the {\it Hp}TonB construct.
 Simulations with tip3p water model are significantly
-off from experiments and underestimate $T_1/T_2$ ratio, suggesting too
+off from the experimental data and underestimate $T_1/T_2$ ratio, suggesting too
 fast overall rotational diffusion dynamics \cite{carper97}.
 This is in agreement with previous study, where overestimation of
-rotational diffusion was attributed to the overestimated self diffusion of tip3p~\cite{wong08}.
+rotational diffusion was attributed to the overestimated self-diffusion of tip3p~\cite{wong08}.
 On the other hand, simulation results with tip4p water model show signifigantly
-better agreement with experiments in  Fig.~\ref{HpTonBrelaxationDATA}.
+better agreement with the experimental data in  Fig.~\ref{HpTonBrelaxationDATA}.
 \begin{figure}[!h]
   \includegraphics[width=8.5cm]{../Figs/HpTonBrelaxationDATA.eps}%
-  \caption{Spin relaxation times for {\it Hp}TonB from experiments \cite{??}
+  \caption{$^{15}$N Spin relaxation times for {\it Hp}TonB from experimental data
     and simulations with different water models.
     \label{HpTonBrelaxationDATA}}%
 \end{figure}
 
 To see if the discrepancy in spin relaxation times for simulations with tip3p water model
-could be explained purely by overestimated protein overall diffusion,
+could be explained purely by the overestimated protein overall diffusion,
 we scaled the diffusion constants by a constant factor of 2.9 before applying
 Eq. \ref{newCORRF} to calculate the new correlation functions. The spin
-relaxation times calculated from correlation functions with the scaled
+relaxation times calculated from the new correlation functions with the scaled
 rotational diffusion constants are shown in Fig. \ref{HpTonBrelaxationDATAscaled}
 together with experimental values. Indeed, the reduction of overall diffusion
 constants with a scaling factor brings the spin relaxation times in good agreement with
-experiments.
+the experimental data.
 \begin{figure}[!h]
   \includegraphics[width=8.5cm]{../Figs/RELdataHpTonB2.eps}%
-  \caption{A) Structures sampled by {\it Hp}TonB from MD simulations with tip3p at 303~K
-    (100 structures from 400ns long trajectory). Secondary structures
-    are colour labelled with Visual Molecular dynamics \cite{frishman95,humphrey96};
+  \caption{A) Structures of {\it Hp}TonB from the MD simulations with tip3p at 303~K
+    (100 structures taken from 400ns long trajectory). Secondary structures
+    are colour-labelled with Visual Molecular dynamics \cite{frishman95,humphrey96};
     $\alpha$-helices are red and $\beta$-sheets are blue.
     B) Spin relaxation times from experiments and tip3p
     simulations with rotational diffusion coefficients divided by a
@@ -620,9 +620,9 @@ experiments.
     \label{HpTonBrelaxationDATAscaled}}%
 \end{figure}
 
-Spin relaxation times are compared between experiments and simulations
-with different water models and temperatures for {\it Pa}TonB construct
-in Fig. \ref{PsTonBrelaxationDATA}.
+Comparison of spin relaxation times between experiments and simulations
+with different water models and temperatures
+for {\it Pa}TonB construct is shown in Fig. \ref{PsTonBrelaxationDATA}.
 Simulations with both tip4p and
 OPC4 water models systemically underestimate $T_1$ values
 and $T_1/T_2$ ratio when compared with experiments. The discrepancy is,
@@ -682,10 +682,10 @@ proteins~\cite{krishnan98}.
   \begin{tabular}{c c c c c}
     &    &  {\it Hp}TonB  &  & {\it Pa}TonB \\
     \hline
-    D$_{xx}$    &   &   2.15 $\pm$ 0.01  & & 1.51  $\pm$ 0.01\\
-    D$_{yy}$   &    &  2.43  $\pm$ 0.01  & & 1.72  $\pm$ 0.03\\
-    D$_{zz}$   &    &  4.10   $\pm$ 0.01 & & 3.79  $\pm$ 0.03\\
-    D$_{av}$  &    &   2.90  $\pm$ 0.03  & & 2.3  $\pm$ 0.02\\
+    $D_{xx}$    &   &   2.15 $\pm$ 0.01  & & 1.51  $\pm$ 0.01\\
+    $D_{yy}$   &    &  2.43  $\pm$ 0.01  & & 1.72  $\pm$ 0.03\\
+    $D_{zz}$   &    &  4.10   $\pm$ 0.01 & & 3.79  $\pm$ 0.03\\
+    $D_{av}$  &    &   2.90  $\pm$ 0.03  & & 2.3  $\pm$ 0.02\\
     $\tau_{c}$(ns)  &    &  5.7   $\pm$ 0.1  & & 7.2 $\pm$ 0.1 \\
     %\hline
 \end{tabular}
@@ -780,7 +780,7 @@ fluctuations between two orientations of $\alpha$-helix (see discussion below).
 Residues 245-250 in {\it Hp}TonB give exceptionally low order parameters
 and long effective correlation times in simulations and small $T_1$ times
 in experiments. The interpretation of this is, however, not straightforward,
-because low $T_1$ values in this region are not reproduced by simulations.
+because low $T_1$ values in this region are not reproduced by MD simulations.
 %More detailed discussion together with
 %longer {\it Hp}TonB construct is presented elsewhere \cite{??}.
 
@@ -827,9 +827,9 @@ arises from slow conformational fluctuations of N-terminus, rather than overall
 rotational dynamics. This supports the conclusion that fluctuations of large amount of
 conformations leads to small order parameters and large effective correlation times
 observed in Fig. \ref{PsTonBrelaxationDATA}.
-While the results are very coherent, it should be kept in mind that
-the fractionalization of rotational dynamics to components is based on
-fitting of multiexponential sum to the simulation data and the solution
+While fractionalization of rotational dynamics to different components
+gives intuitively understandable results, it should be kept in mind that
+it is based on fitting of multiexponential sum to the simulation data and the solution
 of such fit is not unique.
 \begin{figure}[!h]
   \includegraphics[width=8.5cm]{../Figs/coeffsPLOT.eps}%
@@ -845,8 +845,8 @@ of such fit is not unique.
 \section{Discussion and conclusions}
 Experimental spin relaxation data for protein backbone N-H bonds
 was successfully reproduced by using classical molecular dynamics
-simulation data for two different proteins with anisotropic molecular
-shape. Thus, the simulation trajectories give an atomistic resolution
+simulations for two different proteins with anisotropic molecular
+shape. Thus, the simulation trajectories give an atomic resolution
 interpretation for the protein dynamics measured with NMR experiments.
 Interpretation of overall and internal dynamics was demonstrated for
 two relatively rigid proteins. The proposed approach is expected
@@ -863,7 +863,7 @@ reproduce the experimental data. Comparison of calculated diffusion constants
 and spin relaxation times with experimental data suggested that
 the overall brownian tumbling of protein is too rapid in simulations,
 in agreement with previous studys suggesting that the discrepance arises
-from the inaccuracise in water model~\cite{wong08}.
+from the inaccuracies in water models~\cite{wong08}.
 Scaling down the diffusion coefficients in simulation data
 with the same factor in all directions 
 led to good agreement with experiments and allowed the interpretation.
@@ -888,14 +888,14 @@ suggest that the usage of intertia axes
 %can be used to describe
 %the overall rotational diffusion as a good approximation
 and the separation of internal and overall rotational motions
-(Eq.~\ref{CORRFsep}) are good approximations for the studied
+(Eq.~\ref{CORRFsep}) are good approximations for the investigated
 proteins. However, rather rigid proteins are studied in this
-work and in previous publications with similar conclusion~\cite{wong08,allner15}.
+work and in previous publications with similar conclusions~\cite{wong08,allner15}.
 These assumptions become less rigorous for proteins with larger
 fractions of intrinsically disoredered segments. In such cases the option
 might be to use isotropic reorientational eigenmode dynamics (iRED)~\cite{prompers02}
-or quaternions~\cite{anderson12}. However, the correction of overall
-rotational diffusion artefact due to water model would be complicated
+or quaternions~\cite{anderson12}. However, the correction of the overall
+rotational diffusion artefact due to the inaccurate water model would be complicated
 for intrinsically ordered molecules in all the discussed approaches.
 Thus, a water model giving correct
 overall rotational diffusion rates for biomolecules is probably necessary
