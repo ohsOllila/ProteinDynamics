@@ -32,6 +32,7 @@
 \usepackage{amsmath}
 \usepackage{epstopdf}
 \usepackage[obeyFinal]{easy-todo}
+\usepackage{lipsum}
 \begin{document}
 
 % Use the \preprint command to place your local institutional report number 
@@ -273,39 +274,22 @@ Alternative approaches to describe overall protein diffusion with hydrodynamical
 calculations are less problematic for anisotropic systems, but they
 are sentitive for the assumptions about protein hydration shell \cite{torre00}.
 
-%Standard analyses of experimental relaxation data usually assume
-%fully or axially isotropic overall rotational motion and single
-%decay constant for interal motion. Then the free parameters
-%($S^2$, $\tau_j$, $A_j$) are fit against spin relaxation data
-%from experiments. This gives most likely very good results for
-%isotropic molecules for which the assumption of single internal
-%motional timescale is reasonable. However, for molecules with
-%significant shape anisotropy or several timescales in internal
-%motions the amoount parameters to be fitted becomes large compared
-%with the typical amount of experimental points.
-
-%Two different approaches have been commonly used to analyze
-%rotational dynamics from NMR relaxation experiments. In
-%''model free analysis'' the fundamental idea is to separate
-%interal dynamics from global rotation and assume exponential
-%forms for rotational correlation functions. The parameters of
-%rotational correlation functions are then fitted the experimental
-%data to solve time scales and order parameters for different dynamical
-%processes \cite{dosset00,??}.
-
-
-
-%Spin relaxation data is usually analyzed by describing the sampled bond
-%orientations with order parameter $S^2$ respect to the protein reference frame
-%and assuming that overall and internal motions are independt \cite{??,korzhnev01}.
-%Order parameters and timescales for overall and internal motions can be then
-%extracted by fitting various functional forms to spin relaxation data
-%measured with different magnetic field strengths \cite{jarymowycz06,korzhnev01}.
-
-%\begin{equation}
-%  C'_I(t)= e^{-t/\tau_c},
-%\end{equation}
-
+Rough estimate for the timescale of overall rotational dynamics 
+is often given by using the $T_1/T_2$ ratio \cite{kay89}. 
+This is based on the assumptions that $T_1$ and $T_2$
+are essentially independent of internal motions and that the overall
+dynamics is isotropic. The spectral density then reduces to 
+\begin{equation}
+J'(\omega) = S^2\frac{\tau_c}{1+(\omega \tau_c)^2} 
+\end{equation}
+and the correlation time describing the overall rotational motion, $\tau_c$, can 
+be then estimated by numerically minimizing
+\begin{widetext}
+\begin{equation}\label{ratioEQ}
+  \frac{T_1}{T_2} \approx  \frac{\frac{1}{2}\frac{d_{\rm{NH}}^2N_{\rm{H}}}{20}\bigg[4J'(0)+3J'(\omega_{\rm{N}})+J'(\omega_{\rm{H}}-\omega_{\rm{N}})+6J'(\omega_{\rm{H}})  +6J'(\omega_{\rm{N}}+\omega_{\rm{H}})\bigg]+\frac{(\sigma \omega_{\rm{N}})^2}{90}[4J'(0) +3J'(\omega_{\rm{N}})]}{\frac{d_{\rm{NH}}^2N_{\rm{H}}}{20}\bigg[J'(\omega_{\rm{H}}-\omega_{\rm{N}})+3J'(\omega_{\rm{N}})+6J'(\omega_{\rm{N}}+\omega_{\rm{H}})\bigg] +\frac{(\sigma \omega_{\rm{N}})^2}{15}J'(\omega_{\rm{N}})}
+\end{equation}
+\end{widetext}
+with respect to the experimentally measured ratio.
 
 \subsection{Rotational dynamics from molecular dynamics simulations}\label{MDanalysis}
 Classical molecular dynamics simulation gives a trajectory for each atom in
@@ -451,6 +435,13 @@ ARE READY.
 \section{Results}
 
 \subsection{Global rotational dynamics of protein}
+\begin{figure*}[htb]
+  \includegraphics[width=16.5cm]{../Figs/RMASDplotPsTonBOPC4.eps}%
+  \caption{The intertia tensor angles as a function of time and mean square angular
+    deviations for {\it Pa}TonB simulation with OPC water model.
+    \label{RMASDplot}}%
+\end{figure*}
+
 Mean square angle deviations for rotation around inertia axes
 of {\it Pa}TonB protein in the simulation with OPC4 water model
 are shown in Fig. \ref{RMASDplot}. This is the longest
@@ -472,16 +463,10 @@ deviations according to Eq. \ref{DIFFdef} by using lag times less than
 one hundreth of the total MD simulation length.
 The error bars were calculated varying the lag time with 1~ns to both directions.
 The data from {\it Hp}TonB protein (not shown) led to similar conclusions.
-\begin{figure*}[htb]
-  \includegraphics[width=16.5cm]{../Figs/RMASDplotPsTonBOPC4.eps}%
-  \caption{The intertia tensor angles as a function of time and mean square angular
-    deviations for {\it Pa}TonB simulation with OPC water model.
-    \label{RMASDplot}}%
-\end{figure*}
 
 The resulting rotational diffusion constants from different simulations are
 shown in Table \ref{ROTdiffCOEFFS}. The values are larger than 
-expected from the experiments for different proteins with similar
+expected from the analysis based on Eq. \ref{ratioEQ} and the experiments for different proteins with similar
 sizes~\cite{krishnan98}, especially when tip3p water model is used.
 This is in line with previously reported simulation results,
 where the results were explained by overestimated water
@@ -613,8 +598,8 @@ the experimental data.
     (100 structures taken from 400ns long trajectory). Secondary structures
     are colour-labelled with Visual Molecular dynamics \cite{frishman95,humphrey96};
     $\alpha$-helices are red and $\beta$-sheets are blue.
-    B) Spin relaxation times from experiments and tip3p
-    simulations with rotational diffusion coefficients divided by a
+    B) Spin relaxation times from experiments (circles) and tip3p
+    simulations (squares) with rotational diffusion coefficients divided by a
     constant factor of 2.9 at 303~K. Order parameters and effective internal correlation
     times calculated from simulations
     \label{HpTonBrelaxationDATAscaled}}%
@@ -640,20 +625,20 @@ on spin relaxation times is significanlty smaller than the difference
 between simulations and experiments or the effect of the diffusion constant scaling.
 \begin{figure}[!h]
   \includegraphics[width=8.5cm]{../Figs/PsTonBrelaxationDATA.eps}%
-  \caption{Spin relaxation times for {\it Pa}TonB from experiments \cite{??}
-    and simulations with different water models. 
+  \caption{Spin relaxation times for {\it Pa}TonB from experiments (circles) \cite{??}
+    and simulations (squares) with different water models. 
     \label{PsTonBrelaxationDATA}}%
 \end{figure}
 \begin{figure}[!h]
-  \includegraphics[width=8.5cm]{../Figs/RELdataPsTonB2.eps}%
+  \includegraphics[width=8.0cm]{../Figs/RELdataPsTonB2.eps}%
   \caption{A) Structures sampled by {\it Pa}TonB from MD simulations with tip4p at 298~K
     (100 structures from 400ns long trajectory). Secondary structures
     are colour labelled with Visual Molecular dynamics \cite{frishman95,humphrey96};
     $\alpha$-helixes are red and $\beta$-sheets are blue.
     Residues 246-251, 320-326 and 338-342 with increased internal dynamics are yellow and
     $\alpha$-helix fluctuations between two orientations (residues 266-270) is pink in the left column.
-    B) Spin relaxation times from experiments and tip4p
-    simulations with rotational diffusion coefficients divided by a
+    B) Spin relaxation times from experiments (circles) and tip4p
+    simulations (squares) with rotational diffusion coefficients divided by a
     constant factor of 1.2 at 298~K. Order parameters and effective internal correlation
     times calculated from simulations. \label{PsTonBrelaxationDATAscaled}}%
 \end{figure}
@@ -678,15 +663,17 @@ proteins~\cite{krishnan98}.
     For {\it Hp}TonB construct the values calculated from simulation with tip3p were scaled with 2.9
     (spin relaxation data in Fig.~\ref{HpTonBrelaxationDATAscaled}) and  for {\it Pa}TonB
     the values from tip4p simulation at 298K were scaled by 1.2 (spin relaxation data in
-    Fig.~\ref{PsTonBrelaxationDATAscaled})}\label{ROTdiffCOEFFSscaled}
+    Fig.~\ref{PsTonBrelaxationDATAscaled}). 
+  }\label{ROTdiffCOEFFSscaled}
   \begin{tabular}{c c c c c}
     &    &  {\it Hp}TonB  &  & {\it Pa}TonB \\
     \hline
-    $D_{xx}$    &   &   2.15 $\pm$ 0.01  & & 1.51  $\pm$ 0.01\\
-    $D_{yy}$   &    &  2.43  $\pm$ 0.01  & & 1.72  $\pm$ 0.03\\
-    $D_{zz}$   &    &  4.10   $\pm$ 0.01 & & 3.79  $\pm$ 0.03\\
-    $D_{av}$  &    &   2.90  $\pm$ 0.03  & & 2.3  $\pm$ 0.02\\
-    $\tau_{c}$(ns)  &    &  5.7   $\pm$ 0.1  & & 7.2 $\pm$ 0.1 \\
+    $D_{xx}$        &    &   2.15 $\pm$ 0.01  & & 1.51  $\pm$ 0.01\\
+    $D_{yy}$        &    &  2.43  $\pm$ 0.01  & & 1.72  $\pm$ 0.03\\
+    $D_{zz}$        &    &  4.10   $\pm$ 0.01 & & 3.79  $\pm$ 0.03\\
+    $D_{av}$        &    &   2.90  $\pm$ 0.03  & & 2.3  $\pm$ 0.02\\
+    $\tau_{c}$(ns)\footnote{$(6D_{av})^{-1}$}  &    &  5.7   $\pm$ 0.1  & & 7.2 $\pm$ 0.1 \\
+    $\tau_{c}'$(ns)\footnote{Average over rigid residues given by Eq. \ref{ratioEQ}}  &    &  5.7   $\pm$ 0.1  & & 7.2 $\pm$ 0.1 \\
     %\hline
 \end{tabular}
 \end{table} 
