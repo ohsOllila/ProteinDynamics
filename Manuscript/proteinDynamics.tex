@@ -280,9 +280,9 @@ This is based on the assumptions that $T_1$ and $T_2$
 are essentially independent of internal motions and that the overall
 dynamics is isotropic. The spectral density then reduces to 
 \begin{equation}
-J'(\omega) = S^2\frac{\tau_c}{1+(\omega \tau_c)^2} 
+J'(\omega) = S^2\frac{\tau_c'}{1+(\omega \tau_c')^2} 
 \end{equation}
-and the correlation time describing the overall rotational motion, $\tau_c$, can 
+and the correlation time describing the overall rotational motion, $\tau_c'$, can 
 be then estimated by numerically minimizing
 \begin{widetext}
 \begin{equation}\label{ratioEQ}
@@ -435,12 +435,12 @@ ARE READY.
 \section{Results}
 
 \subsection{Global rotational dynamics of protein}
-\begin{figure*}[htb]
-  \includegraphics[width=16.5cm]{../Figs/RMASDplotPsTonBOPC4.eps}%
-  \caption{The intertia tensor angles as a function of time and mean square angular
-    deviations for {\it Pa}TonB simulation with OPC water model.
+\begin{figure}[htb]
+  \includegraphics[width=8.0cm]{../Figs/RMASDplotPsTonBOPC4.eps}%
+  \caption{Mean square angle deviations of intertia tensor axes calculated from
+    {\it Pa}TonB simulation with OPC water model. The data shown with linear (top) and logarithmic scale (bottom).
     \label{RMASDplot}}%
-\end{figure*}
+\end{figure}
 
 Mean square angle deviations for rotation around inertia axes
 of {\it Pa}TonB protein in the simulation with OPC4 water model
@@ -606,28 +606,33 @@ the experimental data.
 \end{figure}
 
 Comparison of spin relaxation times between experiments and simulations
-with different water models and temperatures
-for {\it Pa}TonB construct is shown in Fig. \ref{PsTonBrelaxationDATA}.
-Simulations with both tip4p and
-OPC4 water models systemically underestimate $T_1$ values
-and $T_1/T_2$ ratio when compared with experiments. The discrepancy is,
-however, less severe than for {\it Hp}TonB simulated with tip3p in Fig.~\ref{HpTonBrelaxationDATA}. 
-Spin relaxation times calculated
-%from the new correlation function in Eq. \ref{newCORRF}
-after scaling the diffusion coefficients with a constant factor of 1.2
-are shown in Fig.~\ref{PsTonBrelaxationDATAscaled} for {\it Pa}TonB simulation with tip4p at 298K.
-The results are in good agreement with experiments, suggesting that
-the the scaling of overall diffusion constants with a constant factor 
-removes the discprepancy with experimental spin relaxation data
-also for this system.
+of {\it Pa}TonB with tip4p and OPC4 water models
+are shown in Fig. \ref{PsTonBrelaxationDATA}.
+The experimentation of the OPC4 water model was inspired by the
+recent study reporting significant improvements in lipid monolayer
+simulations when this water model was used~\cite{javanainen17}. 
+Since tip3p water model was observed to lead the significant overestimation of
+rotational diffusion of a protein, it was not used in {\it Pa}TonB
+simulations.
+Also the simulations of {\it Pa}TonB with
+tip4p and OPC4 water models systemically underestimate $T_1$ values
+and $T_1/T_2$ ratio when compared with experiments.
+The discrepancy is, however, less severe than for {\it Hp}TonB simulated
+with tip3p in Fig.~\ref{HpTonBrelaxationDATA}, suggesting that also
+the required correction for the overall rotational diffusion should
+be smaller. Indeed,
+the spin relaxation times calculated
+from {\it Pa}TonB simulation with tip4p water model
+were in good agreement with experiments in Fig.~\ref{PsTonBrelaxationDATAscaled}
+after the diffusion coefficients were divided with a constant factor of 1.2,
+which is smaller than 2.9 used for {\it Hp}TonB simulation above.
 Notably, the effect of temperature difference of 12 degrees
 on spin relaxation times is significanlty smaller than the difference
 between simulations and experiments or the effect of the diffusion constant scaling.
 \begin{figure}[!h]
   \includegraphics[width=8.5cm]{../Figs/PsTonBrelaxationDATA.eps}%
-  \caption{Spin relaxation times for {\it Pa}TonB from experiments (circles) \cite{??}
-    and simulations (squares) with different water models. 
-    \label{PsTonBrelaxationDATA}}%
+  \caption{Plots of experimental (circles) and simulated (squares) spin relaxation times
+    for {\it Pa}TonB. \label{PsTonBrelaxationDATA}}%
 \end{figure}
 \begin{figure}[!h]
   \includegraphics[width=8.0cm]{../Figs/RELdataPsTonB2.eps}%
@@ -643,20 +648,23 @@ between simulations and experiments or the effect of the diffusion constant scal
     times calculated from simulations. \label{PsTonBrelaxationDATAscaled}}%
 \end{figure}
 
-Simulation data with the scaled diffusion coefficients 
-lead to a good agreement with spin relaxation experiments as seen
-in Figs.~\ref{HpTonBrelaxationDATAscaled} and~\ref{PsTonBrelaxationDATAscaled}.
-This suggests that the scaled diffusion constant values can be used to interpret
-the anisotropic diffusion observed in NMR experiments.
-The rotational diffusion coefficients giving the best agreement with experimental 
-data are collected in Table \ref{ROTdiffCOEFFSscaled}.
+The correction of the overall rotational diffusion coefficients
+with a constant factor led to a good agreement with experimental
+spin relaxation data for both studied proteins simulated with different water models,
+as seen in Figs.~\ref{HpTonBrelaxationDATAscaled} and~\ref{PsTonBrelaxationDATAscaled}.
+The good agreement with experiments suggests that the scaled rotational diffusion coefficients
+from MD simulations can be considered as a interpretation of the anisotropic rotational motion in NMR experiments.
+The scaled rotational diffusion coefficients from simulations giving the best agreement
+with the experimental data are collected in Table \ref{ROTdiffCOEFFSscaled}.
 %The scaled diffusion coefficients
 %from tip3p simulations were chosen for {\it Hp}TonB-92, because they give
 %slightly better overall agreement with experiments than simulations with
 %tip4p water model.
-In contrast to the diffusion constants in Table~\ref{ROTdiffCOEFFS},
-these results are in line with previously reported values for more isotropic
-proteins~\cite{krishnan98}.
+In contrast to the unscaled diffusion constants in Table~\ref{ROTdiffCOEFFS},
+these results are in line with previously reported values for proteins
+with similar sizes~\cite{krishnan98}. Also the timescales, $\tau_{c}'$, estimated from 
+Eq. \ref{ratioEQ} are close to the average diffusion coefficient, $\tau_{c}=(6D_{av})^{-1}$,
+in Table~\ref{ROTdiffCOEFFS}.
 \begin{table}[!h]
   \centering
   \caption{Rotational diffusion coefficients giving the best agreement with experimental spin relaxation data.
@@ -673,7 +681,7 @@ proteins~\cite{krishnan98}.
     $D_{zz}$        &    &  4.10   $\pm$ 0.01 & & 3.79  $\pm$ 0.03\\
     $D_{av}$        &    &   2.90  $\pm$ 0.03  & & 2.3  $\pm$ 0.02\\
     $\tau_{c}$(ns)\footnote{$(6D_{av})^{-1}$}  &    &  5.7   $\pm$ 0.1  & & 7.2 $\pm$ 0.1 \\
-    $\tau_{c}'$(ns)\footnote{Average over rigid residues given by Eq. \ref{ratioEQ}}  &    &  5.7   $\pm$ 0.1  & & 7.2 $\pm$ 0.1 \\
+    $\tau_{c}'$(ns)\footnote{Average over all residues given by Eq. \ref{ratioEQ}}  &    &  5.8   $\pm$ 0.1 & & 6.9   $\pm$ 0.1 \\
     %\hline
 \end{tabular}
 \end{table} 
