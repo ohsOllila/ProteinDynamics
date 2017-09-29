@@ -100,48 +100,33 @@ Prague 6, Czech Republic}
 
 %\label{}
 \section{Introduction}
-Conformational fluctuations and entropy of proteins
-play a significant role in functionality
+Conformational fluctuations and the entropy of proteins
+play a significant role in their functionality
 and interactions with other biomolecules.
-Conformation fluctuations and overall brownian tumbling of proteins
-are experimentally accessible through 
+Conformational fluctuations and the overall brownian tumbling of proteins
+are experimentally accessible through the 
 spin relaxation times of $^{15}$N and $^{13}$C nucleai measured
 with nuclaer magnetic resonance (NMR) 
 techniques \cite{jarymowycz06,korzhnev01,mulder01,eisenmesser05,bedem15,lewandowski15,lamley15}. 
-Spin relaxation rates have been used to, for example, analyze
+The spin relaxation rates have been used to, for example, analyze
 conformational entropies \cite{yang96,kasinath13,allner15,jarymowycz06}, binding entropies \cite{akke93,jarymowycz06},
 resolve sampled structures \cite{mulder01,eisenmesser05,bedem15,medina14}
 and validate molecular dynamics simulations \cite{best04,showalter07a,showalter07b,maragakis08,trbovic08}.
 These analyzes are almost exclusively based on the
-separation of internal conformational fluctuations 
-and overall rotational tumbling \cite{wennerstrom79,Lipari82} and
-isotropic overall diffusion is often assumed, while
+separation of the internal conformational fluctuations 
+and the overall rotational tumbling \cite{wennerstrom79,Lipari82}.
+Also the isotropic overall diffusion is often assumed, while
 analysis of anisotropic molecules is significantly more
 complicated \cite{woessner62,shimizu62,jarymowycz06,korzhnev01,luginbuhl97,hall04}.
-Thus, new approaches are needed to intepret spin relaxation times
+Thus, the new approaches are needed to intepret spin relaxation times
 measured from anisotropic or intrinsically disordered molecules.
 
-
-%This approach has been successfully applied for large amount of proteins
-%with isotropic shape and overall rotational diffusion \cite{jarymowycz06}.
-%The resulting order parameters and overall rotational diffusion coefficients
-%
-%, however, proteins
-%with anisotropic shape or large amount of internal motional timescales
-%are 
-%proteins parameter space for fitted parameters become
-%rotational diffusion and internal flexibility of proteins and other biomolecules.
-%On the other hand, segmental level information has been used in validation
-%and improvement of molecular dynamics simulation force fields \cite{??}.
-%Segmental order has been also related to conformational entropy of proteins \cite{??}.
-
- 
 Classical molecular dynamics simulation methods are
 promising tools to interpretate spin relaxation experiments
-for molecules with significant anisotropy or correlations between
+for molecules with significantly anisotropic shape or correlations between
 internal and overall rotational motions. Practical applications
 are, however, limited by inaccuracies in the force field descriptions
-and available time scales in the simulations \cite{prompers02,maragakis08,trbovic08,wong08,anderson12}.
+and the available time scales in the simulations \cite{prompers02,maragakis08,trbovic08,wong08,anderson12}.
 The main issues have been the overestimated overall rotational diffusion of proteins
 due to inaccuracies in water models~\cite{wong08} and
 insufficient accuracy of correlation functions calculated from
@@ -152,17 +137,17 @@ rotational dynamics of protein follows anisotropic rigid body diffusion.
 Diffusion coefficients around inertia axes are 
 directly calculated from angular displacements.
 The diffusion coefficients are then used to determine the
-contribution of overall rotational tumbling to the 
-N-H bond rotational correlation functions.
-This reduces the required simulation length for accurate determination
+contribution of the overall rotational tumbling to the 
+rotational correlation functions of N-H bonds.
+This reduces the required simulation length for the accurate determination
 of rotational correlation functions. Furthermore, the overestimated
 overall brownian tumbling rates due to the inaccurate water model
-can be corrected during correlation function calculation by scaling
-diffusion coefficients in all directions with a constant factor.
-The corrected correlation functions can be used to interpret spin relaxation
-experiments for proteins with arbitrarily anisotropic shape.
+can be corrected during the correlation function calculation by scaling
+the diffusion coefficients in all directions with a constant factor.
+The corrected correlation functions can be used to interpret the spin relaxation
+experiments for proteins with arbitrarily anisotropic shapes.
 
-The developed approach is demonstrated by interpreting spin relaxation data 
+The developed approach is demonstrated by interpreting the experimental spin relaxation data 
 for C-terminal domains of TonB proteins from {\it H. pyroli} ({\it Hp}TonB)~\cite{ciragan16}
 and from {\it Pseudomonas aeruginosa} ({\it Pa}TonB). Both proteins have significantly
 anisotropic shape, which would significantly complicate the standard spin relaxation data
@@ -174,7 +159,7 @@ analysis~\cite{woessner62,shimizu62,jarymowycz06,korzhnev01,luginbuhl97,hall04}.
 \section{Methods}
 
 \subsection{Spin relaxation experiments and rotational dynamics of molecules}
-Molecular dynamics of protein backbone residues and spin relaxation experiments can
+Molecular dynamics of the protein backbone residues and spin relaxation experiments can
 be connected by using the spectral density $J(\omega)$ 
 \begin{equation}\label{SPECTdens}
   J(\omega)=2\int_0^\infty C(t) \cos(\omega t) {\rm d}t,
@@ -186,8 +171,8 @@ rotational correlation function for N-H bond vector
 \end{equation}
 where $\theta_{t'+t}$ is the N-H bond angle between times $t'$ and $t'+t$
 and angular brackets refer to the ensemble average.
-Connection to experimentally measured spin relaxation times $T_1$, $T_2$
-and $T_{\rm NOE}$ is given by Redfield equations \cite{abragam,kay89}
+Connection to the experimentally measured spin relaxation times $T_1$, $T_2$
+and $T_{\rm NOE}$ is given by the Redfield equations \cite{abragam,kay89}
 \begin{equation}\label{R1}
   \begin{aligned}
   \frac{1}{T_1}= & \frac{d_{\rm{NH}}^2N_{\rm{H}}}{20}\bigg[J(\omega_{\rm{H}}-\omega_{\rm{N}})+3J(\omega_{\rm{N}})+6J(\omega_{\rm{N}}+\omega_{\rm{H}})\bigg] \\
@@ -212,14 +197,14 @@ d_{\rm{NH}}=-\frac{\mu_0\hbar\gamma_{\rm{H}}\gamma_{\rm{N}}}{4\pi\langle r_{\rm{
 \end{equation}
 where $\mu_0$ is the magnetic constant or vacuum permeability, $\hbar$ is the reduced Planck constant,
 $\gamma_{\rm{N}}$ and $\gamma_{\rm{H}}$ are the gyromagnetic constants of $^{15}$N and $^1$H, respectively.
-Average cubic length is calculated as $\langle r_{\rm{CN}}^3\rangle = (0.101{\rm nm})^3$ and the 
+The average cubic length is calculated as $\langle r_{\rm{CN}}^3\rangle = (0.101{\rm nm})^3$ and the 
 value of $\Delta \sigma = -160$ ppm is used for the chemical shift anisotropy of N-H bonds in 
 proteins \cite{kay89,hiyama88}.
 %Same equations can be used, for example, to C-H bond by changing the
 %constants related to nitrogen to the ones corresponding carbon. 
 
 Spin relaxation experiments are typically interpreted for proteins by
-assuming that the motions related to overall brownian tumbling 
+assuming that the motions related to the overall brownian tumbling 
 and conformational fluctuations are independent.
 The rotational correlation function for chemical bonds can be then written
 as  \cite{wennerstrom79,Lipari82,jarymowycz06,korzhnev01,halle09}
@@ -228,7 +213,7 @@ as  \cite{wennerstrom79,Lipari82,jarymowycz06,korzhnev01,halle09}
 \end{equation}
 where $C_I(t)$ and $C_O(t)$ are correlation functions for internal and overall
 rotations, respectively. Conformational fluctuations can be described
-in this approximation by using the square of order parameter respect to 
+in this approximation by using the square of the order parameter respect to 
 molecular axes $S^2$, which is given by the plateau of the internal rotational 
 correlation function. Timescales for the fluctuations can be characterized by
 using the effective correlation time 
@@ -238,13 +223,13 @@ using the effective correlation time
 where $C_I'(t)=\frac{C_I-S^2}{1-S^2}$ is the reduced correlation function \cite{Lipari82}.
 
 The overall rotational correlation function is often described
-by approximating a protein as a rigid body.
-For arbitrarily anisotropic molecules the correlation functions
-can  be then presented as a sum of five exponentials~\cite{woessner62,korzhnev01}
+by approximating the protein as a rigid body.
+For arbitrarily anisotropic molecules, the correlation functions
+can  be presented as a sum of five exponentials~\cite{woessner62,korzhnev01}
 \begin{equation}\label{CORRFanisot}
   C_O(t)=\sum_{j=1}^5 A_j e^{-t/\tau_j},
 \end{equation}
-where time constants $\tau_j$ are related 
+where the time constants $\tau_j$ are related 
 to the diffusion constants around
 three principal axes of a molecule
 ($D_{xx}$, $D_{yy}$ and $D_{zz}$)  
@@ -256,23 +241,25 @@ $\tau_4=[6(D+(D^2-L^2)^{-1/2}]^{-1}$,
 $\tau_5=[6(D-(D^2-L^2)^{-1/2}]^{-1}$,
 $D=\frac{1}{3}(D_{xx}+D_{yy}+D_{zz})$ and 
 $L^2=\frac{1}{3}(D_{xx}D_{yy}+D_{xx}D_{zz}+D_{yy}D_{zz})$}
-and prefactors $A_j$ to the directions of chemical bonds 
+and the prefactors $A_j$ depend on the directions of chemical bonds 
 respect to the molecular axes \cite{woessner62,luginbuhl97}.
 
 The simplest approach to extract molecular dynamics from experimental
 data is the original ''model free analysis''~\cite{Lipari82},
-where isotropic diffusion is assumed for overall rotation.
-This reduces Eq.~\ref{CORRFanisot} to monoexponential and the overall rotational
+where an isotropic diffusion is assumed for the overall rotation of the protein.
+This reduces Eq.~\ref{CORRFanisot} to a monoexponential form and the overall rotational
 dynamics can be described with a single time constant $\tau_c$.
-Also internal correlation functions for each residue are assumed
-to decay exponentially with single time constant $\tau_{\rm eff}$
-towards square of the order parameter $S^2$. The parameters can be
-successfully fit to experimental data when these simple approximations
-are valid. However, the fitting becomes significantly more difficult for proteins 
-with anisotropic overall diffusion or several internal timescales \cite{dosset00,luginbuhl97,jarymowycz06}.
-Alternative approaches to describe overall protein diffusion with hydrodynamical
-calculations are less problematic for anisotropic systems, but they
-are sentitive for the assumptions about protein hydration shell \cite{torre00}.
+Also the internal correlation functions for each residue are assumed
+to decay exponentially with a single time constant $\tau_{\rm eff}$
+toward to the square of the order parameter $S^2$. The three parameters
+($\tau_c$, $\tau_{\rm eff}$ and $S^2$) can be successfully resolved from a
+fit to the experimental data.
+However, the amount of parameters to be fitted increases if the protein
+experiences an anisotropic overall diffusion or has several timescales for internal motions,
+in which case the fitting often becomes ambiguous~\cite{dosset00,luginbuhl97,jarymowycz06}.
+The anitropic rotational diffusion is sometimes described with hydrodynamical
+calculations, but they are quite sentitive for the assumptions about the
+hydration shell of the protein~\cite{torre00}.
 
 Rough estimate for the timescale of overall rotational dynamics 
 is often given by using the $T_1/T_2$ ratio \cite{kay89}. 
@@ -283,56 +270,56 @@ dynamics is isotropic. The spectral density then reduces to
 J'(\omega) = S^2\frac{\tau_c'}{1+(\omega \tau_c')^2} 
 \end{equation}
 and the correlation time describing the overall rotational motion, $\tau_c'$, can 
-be then estimated by numerically minimizing
+be then estimated by numerically minimizing the equation
 \begin{widetext}
 \begin{equation}\label{ratioEQ}
   \frac{T_1}{T_2} \approx  \frac{\frac{1}{2}\frac{d_{\rm{NH}}^2N_{\rm{H}}}{20}\bigg[4J'(0)+3J'(\omega_{\rm{N}})+J'(\omega_{\rm{H}}-\omega_{\rm{N}})+6J'(\omega_{\rm{H}})  +6J'(\omega_{\rm{N}}+\omega_{\rm{H}})\bigg]+\frac{(\sigma \omega_{\rm{N}})^2}{90}[4J'(0) +3J'(\omega_{\rm{N}})]}{\frac{d_{\rm{NH}}^2N_{\rm{H}}}{20}\bigg[J'(\omega_{\rm{H}}-\omega_{\rm{N}})+3J'(\omega_{\rm{N}})+6J'(\omega_{\rm{N}}+\omega_{\rm{H}})\bigg] +\frac{(\sigma \omega_{\rm{N}})^2}{15}J'(\omega_{\rm{N}})}
 \end{equation}
 \end{widetext}
-with respect to the experimentally measured ratio.
+with respect to the experimentally measured $T_1/T_2$ ratio.
 
 \subsection{Rotational dynamics from molecular dynamics simulations}\label{MDanalysis}
-Classical molecular dynamics simulation gives a trajectory for each atom in
-a system as a function of time. Rotational correlation functions for each bond
-can be directly calculated from the trajectories by using Eq. \ref{CORRFdef}
-and then used to calculate the spin relaxation times through Eqs. \ref{SPECTdens}-\ref{NOE}.
+A classical molecular dynamics simulation gives a trajectory for each atom in
+the system as a function of time. Rotational correlation functions for each bond
+can be then directly calculated from the trajectories by using Eq. \ref{CORRFdef}
+and used to calculate the spin relaxation times through Eqs. \ref{SPECTdens}-\ref{NOE}.
 The resulting values can be compared to experimental data in order to assess simulation model
 quality \cite{best04,showalter07a,showalter07b,maragakis08,trbovic08,fisette12} or
-interpret experiments \cite{fisette12}.
+interpret experiments~\cite{fisette12}.
 
-The direct comparison with experiments is often complicated by
-insufficient statistics for calculated correlation functions and overestimated
+The direct comparison with experiments is, however, often complicated by
+insufficient statistics for the calculated correlation functions and the overestimated
 rotational diffusion due to inaccuracies in water models~\cite{wong08,anderson12}.
-Here we show that the statisitical accuracy of overall tumbling contribution to
-correlation functions, $C_0(t)$ in Eq.~\ref{CORRFsep}, can be increased for
-rigid proteins by directly calculating diffusion constants for intertia axes.
-The rotational diffusion coefficients can be related to the timescales
-in correlation function for anisotropic rigid body rotation
+Here we show that the statisitical accuracy of the contribution of the
+overall tumbling to the correlation functions, $C_0(t)$ in Eq.~\ref{CORRFsep}, can be increased for
+rigid proteins by directly calculating the diffusion coefficients for intertia axes.
+The rotational diffusion coefficients can be related to timescales
+in the correlation function for anisotropic rigid body rotation
 in Eq. \ref{CORRFanisot}~\cite{woessner62,Note1}.
 
-The diffusion coefficients are calculated by fitting a slope on linear mean
+The rotational diffusion coefficients are calculated by fitting a linear slope to the 
 square angle deviation of intertia axes (see below). This requires less simulation data
-for good statistics than a direct fit of multiexponential sum in Eq. \ref{CORRFanisot}
+for the good statistics than a direct fit of multiexponential sum in Eq. \ref{CORRFanisot}
 to the rotational correlation function calculated from MD simulation.
-In addition, overestimated rotional diffusion due to water model~\cite{wong08} can
+In addition, the overestimated rotational diffusion due to water model~\cite{wong08} can
 be corrected by scaling the diffusion coefficients around all intertia axes
-by a constant factor. This approach takes into account the anistoropy of
-the molecule. This is a signficant advancement to the studies, which assume
+by a constant factor. This approach takes into account the anisotoropic shape of
+the molecule. This is a significant advancement to the studies, which assume
 isotropic rotational diffusion with a single exponential rotational correlation
 function \cite{showalter07a,showalter07b,maragakis08,gu14,allner15} or
 use order parameters to compare simulations with experimental data~\cite{gu14,maragakis08,trbovic08,best04}.
 
 
 The practical analysis can be divided into seven steps: \\
-1) Total rotational correlation functions $C(t)$
-for protein N-H bond vectors are directly calculated from MD simulation trajectory
+1) The total rotational correlation functions $C(t)$
+for the protein N-H bond vectors are directly calculated from MD simulation trajectory
 by applying Eq.~\ref{CORRFdef}. \\
-2) Rotational correlation functions for internal
+2) The rotational correlation functions for internal
 dynamics $C_I(t)$ are calculated from MD simulation trajectory
 by removing overall rotation of the protein. \\
-3) The overall and internal motions are assumed to be independent and overall
+3) The overall and internal motions are assumed to be independent and the overall
 rotational correlation function is calculated from Eq. \ref{CORRFsep} as $C_O(t)=C(t)/C_I(t)$. \\
-4) Mean square angle deviations of rotation around protein intertia axes
+4) The mean square angle deviations of rotation around protein intertia axes
 are calculated from MD simulation trajectory. \\
 5) Rotational diffusion constants $D_x$, $D_y$ and $D_z$ are calculated by fitting a straight line
 to the mean square angle deviations 
@@ -348,12 +335,12 @@ $\langle \Delta \beta_{t'+t}^2 \rangle_{t'}$ and
 $\langle \Delta \gamma_{t'+t}^2 \rangle_{t'}$ are
 the mean square angle deviations from the shortest protein
 intertia axis to the longest, respectively.\\
-6) Contribution of overall rotational tumbling to all correlation
+6) Contribution of the overall rotational tumbling to all correlation
 functions is assumed to follow Eq.~\ref{CORRFanisot} with
-timescales $\tau_j$ calculated from rotational diffusion constants~\cite{Note1}.
+timescales $\tau_j$ calculated from the rotational diffusion constants~\cite{Note1}.
 Weighting factors $A_j$ are determined by fitting the equation with new timescales
 to the overall rotational correlation functions calculated from MD simulations in step 3. \\
-7) New correlation functions are calculated by substituting
+7) The new correlation functions are calculated by substituting
 internal correlation functions, $C_I(t)$, from step 2 and anisotropic rigid body
 rotational correlation functions, $C_O(t)$, from step 6 to
 Eq.~\ref{CORRFsep} giving
@@ -391,7 +378,7 @@ and Amber ff99SB- ILDN~\cite{lindorff10} force field for proteins . The proteins
 to tip3p\cite{jorgensen83}, tip4p \cite{jorgensen83} or OPC4 \cite{izadi14} water models.
 Initial structures were taken from NMR structures of {\it Hp}TonB \cite{ciragan16} and
 {\it Pa}TonB \cite{??}.
-Temperature was coupled to desired value with v-rescale thermostat \cite{bussi07} and pressure was 
+Temperature was coupled to the desired value with v-rescale thermostat \cite{bussi07} and pressure was 
 isotropically set to 1 bar using Parrinello-Rahman barostat \cite{parrinello81}.
 Timestep was 2~fs, Lennart-Jones interactions were cut-off at 1.0~nm,
 PME~\cite{darden93,essman95} was used for electrostatics and LINCS was used
@@ -401,7 +388,7 @@ in Table \ref{ROTdiffCOEFFS}
 
 
 Rotational correlation functions are calculated with {\it gmx rotacf} from
-Gromacs package \cite{gromacsMANUAL}. Overall rotation was removed
+Gromacs package \cite{gromacsMANUAL}. The overall rotation was removed
 for $C_I(t)$ calculation by using a fit option of the {\it gmx trjconv} tool
 in Gromacs package \cite{gromacsMANUAL}. The order parameters $S^2$
 were determined by averaging rotational correlation functions from
@@ -423,8 +410,8 @@ for the sum of exponentials
 \begin{equation}\label{FTanal}
 J(\omega) =  4 \sum_{i=1}^{N}\alpha_i\frac{\tau_i}{1+\omega^2\tau_i^2}.
 \end{equation}
-A similar approach is used previously for lamellar systems in combination
-with solid state NMR experiements \cite{nowacka13,ferreira15}.
+A similar approach has been previously used for the lamellar lipid and surfactant
+systems in combination with solid state NMR experiements \cite{nowacka13,ferreira15}.
 
 
 \subsection{Spin relaxation experiments}
@@ -442,66 +429,57 @@ ARE READY.
     \label{RMASDplot}}%
 \end{figure}
 
-Mean square angle deviations for rotation around inertia axes
-of {\it Pa}TonB protein in the simulation with OPC4 water model
+The mean square angle deviations for the rotation of {\it Pa}TonB protein construct
+around inertia axes in the simulation with OPC4 water model
 are shown in Fig. \ref{RMASDplot}. This is the longest
-simulation data set in this work (1.2$\mu$s) and
-linear behaviour of mean square angle deviations are observed
+simulation data set in this work (1.2$\mu$s) and the
+linear behaviour of the mean square angle deviations are observed
 for the lag times up to one hundreth of the total simulation length (12~ns),
-which is expected to be the maximum lag time for a good statistics
-for rotational dynamics analyzed from a single molecule in MD simulations \cite{lu06}.
-Deviations from linear behaviour are only seen with lag times longer
+which is expected to be the maximum lag time for the good statistics
+for rotational dynamics analyzed from a single molecule in MD simulations~\cite{lu06}.
+Deviations from the linear behaviour are only seen with the lag times longer
 than this limit, as also demonstrated for shorter simulations in
 Figs.~\ref{RMASDplotLOG310}~and~\ref{RMASDplotLOG298} with tip4p water at
 two different temperatures. The plots with log-log scale in
 Figs.~\ref{RMASDplot},~\ref{RMASDplotLOG310}~and~\ref{RMASDplotLOG298} B)
 reveals a weakly subdiffusive region only below very short timescales
 of approximately~0.12~ns. Thus, we conclude that the protein
-experiences brownian rotational tumbling with  a good approximation.
-Diffusion coefficients can be then calculated from the slope of mean square angle
+experiences the brownian rotational tumbling with  a good approximation.
+Diffusion coefficients can be then calculated from the slope of the mean square angle
 deviations according to Eq. \ref{DIFFdef} by using lag times less than
 one hundreth of the total MD simulation length.
 The error bars were calculated varying the lag time with 1~ns to both directions.
 The data from {\it Hp}TonB protein (not shown) led to similar conclusions.
 
 The resulting rotational diffusion constants from different simulations are
-shown in Table \ref{ROTdiffCOEFFS}. The values are larger than 
-expected from the analysis based on Eq. \ref{ratioEQ} and the experiments for different proteins with similar
+shown in Table \ref{ROTdiffCOEFFS}.
+As expected, the rotational diffusion coefficients
+increase with temperature and decreasing size of a protein.
+The values are, however, larger than would be  
+expected from the experimental $T_2/T_1$ ratio analysed with Eq. \ref{ratioEQ}
+and from the previosly reported values for proteins with similar
 sizes~\cite{krishnan98}, especially when tip3p water model is used.
-This is in line with previously reported simulation results,
-where the results were explained by overestimated water
-self-diffusion \cite{wong08}. As expected, rotational diffusion coefficients
-increase with the temperature and decreasing size of a protein.
-
-%The rotational diffusion coefficients are used to determine
-%the timescales $\tau_j$ for anisotropic rigid body rotation in Eq. \ref{CORRFanisot}~\cite{Note1},
-%which is used as an approximation for the overall rotational dynamics of a protein.
-%The prefactors $A_j$ are determined by fitting the equation to overall rotational
-%correlation functions, $C_O(t)$, calculated from MD simulations.
-%The resulting rigid body rotational correlation function is then
-%combined with internal correlation function, $C_I(t)$,
-%to determine the new correlation functions from Eq.~\ref{newCORRF}.
-%The 
-%new correlation function has less fluctuations with longer time
-%scales, thus giving more robust spin relaxation times. 
+Similar results were previously explained by the overestimated water
+self-diffusion of tip3p water model~\cite{wong08}.
 
 The analysis leading to the new correlation functions in Eq.~\ref{newCORRF}
 (see section~\ref{MDanalysis}) is exemplified in
-Fig.~\ref{exampleCORRF} for residues in different parts of {\it Pa}TonB
-protein having different features in rotational dynamics.
-Flexible C-terminus is represented by residue 341,
-more rigid $\beta$-sheet by residue 331 and a
-flexible loop between two sheets by residue 322. 
-The total correlation functions $C(t)$ calculated from original MD trajectories
-decay toward zero within~$\sim$10-50~ns for all residues in Fig.~\ref{exampleCORRF}  (top, solid lines). 
-Internal correlation functions $C_I(t)$ calculated from the trajectory with
-removed overall rotation of the protein decay to a plateau value in Fig.~\ref{exampleCORRF} (middle).
-The plateau defines the square of the order parameter $S^2$.
-As expected, the rigid $\beta$-sheet residue 331 has the largest order parameter value
-and fastest decay to it, while order parameters for the loop and C-terminus residues are
-significantly smaller and deacay is slower due to larger conformational ensemble
-sampled by these regions. The overall rotational correlation functions $C_O(t)$
-for a protein, determined as $C_O(t)=C(t)/C_I(t)$, are shown in Fig.~\ref{exampleCORRF} (bottom, solid lines).
+Fig.~\ref{exampleCORRF} for three residues locating in different domains of {\it Pa}TonB
+protein with different characteristic rotational dynamics.
+The flexible C-terminus is represented by the residue 341,
+more rigid $\beta$-sheet by the residue 331 and a
+flexible loop between two sheets by the residue 322. 
+The total correlation functions $C(t)$
+of all the residues in Fig.~\ref{exampleCORRF}  (top, solid lines). 
+decay toward zero within~$\sim$10-50~ns.
+The internal correlation functions $C_I(t)$ in Fig.~\ref{exampleCORRF} (middle)
+decay to a plateau value, which defines the square of the order parameter $S^2$.
+As expected, the internal correlation function for the residue 331 in the
+rigid $\beta$-sheet rapidly decays to the largest order parameter value,
+while the correlation functions of the residues in the loop and C-terminus 
+decay slower to the smaller order parameter values due to the larger conformational ensemble
+sampled by these regions.
+
 \begin{figure}[!h]
   \includegraphics[width=8.5cm]{../Figs/exampleCORRF2.eps}%
   \caption{Rotational correlation functions calculated from MD simulations of {\it Pa}TonB with tip4p water
@@ -515,24 +493,29 @@ for a protein, determined as $C_O(t)=C(t)/C_I(t)$, are shown in Fig.~\ref{exampl
     }\label{exampleCORRF}
 \end{figure}
 
-Correlation functions for anisotropic rigid body rotation
-from Eq. \ref{CORRFanisot} with the timescales $\tau_i$
-from rotational diffusion constants~\cite{Note1} and
-prefactors $A_j$ from the fit to MD simulation data are
-shown in Fig. \ref{exampleCORRF} (bottom, dashed lines). New correlation functions
-from Eq. \ref{newCORRF} are shown in Fig. \ref{exampleCORRF} (top, dashed lines).
-The new correlation functions are indistinguishable
-from the original MD simulation results with lag times shorter than one
+The overall rotational correlation functions, $C_O(t)=C(t)/C_I(t)$,
+are shown in Fig.~\ref{exampleCORRF} (bottom, solid lines).
+Also the correlation functions of anisotropic rigid body rotation
+from Eq. \ref{CORRFanisot} are shown in Fig. \ref{exampleCORRF} (bottom, dashed lines).
+The timescales for the latter, $\tau_i$, are given by the rotational
+diffusion coefficients from the simulation and the relation
+in Ref.~\citenum{Note1}, and the prefactors, $A_j$, are determined by fitting
+Eq.~\ref{CORRFanisot} to the overall rotation correlation functions, $C_O(t)$, calculated the MD simulation.
+The new correlation functions, determined from Eq. \ref{newCORRF} and
+shown in Fig. \ref{exampleCORRF} (top, dashed lines),
+are indistinguishable from the correlation functions calculated from
+the original MD simulations with the lag times shorter than one
 hundredth of total simulation time (approximately 4-12~ns for the studied systems),
-which is the expected limit for a good statistics in single molecule MD simulations \cite{lu06}.
+which is the expected limit for the good statistics in single molecule MD simulations \cite{lu06}.
 This suggests that the anisotropic rigid body diffusion model (Eq. \ref{CORRFanisot}) and
-separation of internal and global motions (Eq. \ref{CORRFsep}) are
-good approximations for the studied system. Statistical fluctuations with long lag times
-are clearly reduced in the new correlation functions in Fig. \ref{exampleCORRF}, because overall
-rotation is analytically described with Eq. \ref{CORRFanisot}.
-This is noticeable especially in flexible C-terminus (residue 341),
-where contribution of overall rotation dynamics to correlation function
-is small due to the small order parameters values.
+the separation of internal and global motions (Eq. \ref{CORRFsep}) are
+good approximations for the studied system.
+The analytical description of the overall rotation with Eq. \ref{CORRFanisot}
+in the new correlation functions
+clearly reduces the statistical fluctuations with the long lag times in Fig. \ref{exampleCORRF}.
+The effect is most visible for the flexible C-terminus (residue 341) having
+the smallest, thus the least detectable, contribution from the
+overall rotation of the protein due to the small order parameters values.
 
 
 %\begin{table}[htb]
