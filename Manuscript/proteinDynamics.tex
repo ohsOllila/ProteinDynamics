@@ -153,8 +153,8 @@ The corrected correlation functions can be used to interpret the spin relaxation
 experiments for proteins with arbitrarily anisotropic shapes.
 
 The developed approach is demonstrated by interpreting the experimental spin relaxation data 
-for C-terminal domains of TonB proteins from {\it H. pyroli} ({\it Hp}TonB)~\cite{ciragan16}
-and from {\it Pseudomonas aeruginosa} ({\it Pa}TonB). Both proteins have significantly
+of TonB proteins from {\it H. pyroli} ({\it Hp}TonB)~\cite{ciragan16}
+and from {\it Pseudomonas aeruginosa} ({\it Pa}TonB)~\cite{??}. Both proteins have significantly
 anisotropic shape, which would complicate the standard spin relaxation data
 analysis~\cite{woessner62,shimizu62,jarymowycz06,korzhnev01,luginbuhl97,hall04}.
 %These protein segments are critical for iron transport into Helicbacteri
@@ -369,9 +369,9 @@ new correlation functions from Eq. \ref{newCORRF}.
 \begin{tabular}{c c c c c c c c c c c c c c c c}
 Protein     & Water model & T (K) \footnote{Simulation temperature}  &  $t_{\rm sim}$ (ns) \footnote{Total simulation time}  &  $t_{\rm anal}$ (ns) \footnote{Analyzed simulation time}  & $D_{xx}$ &&$D_{yy}$ &&$D_{zz}$ &&$D_{||}/D_\perp$ \footnote{$D_{||}=D_{zz}$, $D_\perp=\frac{1}{2}(D_{xx}+D_{yy})$} & &$D_{\rm av}$ \footnote{$D_{\rm av}=\frac{1}{3}(D_{xx}+D_{yy}+D_{zz} )$}& &files \\
 \hline
-{\it Pa}TonB      & tip4p       & 298    & 400                 &  390                 & 1.81 $\pm$ 0.01 && 2.06$\pm$ 0.03 && 4.55 $\pm$ 0.03 && 2.35 $\pm$ 0.04 && 2.80 $\pm$ 0.02 && \cite{??} \\
-{\it Pa}TonB      & tip4p       & 310    & 400                 &  390                 &  2.60 $\pm$ 0.02 &&  2.22 $\pm$ 0.05& &  5.0  $\pm$ 0.1  & &  2.07 $\pm$ 0.09& &   3.26 $\pm$  0.07 && \cite{??}\\
-{\it Pa}TonB      & OPC4        & 310    & 1200                &  1190                &  2.01 $\pm$ 0.01 && 2.19 $\pm$ 0.01 && 5.01$\pm$ 0.03 && 2.39 $\pm$ 0.02 && 3.07 $\pm$ 0.01 && \cite{??}  \\
+{\it Pa}TonB      & tip4p       & 298    & 400                 &  390                 & 1.81 $\pm$ 0.01 && 2.06$\pm$ 0.03 && 4.55 $\pm$ 0.03 && 2.35 $\pm$ 0.04 && 2.80 $\pm$ 0.02 && \cite{PsTonB-tip4p-298K} \\
+{\it Pa}TonB      & tip4p       & 310    & 400                 &  390                 &  2.60 $\pm$ 0.02 &&  2.22 $\pm$ 0.05& &  5.0  $\pm$ 0.1  & &  2.07 $\pm$ 0.09& &   3.26 $\pm$  0.07 && \cite{PsTonB-tip4p-310K}\\
+{\it Pa}TonB      & OPC4        & 310    & 1200                &  1190                &  2.01 $\pm$ 0.01 && 2.19 $\pm$ 0.01 && 5.01$\pm$ 0.03 && 2.39 $\pm$ 0.02 && 3.07 $\pm$ 0.01 && \cite{PsTonB-OPC4-310K}  \\
 {\it Hp}TonB      & tip3p       & 310    & 570           	 &  370                 & 8.25 $\pm$ 0.05 && 7.67 $\pm$ 0.06 && 15.9 $\pm$ 0.3 && 1.99 $\pm$ 0.06 &&  10.6 $\pm$ 0.2 &&  \cite{??} \\
 {\it Hp}TonB      & tip3p       & 303    & 800           	 &  790                 & 6.24 $\pm$ 0.02 && 7.04 $\pm$ 0.03 && 11.9 $\pm$ 0.2 && 1.80 $\pm$ 0.03 && 8.40 $\pm$ 0.07 && \cite{??} \\
 {\it Hp}TonB      & tip4p       & 310    & 470           	 &  370                 & 3.6 $\pm$ 0.1 && 3.24 $\pm$ 0.01 && 6.3 $\pm$ 0.3 && 1.8 $\pm$ 0.1 && 4.4 $\pm$ 0.2 && \cite{??} \\
@@ -486,7 +486,7 @@ The analysis leading to the new correlation functions in Eq.~\ref{newCORRF}
 (see section~\ref{MDanalysis}) is exemplified in
 Fig.~\ref{exampleCORRF} for three residues locating in different domains of {\it Pa}TonB
 protein with different characteristic rotational dynamics.
-The flexible C-terminus is represented by the residue 341,
+The flexible N-terminus is represented by the residue 341,
 more rigid $\beta$-sheet by the residue 331 and a
 flexible loop between two sheets by the residue 322
 (see the labeling in Fig. \ref{PsTonBrelaxationDATAscaled}). 
@@ -497,7 +497,7 @@ The internal correlation functions $C_I(t)$ in Fig.~\ref{exampleCORRF} (middle)
 decay to a plateau value, which defines the square of the order parameter $S^2$.
 As expected, the internal correlation function for the residue 331 in the
 rigid $\beta$-sheet rapidly decays to the largest order parameter value,
-while the correlation functions of the residues in the loop and C-terminus 
+while the correlation functions of the residues in the loop and N-terminus 
 decay slower to the smaller order parameter values due to the larger conformational ensemble
 sampled by these regions.
 
@@ -534,7 +534,7 @@ good approximations for the studied system.
 The analytical description of the overall rotation with Eq. \ref{CORRFanisot}
 in the new correlation functions
 clearly reduces the statistical fluctuations with the long lag times in Fig. \ref{exampleCORRF}.
-The effect is most visible for the flexible C-terminus (residue 341) having
+The effect is most visible for the flexible N-terminus (residue 341) having
 the smallest, thus the least detectable, contribution from the
 overall rotation of the protein due to the small order parameters values.
 
@@ -793,7 +793,7 @@ observed in simulations.
 Enhanced conformational fluctuations are also observed for residues between 320-326,
 which correspond the loop between two $\beta$-sheets.
 MD simulations predict low order parameters and long internal effective correlation
-times also for residues between 260-274, which can be explained by  
+times also close to residues between 266-271, which can be explained by  
 two different orientations sampled by the $\alpha$-helix in this region
 (colour labelled with pink in Fig.~\ref{PsTonBrelaxationDATAscaled} A).
 The orientational fluctuations of the similar short helix could also explain the above mentioned
@@ -896,6 +896,13 @@ the well defined shape. Since the correction of the incorrect overall
 rotational diffusion due to water model may become higly complicated for such proteins,
 it may be necessary to employ a water model giving correct
 overall rotational diffusion coefficients for biomolecules.
+
+As further demonstrated in Ref.~\ref{??}, the approach presented in this work can be used to intepret the
+rotational dynamics of proteins with anisotropic shape from the
+spin relaxation data measured only with one magnetic field strength.
+This is a signifincant advancement over currently available methods,
+which may not be applicable in such cases, even thought experimental
+data would be measured with multiple magnetic field strengths.
 
 %or correcting overall rotation by using quaternions \cite{anderson12} or
 %fitting timescales to satisfy experiments \cite{prompers02} or
