@@ -60,7 +60,7 @@ plot  "~/Dropbox/TonB/Data/alphaHELIXES.dat" using 1:2 with filledcurves below x
 
 
 set format x "%G"
-set xlabel "Residue"
+set xlabel "#Residue"
 set ylabel "NOE"
 set size 1.0, 0.23
 set yrange [-0.6:1.1]
