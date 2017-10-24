@@ -18,9 +18,9 @@ set xtic 10
 set style fill transparent solid 0.5 noborder
 
 set origin 0,0.56
-set key at screen 0.5,screen 0.81 maxcols 2 maxrows 4
+set key at screen 0.55,screen 0.83 maxcols 2 maxrows 4 font "Helvetica,18"
 set size 1.0, 0.21
-set ylabel "T_{1} (s)"
+set ylabel "T_{1} (s)" font "Helvetica,18"
 set yrange [0.35:1.0]
 #set ytic 0.1
 set format x ""
@@ -35,7 +35,7 @@ set origin 0,0.38
 set size 1.0, 0.21
 set key at screen 0.98,screen 0.81 maxcols 2 maxrows 4
 #set label at screen 0.37,screen 0.55 "T2"
-set ylabel "T_{2} (s)"
+set ylabel "T_{2} (s)" font "Helvetica,18"
 set yrange [0.01:0.49]
 set ytic 0.1
 plot  "~/Dropbox/TonB/Data/alphaHELIXES.dat" using 1:2 with filledcurves below x1 lc 'grey' title '{/Symbol a} helix' ,\
@@ -48,7 +48,7 @@ plot  "~/Dropbox/TonB/Data/alphaHELIXES.dat" using 1:2 with filledcurves below x
 set origin 0,0.2
 set lmargin 8.17
 set size 1.0, 0.21
-set ylabel "T_{1}/T_{2}"
+set ylabel "T_{1}/T_{2}" font "Helvetica,18"
 set yrange [0:14.9]
 set ytic 2
 plot  "~/Dropbox/TonB/Data/alphaHELIXES.dat" using 1:2 with filledcurves below x1 lc 'grey' notitle,\
@@ -60,8 +60,8 @@ plot  "~/Dropbox/TonB/Data/alphaHELIXES.dat" using 1:2 with filledcurves below x
 
 
 set format x "%G"
-set xlabel "#Residue"
-set ylabel "NOE"
+set xlabel "#Residue" font "Helvetica,18"
+set ylabel "NOE" font "Helvetica,18"
 set size 1.0, 0.23
 set yrange [-0.6:1.1]
 set ytic 0.3

@@ -18,9 +18,9 @@ set xtic 10
 set style fill transparent solid 0.5 noborder
 
 set origin 0,0.56
-set key at screen 0.5,screen 0.83 maxcols 2 maxrows 4
+set key at screen 0.55,screen 0.86 maxcols 2 maxrows 4 font "Helvetica,18"
 set size 1.0, 0.21
-set ylabel "T_{1} (s)"
+set ylabel "T_{1} (s)" font "Helvetica,18"
 set yrange [0.65:1.1]
 set ytic 0.1
 set format x ""
@@ -62,7 +62,7 @@ plot  "~/Dropbox/PsTonB/Data/alphaHELIXES.dat" using 1:2 with filledcurves below
 
 
 set format x "%G"
-set xlabel "Residue"
+set xlabel "#Residue" font "Helvetica,18"
 set ylabel "NOE"
 set size 1.0, 0.23
 set yrange [-0.22:1.1]
