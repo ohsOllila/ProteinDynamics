@@ -1,0 +1,67 @@
+\documentclass[journal=jpcbfk]{achemso}
+
+\usepackage[version=3]{mhchem}
+\usepackage[T1]{fontenc}
+\newcommand*\mycommand[1]{\texttt{\emph{#1}}}
+\newcommand{\todo}[1]{\textcolor{red}{#1}}
+
+\usepackage{upgreek}				
+\usepackage{xcolor}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{lmodern}
+\usepackage{microtype}
+
+\author{O. H. Samuli Ollila}
+\email{samuli.ollila@helsinki.fi}
+%\homepage[]{Your web page}
+%\thanks{}
+\affiliation{Insititute of Biotechnology, University of Helsinki}
+\alsoaffiliation{Institute of Organic Chemistry and Biochemistry,
+Czech Academy of Sciences, 
+Prague 6, Czech Republic}
+
+\author{Harri Heikkinen}
+%\homepage[]{Your web page}
+%\thanks{}
+\affiliation{Insititute of Biotechnology, University of Helsinki}
+
+\author{Hideo Iwa\"i}
+%\homepage[]{Your web page}
+%\thanks{}
+\affiliation{Insititute of Biotechnology, University of Helsinki}
+
+
+
+\SectionNumbersOn
+
+\renewcommand{\thetable}{S\arabic{table}}%
+\renewcommand{\thefigure}{S\arabic{figure}}%
+\renewcommand{\thesection}{S\arabic{section}}%
+\renewcommand{\thepage}{S\arabic{page}}%
+
+\title{Supporting Information:\\Rotational dynamics of proteins from spin relaxation times and molecular dynamics simulations}
+
+\begin{document}
+
+\newpage
+%\tableofcontents
+
+\section{Supplementary Figures}
+\begin{figure*}[!h]
+  \includegraphics[width=16.5cm]{../Figs/RMASDplotPsTonBtip4pT310K.eps}%
+  \caption{Mean square angle deviations of inertia tensor axes calculated from {\it Pa}TonB
+simulation with tip4p water model at 310K. The data shown with linear (left) and logarithmic scale
+(right).  \label{RMASDplotLOG310}}%
+\end{figure*}
+\begin{figure*}[!h]
+  \includegraphics[width=16.5cm]{../Figs/RMASDplotPsTonBtip4pT298K.eps}%                                                                                                    
+  \caption{Mean square angle deviations of inertia tensor axes calculated from {\it Pa}TonB
+simulation with tip4p water model at 298K. The data shown with linear (left) and logarithmic scale
+(right).  \label{RMASDplotLOG310} \label{RMASDplotLOG298}}%                                                                                                                                                  
+\end{figure*}
+
+%\newpage
+%\bibliography{refs.bib}
+
+\end{document}
