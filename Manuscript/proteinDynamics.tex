@@ -150,8 +150,8 @@ Prague 6, Czech Republic}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{abstract}
   Conformational fluctuations and rotational tumbling of proteins can be experimentally accessed
-  with nuclear spin relaxation experiments. Interpretation of molecular dynamics from the
-  experimental data is, however, often complicated, especially for molecules with anisotropic
+  with nuclear spin relaxation experiments. However, interpretation of molecular dynamics from the
+  experimental data is often complicated, especially for molecules with anisotropic
   shape. Here we apply classical molecular dynamics simulations to interpret the conformational fluctuations
   and rotational tumbling of proteins with arbitrarily anisotropic shape. The direct calculation
   of spin relaxation times from simulation data did not reproduce the experimental data.
@@ -549,10 +549,10 @@ Similar results were previously explained by the overestimated water
 self-diffusion of tip3p water model~\cite{wong08}.
 
 The analysis leading to the new correlation functions in Eq.~\ref{newCORRF}
-(see section~\ref{MDanalysis}) is exemplified in
+(see Methods section) is exemplified in
 Fig.~\ref{exampleCORRF} for three residues locating in different domains of {\it Pa}TonB-CTD-96
 protein with different characteristic rotational dynamics.
-The flexible N-terminus is represented by the residue 341,
+The flexible C-terminus is represented by the residue 341,
 more rigid $\beta$-sheet by the residue 331 and a
 flexible loop between two sheets by the residue 322
 (see the labeling in Fig. \ref{PsTonBrelaxationDATAscaled}). 
@@ -563,7 +563,7 @@ The internal correlation functions $C_I(t)$ in Fig.~\ref{exampleCORRF} (middle)
 decay to a plateau value, which defines the square of the order parameter $S^2$.
 As expected, the internal correlation function for the residue 331 in the
 rigid $\beta$-sheet rapidly decays to the largest order parameter value,
-while the correlation functions of the residues in the loop and N-terminus 
+while the correlation functions of the residues in the loop and C-terminus 
 decay slower to the smaller order parameter values due to the larger conformational ensemble
 sampled by these regions.
 
@@ -600,13 +600,13 @@ good approximations for the studied system.
 The analytical description of the overall rotation with Eq. \ref{CORRFanisot}
 in the new correlation functions
 clearly reduces the statistical fluctuations with the long lag times in Fig. \ref{exampleCORRF}.
-The effect is most visible for the flexible N-terminus (residue 341) having
+The effect is most visible for the flexible C-terminus (residue 341) having
 the smallest, thus the least detectable, contribution from the
 overall rotation of the protein due to the small order parameters values.
 
 \subsection{Global rotational dynamics in simulations and experiments}
-The spin relaxation times of the {\it Hp}TonB-CTD-92 construct are compared 
-between the experiments and simulations using two
+Spin relaxation times of the {\it Hp}TonB-CTD-92 construct are compared 
+between experiments and simulations using two
 different water models in Fig.~\ref{HpTonBrelaxationDATA}.
 Simulations with tip3p water model are significantly
 off from the experimental data and underestimate the $T_1/T_2$ ratio, suggesting too

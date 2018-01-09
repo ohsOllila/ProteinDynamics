@@ -24,8 +24,8 @@ set ylabel "T_{1} (s)" font "Helvetica,18"
 set yrange [0.65:1.1]
 set ytic 0.1
 set format x ""
-plot  "~/Dropbox/PsTonB/Data/alphaHELIXES.dat" using 1:2 with filledcurves below x1 lc 'grey' notitle,\
-      "~/Dropbox/PsTonB/Data/betaSHEETS.dat" using 1:2 with filledcurves below x1 lc 'grey50' notitle,\
+plot  "~/Dropbox/PsTonB/Data/alphaHELIXES.dat" using 1:2 with filledcurves below x1 lc 'red' notitle,\
+      "~/Dropbox/PsTonB/Data/betaSHEETS.dat" using 1:2 with filledcurves below x1 lc 'blue' notitle,\
       "~/Dropbox/PsTonB/Data/T1fromSmulationsWITHopc.dat" using 1:2 title 'OPC4 (310K)' with linespoint pt 4 ps 1.3 linetype 1 lw 2  lc rgb 'blue',\
       "~/Dropbox/PsTonB/Data/T1fromSmulationsTIP4P.dat" using 1:2 title 'tip4p (310K)' with linespoint pt 4 ps 1.3 linetype 1 lw 2  lc rgb 'green',\
       "~/Dropbox/PsTonB/Data/T1fromSmulationsTIP4P_T298K.dat" using 1:2 title 'tip4p (298K)' with linespoint pt 4 ps 1.3 linetype 1 lw 2  lc rgb 'red',\
@@ -38,8 +38,8 @@ set key at screen 0.98,screen 0.83 maxcols 2 maxrows 4
 #set label at screen 0.37,screen 0.55 "T2"
 set ylabel "T_{2} (s)"
 set yrange [0.03:0.4]
-plot  "~/Dropbox/PsTonB/Data/alphaHELIXES.dat" using 1:2 with filledcurves below x1 lc 'grey' title '{/Symbol a} helix' ,\
-      "~/Dropbox/PsTonB/Data/betaSHEETS.dat" using 1:2 with filledcurves below x1 lc 'grey50' title '{/Symbol b} sheets' ,\
+plot  "~/Dropbox/PsTonB/Data/alphaHELIXES.dat" using 1:2 with filledcurves below x1 lc 'red' title '{/Symbol a} helix' ,\
+      "~/Dropbox/PsTonB/Data/betaSHEETS.dat" using 1:2 with filledcurves below x1 lc 'blue' title '{/Symbol b} sheets' ,\
       "~/Dropbox/PsTonB/Data/T2fromSmulationsWITHopc.dat" using 1:2 notitle with linespoint pt 4 ps 1.3 linetype 1 lw 2  lc rgb 'blue',\
       "~/Dropbox/PsTonB/Data/T2fromSmulationsTIP4P.dat" using 1:2 notitle with linespoint pt 4 ps 1.3 linetype 1 lw 2  lc rgb 'green',\
       "~/Dropbox/PsTonB/Data/T2fromSmulationsTIP4P_T298K.dat" using 1:2 notitle with linespoint pt 4 ps 1.3 linetype 1 lw 2  lc rgb 'red',\
@@ -52,8 +52,8 @@ set size 1.0, 0.21
 set ylabel "T_{1}/T_{2}"
 set yrange [1.5:16]
 set ytic 2
-plot  "~/Dropbox/PsTonB/Data/alphaHELIXES.dat" using 1:2 with filledcurves below x1 lc 'grey' notitle,\
-      "~/Dropbox/PsTonB/Data/betaSHEETS.dat" using 1:2 with filledcurves below x1 lc 'grey50' notitle,\
+plot  "~/Dropbox/PsTonB/Data/alphaHELIXES.dat" using 1:2 with filledcurves below x1 lc 'red' notitle,\
+      "~/Dropbox/PsTonB/Data/betaSHEETS.dat" using 1:2 with filledcurves below x1 lc 'blue' notitle,\
       "~/Dropbox/PsTonB/Data/T1T2ratioSIMULATIONSwithOPC.dat" using 1:2 notitle with linespoint pt 4 ps 1.3 linetype 1 lw 2 lc rgb 'blue',\
       "~/Dropbox/PsTonB/Data/T1T2ratioSIMULATIONSwithTIP4P.dat" using 1:2 notitle with linespoint pt 4 ps 1.3 linetype 1 lw 2 lc rgb 'green',\
       "~/Dropbox/PsTonB/Data/T1T2ratioSIMULATIONSwithTIP4P_T298K.dat" using 1:2 notitle with linespoint pt 4 ps 1.3 linetype 1 lw 2 lc rgb 'red',\
@@ -67,8 +67,8 @@ set ylabel "NOE"
 set size 1.0, 0.23
 set yrange [-0.22:1.1]
 set ytic 0.2
-plot  "~/Dropbox/PsTonB/Data/alphaHELIXES.dat" using 1:2 with filledcurves below x1 lc 'grey' notitle,\
-      "~/Dropbox/PsTonB/Data/betaSHEETS.dat" using 1:2 with filledcurves below x1 lc 'grey50' notitle,\
+plot  "~/Dropbox/PsTonB/Data/alphaHELIXES.dat" using 1:2 with filledcurves below x1 lc 'red' notitle,\
+      "~/Dropbox/PsTonB/Data/betaSHEETS.dat" using 1:2 with filledcurves below x1 lc 'blue' notitle,\
       "~/Dropbox/PsTonB/Data/NOEfromSmulationsWITHopc.dat" using 1:2 notitle with linespoint pt 4 ps 1.3 linetype 1 lw 2  lc rgb 'blue',\
       "~/Dropbox/PsTonB/Data/NOEfromSmulationsTIP4P.dat" using 1:2 notitle with linespoint pt 4 ps 1.3 linetype 1 lw 2  lc rgb 'green',\
       "~/Dropbox/PsTonB/Data/NOEfromSmulationsTIP4P_T298K.dat" using 1:2 notitle with linespoint pt 4 ps 1.3 linetype 1 lw 2  lc rgb 'red',\
@@ -79,8 +79,8 @@ plot  "~/Dropbox/PsTonB/Data/alphaHELIXES.dat" using 1:2 with filledcurves below
 #set ylabel "S^2"
 #set yrange [0.01:0.99]
 #set ytic 0.2
-#plot  "~/Dropbox/PsTonB/Data/alphaHELIXES.dat" using 1:2 with filledcurves below x1 lc 'grey' notitle ,\
-#      "~/Dropbox/PsTonB/Data/betaSHEETS.dat" using 1:2 with filledcurves below x1 lc 'grey50' notitle,\
+#plot  "~/Dropbox/PsTonB/Data/alphaHELIXES.dat" using 1:2 with filledcurves below x1 lc 'red' notitle ,\
+#      "~/Dropbox/PsTonB/Data/betaSHEETS.dat" using 1:2 with filledcurves below x1 lc 'blue' notitle,\
 #      "~/Dropbox/PsTonB/Data/OPfromPLATEAUwithOPC.dat" using 1:2 notitle with linespoint pt 5 linetype 1 lw 2 lc rgb 'blue',\
  #     "~/Dropbox/PsTonB/Data/OPfromPLATEAU.dat" using 1:2 notitle with linespoint pt 5 linetype 1 lw 2 lc rgb 'green',\
 #      "~/Dropbox/PsTonB/Data/OPfromPLATEAU_T298K.dat" using 1:2 notitle with linespoint pt 5 linetype 1 lw 2 lc rgb 'red',\
@@ -93,8 +93,8 @@ plot  "~/Dropbox/PsTonB/Data/alphaHELIXES.dat" using 1:2 with filledcurves below
 #set yrange [0.0:21]
 #set ytic 4
 #set logscale y
-#plot  "~/Dropbox/PsTonB/Data/alphaHELIXES.dat" using 1:2 with filledcurves below x1 lc 'grey' notitle ,\
-#      "~/Dropbox/PsTonB/Data/betaSHEETS.dat" using 1:2 with filledcurves below x1 lc 'grey50' notitle,\
+#plot  "~/Dropbox/PsTonB/Data/alphaHELIXES.dat" using 1:2 with filledcurves below x1 lc 'red' notitle ,\
+#      "~/Dropbox/PsTonB/Data/betaSHEETS.dat" using 1:2 with filledcurves below x1 lc 'blue' notitle,\
 #      "~/Dropbox/PsTonB/Data/effCTwithOPC.dat" using 1:2 notitle with linespoint pt 5 linetype 1 lw 2 lc rgb 'blue' ,\
 #      "~/Dropbox/PsTonB/Data/effCT.dat" using 1:2 notitle with linespoint pt 5 linetype 1 lw 2 lc rgb 'green',\
 #      "~/Dropbox/PsTonB/Data/effCT_T298K.dat" using 1:2 notitle with linespoint pt 5 linetype 1 lw 2 lc rgb 'red'
