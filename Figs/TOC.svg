@@ -161,7 +161,7 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.3463813"
-     inkscape:cx="1103.4414"
+     inkscape:cx="684.82758"
      inkscape:cy="-283.28941"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
@@ -183,7 +183,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -210,7 +210,7 @@
          id="tspan6900"
          x="991.06726"
          y="-1731.7982"
-         style="font-size:37.5px">N-terminus</tspan></text>
+         style="font-size:37.5px">C-terminus</tspan></text>
     <path
        style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1.69299996;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#marker9704-7)"
        d="m 1103.9072,-1671.858 c 0,-54.0863 0,-54.0863 0,-54.0863"
@@ -239,7 +239,7 @@
          id="tspan6900-6"
          x="489.3718"
          y="-1383.5511"
-         style="font-size:37.5px">C-terminus</tspan></text>
+         style="font-size:37.5px">N-terminus</tspan></text>
     <path
        style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1.69299996;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#marker9704)"
        d="m 624.63238,-1318.549 c 0,-54.0863 0,-54.0863 0,-54.0863"
@@ -1779,5 +1779,16 @@
        preserveAspectRatio="none"
        height="433"
        width="143" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="1019.1167"
+       y="-1737.1129"
+       id="text49501"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan49503"
+         x="1019.1167"
+         y="-1737.1129"></tspan></text>
   </g>
 </svg>
