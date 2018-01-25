@@ -17,7 +17,7 @@ set xtic 10 font "Arial,13"
 
 set style fill transparent solid 0.5 noborder
 set origin 0,0.875
-set key at screen 0.5,screen 1.12 maxcols 2 maxrows 4 font "Arial,18"
+set key at screen 0.5,screen 1.17 maxcols 2 maxrows 4 font "Arial,18"
 set size 1.0, 0.2
 set ylabel "T_{1} (s)" font "Arial,18"
 set yrange [0.67:1.20]
