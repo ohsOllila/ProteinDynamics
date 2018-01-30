@@ -61,7 +61,25 @@ simulation with tip4p water model at 298K. The data shown with linear (left) and
 (right).  \label{RMASDplotLOG310} \label{RMASDplotLOG298}}%                                                                                                                                                  
 \end{figure*}
 
-%\newpage
-%\bibliography{refs.bib}
+\newpage
+
+\begin{table}[!h]
+  \centering
+  \caption{Scaling factors of rotational diffusion for different proteins simulated with different water models.
+    The last row shows the ratio of simulated and experimental water self-diffusion constant.  }\label{ROTdiffCOEFFSscaled}
+  \begin{tabular}{c c c c c c c}
+                                       &    & tip3p &  & tip4p && OPC4  \\
+    \hline
+    {\it Hp}TonB-92                    &    & 2.9   &  & 1     && -\\
+    {\it Pa}TonB-96                    &    &  -    &  & 1.2   && -\\
+    Calcium recoverin \cite{timr18}    &    &  3.2  &  & -     && -\\
+    CBM-64 \cite{heikkinen18}          &    &  -    &  & -     && 1.3 \\
+    65K C-RRM \cite{norppa18}          &    & -     &  & 1     && - \\
+    &&&&&& \\
+    Water self-diffusion \cite{izadi14} &    & 2.4   & & 1.1   &&  1 \\
+  \end{tabular}
+\end{table}
+
+\bibliography{refs.bib}
 
 \end{document}
