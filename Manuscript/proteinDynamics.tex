@@ -518,9 +518,10 @@ for the lag times up to one hundredth of the total simulation length (12~ns),
 which is expected to be the maximum lag time for the good statistics
 of rotational dynamics analyzed from a single molecule in MD simulations~\cite{lu06}.
 Deviations from the linear behavior are only seen with the lag times longer
-than this limit, as also demonstrated for the shorter simulations in
-Figs.~S1~and~S2 in Supplementary Information with tip4p water at
-two different temperatures. The plots with log-log scale in
+than this limit, as also demonstrated for the shorter simulations
+with tip4p water at two different temperatures
+in Figs.~S1~and~S2 in Supplementary Information.
+The plots with log-log scale in
 Figs.~\ref{RMASDplot},~S1~and~S2
 reveal a weakly subdiffusive region only below very short timescales
 of approximately~0.12~ns. Thus, we conclude that the protein
@@ -663,6 +664,9 @@ from {\it Pa}TonB-96 simulation with tip4p water model
 were in good agreement with the experiments in Fig.~\ref{PsTonBrelaxationDATAscaled}
 after the diffusion coefficients were divided with a constant factor of 1.2,
 which is smaller than 2.9 used for the {\it Hp}TonB-92 simulation above.
+The scaling factors used to correct the overall rotational diffusion
+of different proteins with different water models are shown in Table S1
+together with the corresponding coefficients for self-diffusion of water \cite{wong08,izadi14}.
 Notably, the effect of 12 degree temperature difference
 on the spin relaxation times from tip4p simulations in Fig. \ref{PsTonBrelaxationDATA}
 is significantly smaller than the observed differences between simulations and experiments or
@@ -840,7 +844,8 @@ same water model, tip4p, seems to be 1 and 1.2, respectively. This suggests
 that the correction factor is not fully determined by the bulk water properties
 and that the hydration layer and water-protein interactions may play a critical
 role in rotational dynamics of proteins, as also suggested by the hydrodynamical 
-calculations \cite{torre00}.
+calculations \cite{torre00}. The scaling factors for different proteins with
+different water models are summarized in Table S1.
 
 Similarity between the correlation functions from the original MD trajectory and
 the new correlation functions from Eq.~\ref{newCORRF} 
@@ -849,7 +854,7 @@ and the separation of internal and the overall rotational motions
 (Eq.~\ref{CORRFsep}) are good approximations for the above investigated
 proteins. This is in line with the previous studies of other  
 proteins with well defined structure~\cite{wong08,allner15}. However, it remains to be seen
-how well this and other related approaches~\cite{prompers02,anderson12} 
+how well this and other related approaches~\cite{prompers02,anderson12,chia18} 
 will succeed for intrinsically disordered proteins without
 the well defined shape. Since the correction of the incorrect overall
 rotational diffusion due to water model may become highly complicated for such proteins,
@@ -887,8 +892,9 @@ data would be measured with multiple magnetic field strengths.
 %publications, refer to the journal's Instructions for Authors.
 
 %The following files are available free of charge.
-\begin{itemize}
-  \item Mean square angle deviations of {\it Pa}TonB-96 simulations with tip4p water at 310~K and 298~K 
+  \begin{itemize}
+  \item Mean square angle deviations of {\it Pa}TonB-96 simulations with tip4p water at 310~K and 298~K
+  \item Table summarising scaling coefficients for the overall rotational diffusion of different proteins simulated with different water models
 \end{itemize}
 
 \end{suppinfo}
