@@ -21,7 +21,7 @@
 Czech Academy of Sciences, 
 Prague 6, Czech Republic}
 
-\author{Harri Heikkinen}
+\author{Harri A. Heikkinen}
 %\homepage[]{Your web page}
 %\thanks{}
 \affiliation{Insititute of Biotechnology, University of Helsinki}
@@ -63,21 +63,34 @@ simulation with tip4p water model at 298K. The data shown with linear (left) and
 
 \newpage
 
+\section{Supplementary table}
+
 \begin{table}[!h]
   \centering
-  \caption{Scaling factors of rotational diffusion for different proteins simulated with different water models.
-    The last row shows the ratio of simulated and experimental water self-diffusion constant.  }\label{ROTdiffCOEFFSscaled}
-  \begin{tabular}{c c c c c c c}
-                                       &    & tip3p &  & tip4p && OPC4  \\
+  \caption{Scaling factors used to correct the overall rotational diffusion coefficients for different proteins
+    simulated with different water models.
+    $^{a}$ Calcium recoverin was 12 residues shorter in simulations than in experiments.
+    $^{b}$ Ratio of isotropic rotational diffusion coefficients from simulations and experiments from Ref. \citenum{wong08}.
+    $^{c}$ Ratio of simulated and experimental self-diffusion constant of water calculated from Ref. \citenum{izadi14}.  }\label{ROTdiffCOEFFSscaled}
+  \begin{tabular}{c c c c c c c c c}
+                                       &    & tip3p &  & tip4p && OPC4 && SPC/E \\
     \hline
-    {\it Hp}TonB-92                    &    & 2.9   &  & 1     && -\\
-    {\it Pa}TonB-96                    &    &  -    &  & 1.2   && -\\
-    Calcium recoverin \cite{timr18}    &    &  3.2  &  & -     && -\\
-    CBM-64 \cite{heikkinen18}          &    &  -    &  & -     && 1.3 \\
-    65K C-RRM \cite{norppa18}          &    & -     &  & 1     && - \\
+    {\it Hp}TonB-92                    &    & 2.9   &  & 1.0     && -  && - \\
+    {\it Pa}TonB-96                    &    &  -    &  & 1.2   && -    && -\\
+    CBM-64 \cite{heikkinen18}          &    &  -    &  & -     && 1.3  && -\\
+    65K C-RRM \cite{norppa18}          &    & -     &  & 1.0     && -  && -\\
+    Calcium recoverin$^{a}$ \cite{timr18}    &    &  3.2  &  & -     && -    && -\\
     &&&&&& \\
-    Water self-diffusion \cite{izadi14} &    & 2.4   & & 1.1   &&  1 \\
+    GB3$^{b}$                           &    & -     &  & 1.1    && -   && 1.3 \\
+    Ubiquitin$^{b}$                     &    & 2.7   &  & 1.1    && -   && 1.1 \\
+    Binase$^{b}$                        &    & -     &  & -   && -   && 1.2 \\
+    Lysosome$^{b}$                      &    & 2.7   &  & -    && -   && 1.3 \\
+    &&&&&& \\
+    Water self-diffusion$^{c}$  &    & 2.4   & & 1.1   &&  1 && 1.3 \\
+    &&&&&& \\
   \end{tabular}
+  \newline
+  \flushleft
 \end{table}
 
 \bibliography{refs.bib}
