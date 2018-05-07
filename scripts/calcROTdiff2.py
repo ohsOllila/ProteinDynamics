@@ -103,7 +103,7 @@ def fiveexpfunc(x,p1,p2,p3,p4,p5):
   return p1**2*numpy.exp(-x/(scalingF*tau1)) + p2**2*numpy.exp(-x/(scalingF*tau2)) + p3**2*numpy.exp(-x/(scalingF*tau3)) + p4**2*numpy.exp(-x/(scalingF*tau4)) + p5**2*numpy.exp(-x/(scalingF*tau5))
 
 NumberOfCorrfs=int(sys.argv[5])
-for i in range(1,NumberOfCorrfs+1):
+for i in range(0,NumberOfCorrfs):
   xdata = numpy.loadtxt(sys.argv[2]+'/overall/NHrotaCF_' + str(i) + '.xvg', usecols=range(0,1))
   ydata = numpy.loadtxt(sys.argv[2]+'/overall/NHrotaCF_' + str(i) + '.xvg', usecols=range(1,2))
   xdata = xdata*0.001
