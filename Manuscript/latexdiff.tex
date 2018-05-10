@@ -1,4 +1,7 @@
  
+%DIF LATEXDIFF DIFFERENCE FILE
+%DIF DEL proteinDynamicsFIRSTsubmission.tex   Wed May  9 10:05:56 2018
+%DIF ADD proteinDynamics.tex                  Wed May  9 15:40:11 2018
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% This is a (brief) model paper using the achemso class
 %% The document class accepts keyval options, which should include
@@ -116,6 +119,26 @@ Prague 6, Czech Republic}
 %% The manuscript does not need to include \maketitle, which is
 %% executed automatically.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%DIF PREAMBLE EXTENSION ADDED BY LATEXDIFF
+%DIF UNDERLINE PREAMBLE %DIF PREAMBLE
+\RequirePackage[normalem]{ulem} %DIF PREAMBLE
+\RequirePackage{color}\definecolor{RED}{rgb}{1,0,0}\definecolor{BLUE}{rgb}{0,0,1} %DIF PREAMBLE
+\providecommand{\DIFadd}[1]{{\protect\color{blue}\uwave{#1}}} %DIF PREAMBLE
+\providecommand{\DIFdel}[1]{{\protect\color{red}\sout{#1}}}                      %DIF PREAMBLE
+%DIF SAFE PREAMBLE %DIF PREAMBLE
+\providecommand{\DIFaddbegin}{} %DIF PREAMBLE
+\providecommand{\DIFaddend}{} %DIF PREAMBLE
+\providecommand{\DIFdelbegin}{} %DIF PREAMBLE
+\providecommand{\DIFdelend}{} %DIF PREAMBLE
+%DIF FLOATSAFE PREAMBLE %DIF PREAMBLE
+\providecommand{\DIFaddFL}[1]{\DIFadd{#1}} %DIF PREAMBLE
+\providecommand{\DIFdelFL}[1]{\DIFdel{#1}} %DIF PREAMBLE
+\providecommand{\DIFaddbeginFL}{} %DIF PREAMBLE
+\providecommand{\DIFaddendFL}{} %DIF PREAMBLE
+\providecommand{\DIFdelbeginFL}{} %DIF PREAMBLE
+\providecommand{\DIFdelendFL}{} %DIF PREAMBLE
+%DIF END PREAMBLE EXTENSION ADDED BY LATEXDIFF
+
 \begin{document}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -158,7 +181,7 @@ Prague 6, Czech Republic}
   This was successfully corrected by scaling the overall rotational diffusion coefficients around the
   protein inertia axes with a constant factor. The achieved good agreement with experiments
   allowed the interpretation of the internal and overall dynamics of proteins with significantly
-  anisotropic shape. The overall rotational diffusion was found to be Brownian, having only a
+  anisotropic shape. The overall rotational diffusion was found to be \DIFdelbegin \DIFdel{brownian}\DIFdelend \DIFaddbegin \DIFadd{Brownian}\DIFaddend , having only a
   short subdiffusive region below 0.12~ns. The presented methodology can be applied to
   interpret rotational dynamics and conformation fluctuations of proteins with arbitrary anisotropic
   shape. However, a water model with more realistic dynamical properties is probably required
@@ -173,7 +196,7 @@ Prague 6, Czech Republic}
 Conformational fluctuations and the entropy of proteins
 play a significant role in their functionality
 and interactions with other biomolecules.
-Conformational fluctuations and the overall Brownian tumbling of proteins
+Conformational fluctuations and the overall \DIFdelbegin \DIFdel{brownian }\DIFdelend \DIFaddbegin \DIFadd{Brownian }\DIFaddend tumbling of proteins
 are experimentally accessible through the 
 spin relaxation times of $^{15}$N and $^{13}$C nuclei measured
 with nuclear magnetic resonance (NMR) 
@@ -211,7 +234,7 @@ contribution of the overall rotational tumbling to the
 rotational correlation functions of N-H bonds.
 This reduces the required simulation length for the accurate determination
 of the rotational correlation functions. Furthermore, the overestimated
-overall Brownian tumbling rates due to the inaccurate water model
+overall \DIFdelbegin \DIFdel{brownian }\DIFdelend \DIFaddbegin \DIFadd{Brownian }\DIFaddend tumbling rates due to the inaccurate water model
 can be corrected during the correlation function calculation by scaling
 the diffusion coefficients in all directions with a constant factor.
 The corrected correlation functions can be used to interpret the spin relaxation
@@ -271,14 +294,16 @@ value of $\Delta \sigma = -160$ ppm is used for the chemical shift anisotropy of
 proteins \cite{kay89,hiyama88}.
 
 Spin relaxation experiments are typically interpreted for proteins by
-assuming that the motions related to the overall Brownian tumbling 
-and conformational fluctuations are independent \cite{halle09}.
+assuming that the motions related to the overall \DIFdelbegin \DIFdel{brownian }\DIFdelend \DIFaddbegin \DIFadd{Brownian }\DIFaddend tumbling 
+and conformational fluctuations are independent \DIFaddbegin \DIFadd{\mbox{%DIFAUXCMD
+\cite{halle09}}%DIFAUXCMD
+}\DIFaddend .
 The rotational correlation function for each N-H bond can be then written
 as  \cite{wennerstrom79,Lipari82,jarymowycz06,korzhnev01,halle09}
 \begin{equation}\label{CORRFsep}
   C(t)=C_I(t)C_O(t),
 \end{equation}
-where $C_I(t)$ and $C_O(t)$ are correlation functions for the internal dynamics and overall
+where $C_I(t)$ and $C_O(t)$ are correlation functions for the internal \DIFaddbegin \DIFadd{dynamics }\DIFaddend and overall
 rotations, respectively. Conformational fluctuations can be described
 in this approximation by using the square of the order parameter respect to 
 molecular axes $S^2$, which is given by the plateau of the internal rotational 
@@ -360,7 +385,7 @@ to interpret experiments~\cite{fisette12}.
 
 The direct comparison with experiments is, however, often complicated by
 the insufficient statistics for the calculated correlation functions and the overestimated
-rotational diffusion due to inaccuracies in the used water models~\cite{wong08,anderson12}.
+rotational diffusion due to inaccuracies in \DIFaddbegin \DIFadd{the used }\DIFaddend water models~\cite{wong08,anderson12}.
 Here we show that the statistical accuracy of the contribution of the
 overall tumbling to the correlation functions, $C_0(t)$ in Eq.~\ref{CORRFsep}, can be increased for
 rigid proteins by directly calculating the diffusion coefficients of the inertia axes.
@@ -370,12 +395,14 @@ in Eq.~\ref{CORRFanisot} by using the relations in Eq.~\ref{tauDIFFeq}~\cite{woe
 
 The rotational diffusion coefficients are calculated by fitting a linear slope to the 
 square angle deviation of the inertia axes (see below).
-Lag times up to one hundredth of the total simulation length were used.
+\DIFaddbegin \DIFadd{Lag times up to one hundredth of the total simulation length were used.
 This is expected to be the maximum lag time for the good statistics
-of rotational dynamics analyzed from a single molecule in MD simulations~\cite{lu06}.
+of rotational dynamics analyzed from a single molecule in MD simulations~\mbox{%DIFAUXCMD
+\cite{lu06}}%DIFAUXCMD
+.
 Error bars for the diffusion coefficients were defined to include results when the lag
 time was varied with $\pm$1 ns.
-This requires less simulation data
+}\DIFaddend This requires less simulation data
 for the good statistics than a direct fit of the multiexponential sum in Eq. \ref{CORRFanisot}
 to the rotational correlation function calculated from MD simulation.
 In addition, the overestimated rotational diffusion due to water model~\cite{wong08} can
@@ -441,12 +468,14 @@ new correlation functions from Eq. \ref{newCORRF}.
 \begin{tabular}{c c c c c c c c c c c c c c c c}
 Protein     & Water\footnote{Water model used in simulation.} & T (K)\footnote{Simulation temperature}  &  $t_{\rm s}$(ns)\footnote{Total simulation time}  &  $t_{\rm a}$(ns)\footnote{Analyzed simulation time}  & $D_{x}$ &&$D_{y}$ &&$D_{z}$ &&$D_{||}/D_\perp$\footnote{$D_{||}=D_{z}$, $D_\perp=\frac{1}{2}(D_{x}+D_{y})$} & &$D_{\rm av}$\footnote{$D_{\rm av}=\frac{1}{3}(D_{x}+D_{y}+D_{z} )$}& &files \\
 \hline
-{\it Pa}TonB-96      & tip3p       & 298    & 400                 &  300                 & 4.2 $\pm$ 0.1 && 4.4 $\pm$ 0.1 && 10.4 $\pm$ 0.1 && 2.42 $\pm$ 0.1 && 6.4 $\pm$ 0.1 && [\citenum{PsTonB-tip3p-298K}] \\
-{\it Pa}TonB-96      & tip4p       & 298    & 400                 &  390                 & 1.81 $\pm$ 0.01 && 2.06 $\pm$ 0.03 && 4.55 $\pm$ 0.03 && 2.35 $\pm$ 0.04 && 2.80 $\pm$ 0.02 && [\citenum{PsTonB-tip4p-298K}] \\
+{\it Pa}TonB-96      & \DIFaddbegin \DIFadd{tip3p       }& \DIFadd{298    }& \DIFadd{400                 }&  \DIFadd{300                 }& \DIFadd{4.2 $\pm$ 0.1 }&& \DIFadd{4.4 $\pm$ 0.1 }&& \DIFadd{10.4 $\pm$ 0.1 }&& \DIFadd{2.42 $\pm$ 0.1 }&& \DIFadd{6.4 $\pm$ 0.1 }&& [\DIFadd{\mbox{%DIFAUXCMD
+\citenum{PsTonB-tip3p-298K}}%DIFAUXCMD
+}] \\
+{\it \DIFadd{Pa}}\DIFadd{TonB-96      }& \DIFaddend tip4p       & 298    & 400                 &  390                 & 1.81 $\pm$ 0.01 && 2.06 $\pm$ 0.03 && 4.55 $\pm$ 0.03 && 2.35 $\pm$ 0.04 && 2.80 $\pm$ 0.02 && [\citenum{PsTonB-tip4p-298K}] \\
 {\it Pa}TonB-96      & tip4p       & 310    & 400                 &  390                 &  2.60 $\pm$ 0.02 &&  2.22 $\pm$ 0.05& &  5.0  $\pm$ 0.1  & &  2.07 $\pm$ 0.09& &   3.26 $\pm$  0.07 && [\citenum{PsTonB-tip4p-310K}]\\
 {\it Pa}TonB-96      & OPC4        & 310    & 1200                &  1190                &  2.01 $\pm$ 0.01 && 2.19 $\pm$ 0.01 && 5.01 $\pm$  0.03 && 2.39 $\pm$ 0.02 && 3.07 $\pm$ 0.01 && [\citenum{PsTonB-OPC4-310K}]  \\
-\hline
-{\it Hp}TonB-92      & tip3p       & 310    & 570                   &  370                 & 8.25 $\pm$ 0.05 && 7.67 $\pm$ 0.06 && 15.9 $\pm$ 0.3 && 1.99 $\pm$ 0.06 &&  10.6 $\pm$ 0.2 &&  [\citenum{HpTonB-tip3p-310K}] \\
+\DIFaddbegin \hline
+\DIFaddend {\it Hp}TonB-92      & tip3p       & 310    & 570                   &  370                 & 8.25 $\pm$ 0.05 && 7.67 $\pm$ 0.06 && 15.9 $\pm$ 0.3 && 1.99 $\pm$ 0.06 &&  10.6 $\pm$ 0.2 &&  [\citenum{HpTonB-tip3p-310K}] \\
 {\it Hp}TonB-92      & tip3p       & 303    & 800                   &  790                 & 6.24 $\pm$ 0.02 && 7.04 $\pm$ 0.03 && 11.9 $\pm$ 0.2 && 1.80 $\pm$ 0.03 && 8.40 $\pm$ 0.07 && [\citenum{HpTonB-tip3p-303K}] \\
 {\it Hp}TonB-92      & tip4p       & 310    & 470                   &  370                 & 3.6 $\pm$ 0.1 && 3.24 $\pm$ 0.01 && 6.3 $\pm$ 0.3 && 1.8 $\pm$ 0.1 && 4.4 $\pm$ 0.2 && [\citenum{HpTonB-tip4p-310K}] \\
 {\it Hp}TonB-92      & tip4p       & 303    & 400                   &  200                 & 2.7 $\pm$ 0.1 && 2.71 $\pm$ 0.02 && 5.6 $\pm$ 0.5 && 2.1 $\pm$ 0.2 && 3.7 $\pm$ 0.2 && [\citenum{HpTonB-tip4p-303K}] \\
@@ -456,19 +485,20 @@ Protein     & Water\footnote{Water model used in simulation.} & T (K)\footnote{S
 All simulations were performed using Gromacs 5 \cite{abraham15}
 and Amber ff99SB- ILDN~\cite{lindorff10} force field for proteins. The protein was solvated
 to tip3p\cite{jorgensen83}, tip4p \cite{jorgensen83}, or OPC4 \cite{izadi14} water models.
-Initial structures were taken from the lowest energy NMR structures of {\it Hp}TonB-92 (PDB code: 5LW8) \cite{ciragan16} and
+Initial structures were taken from \DIFaddbegin \DIFadd{the lowest energy }\DIFaddend NMR structures of {\it Hp}TonB-92 (PDB code: 5LW8) \cite{ciragan16} and
 {\it Pa}TonB-96 (PDB code: 6FIP) \cite{oeemig17}.
 The temperature was coupled to the desired value with the v-rescale thermostat \cite{bussi07} and the pressure was 
 isotropically set to 1 bar using Parrinello-Rahman barostat \cite{parrinello81}.
-Timestep was 2~fs, Lennard-Jones interactions were cut-off at 1.0~nm,
+Timestep was 2~fs, \DIFdelbegin \DIFdel{Lennart-Jones }\DIFdelend \DIFaddbegin \DIFadd{Lennard-Jones }\DIFaddend interactions were cut-off at 1.0~nm,
 PME~\cite{darden93,essman95} was used for electrostatics and LINCS was used
-to constrain all bond lengths \cite{hess07}. The simulated systems are listed
+to \DIFdelbegin \DIFdel{constraint }\DIFdelend \DIFaddbegin \DIFadd{constrain }\DIFaddend all bond lengths \cite{hess07}. The simulated systems are listed
 in Table \ref{ROTdiffCOEFFS} with the references giving access to the trajectories
-and the related simulation files. Equilibration of the trajectories were followed
+and the related simulation files. \DIFaddbegin \DIFadd{Equilibration of the trajectories were followed
 by monitoring the protein RMSD, intertia tensor eigenvalues and rotation angles.
 Sufficient amount of trajectory was omitted to remove signifincant fluctuations in
 these parameters in the beginning of simulation. If significant fluctuations were
 not observed, the first 10ns of the trajectory was omitted as an equilibration period.
+}\DIFaddend 
 
 The rotational correlation functions are calculated with {\it gmx rotacf} from
 Gromacs package \cite{gromacsMANUAL}. The overall rotation was removed
@@ -536,7 +566,7 @@ The plots with log-log scale in
 Figs.~\ref{RMASDplot},~S1~and~S2
 reveal a weakly subdiffusive region only below very short timescales
 of approximately~0.12~ns. Thus, we conclude that the protein
-experiences the Brownian rotational tumbling with  a good approximation.
+experiences the \DIFdelbegin \DIFdel{brownian }\DIFdelend \DIFaddbegin \DIFadd{Brownian }\DIFaddend rotational tumbling with  a good approximation.
 The diffusion coefficients can be then calculated from the slope of the mean square angle
 deviations according to Eq. \ref{DIFFdef} by using the lag times less than
 one hundredth of the total MD simulation length.
@@ -830,7 +860,7 @@ Interpretation of the $^{15}$N spin relaxation data measured from
 such proteins has been very challenging with the previously available
 methods~\cite{barbato92,luginbuhl97}.
 
-The overall rotation of the studied proteins was found to be Brownian having
+The overall rotation of the studied proteins was found to be \DIFdelbegin \DIFdel{brownian }\DIFdelend \DIFaddbegin \DIFadd{Brownian }\DIFaddend having
 only a small subdiffusive behavior with short timescales
 below~$\sim$0.12 ns, which could be contrasted with crowded environments,
 where anomalous diffusion is expected to be more significant \cite{hofling13}.
@@ -838,7 +868,7 @@ The direct analysis of classical molecular dynamics trajectories did not, howeve
 reproduce the experimental $^{15}$N spin relaxation data. Comparison between the rotational 
 diffusion coefficients and spin relaxation times between simulations
 and experiments suggested that
-the overall Brownian tumbling of proteins is too rapid in the simulations,
+the overall \DIFdelbegin \DIFdel{brownian }\DIFdelend \DIFaddbegin \DIFadd{Brownian }\DIFaddend tumbling of proteins is too rapid in the simulations,
 in agreement with the previous report suggesting that the discrepancy arises
 from the inaccuracies in water models~\cite{wong08}.
 Scaling down the anisotropic diffusion coefficients in the simulation data
@@ -903,10 +933,10 @@ data would be measured with multiple magnetic field strengths.
 %publications, refer to the journal's Instructions for Authors.
 
 %The following files are available free of charge.
-  \begin{itemize}
+   \begin{itemize} 
   \item Mean square angle deviations of {\it Pa}TonB-96 simulations with tip4p water at 310~K and 298~K
   \item Table summarising scaling coefficients for the overall rotational diffusion of different proteins simulated with different water models
-\end{itemize}
+ \end{itemize} 
 
 \end{suppinfo}
 
