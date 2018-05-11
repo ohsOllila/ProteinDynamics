@@ -47,7 +47,7 @@ Prague 6, Czech Republic}
 \newpage
 %\tableofcontents
 
-\section{Supplementary Figures}
+\section{Mean square angle deviations of {\it Pa}TonB-96 simulated with tip4p water model}
 \begin{figure*}[!h]
   \includegraphics[width=16.5cm]{../Figs/RMASDplotPsTonBtip4pT310K.eps}%
   \caption{Mean square angle deviations of inertia tensor axes calculated from {\it Pa}TonB-96
@@ -63,7 +63,32 @@ simulation with tip4p water model at 298K. The data shown with linear (left) and
 
 \newpage
 
-\section{Supplementary table}
+\section{Accuracy of the scaling factors for rotational diffusion}
+Accuracy of the spin relaxation calculations and scaling factors for rotational diffusion
+were esimated by running three replicas of {\it Hp}TonB-92 and {\it Pa}TonB-96 simulations with tip3p.
+In the first replica, the initial configuration was the lowest energy conformation from the NMR structure bundle.
+In the second and third replicas, the starting configurations were randomly selected from the bundle.
+Spin relaxation times calculated from the replicas are compared with the experimental data
+in Figs. \ref{HpTonBrelaxationDATAreplicas} and \ref{PsTonBrelaxationDATAreplicas}.
+\begin{figure*}[!b]
+  \includegraphics[width=9cm]{../Figs/HpTonBrelaxationDATAreplicas.eps}%
+  \caption{$^{15}$N spin relaxation times for {\it Hp}TonB-92 from experimental data (circles)
+    and MD simulations with different initial configurations (squares). \label{HpTonBrelaxationDATAreplicas}}
+\end{figure*}
+\begin{figure*}[!h]
+  \includegraphics[width=9cm]{../Figs/PsTonBrelaxationDATAreplicas.eps}%                                                                                                    
+  \caption{$^{15}$N spin relaxation times for {\it Pa}TonB-96 from experimental data (circles)
+    and MD simulations with different initial configurations (squares). \label{PsTonBrelaxationDATAreplicas}}
+\end{figure*}
+
+General agreement between the calculated spin relaxation times and experiments is essentially similar for all
+the replicas of both proteins. Optimal scaling factors are also the same for different replicas, except for
+the simulation1 of {\it Hp}TonB-92 which gives slightly lower scaling factor than the other two replicas.
+Optimal values of the scaling factors for rotational diffusion from different simulations are summarized in
+Table \ref{ROTdiffCOEFFSscaled}. The scaling factors for simulations with tip3p water model vary between 2.7--3.3, while
+the scaling factors for simulations with tip4p, OPC4 and SPC/E water models are closer to 1.
+The results are in line with the self-diffusion coefficients of water calculated from different water models \cite{izadi14},
+also shown in Table \ref{ROTdiffCOEFFSscaled}.
 
 \begin{table}[!h]
   \centering
@@ -75,8 +100,8 @@ simulation with tip4p water model at 298K. The data shown with linear (left) and
   \begin{tabular}{c c c c c c c c c}
                                        &    & tip3p &  & tip4p && OPC4 && SPC/E \\
     \hline
-    {\it Hp}TonB-92                    &    & 2.9   &  & 1.0     && -  && - \\
-    {\it Pa}TonB-96                    &    &  -    &  & 1.2   && -    && -\\
+    {\it Hp}TonB-92                    &    & 2.9 -- 3.3   &  & 1.0     && -  && - \\
+    {\it Pa}TonB-96                    &    &  2.7    &  & 1.2   && -    && -\\
     CBM-64 \cite{heikkinen18}          &    &  -    &  & -     && 1.3  && -\\
     65K C-RRM \cite{norppa18}          &    & -     &  & 1.0     && -  && -\\
     Calcium recoverin$^{a}$ \cite{timr18}    &    &  3.2  &  & -     && -    && -\\
@@ -92,6 +117,8 @@ simulation with tip4p water model at 298K. The data shown with linear (left) and
   \newline
   \flushleft
 \end{table}
+
+\pagebreak
 
 \bibliography{refs.bib}
 
