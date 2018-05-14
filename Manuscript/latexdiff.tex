@@ -1,7 +1,7 @@
  
 %DIF LATEXDIFF DIFFERENCE FILE
 %DIF DEL proteinDynamicsFIRSTsubmission.tex   Wed May  9 10:05:56 2018
-%DIF ADD proteinDynamics.tex                  Wed May  9 15:40:11 2018
+%DIF ADD proteinDynamics.tex                  Fri May 11 21:48:35 2018
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% This is a (brief) model paper using the achemso class
 %% The document class accepts keyval options, which should include
@@ -457,8 +457,11 @@ from Eqs. \ref{SPECTdens}-\ref{NOE}. The incorrect overall rotational
 diffusion due to a water model can be corrected at this point  by scaling the rotational diffusion
 coefficients, i.e. timescales $\tau_j$, with a constant factor before calculating
 new correlation functions from Eq. \ref{newCORRF}.
-
-
+\DIFaddbegin \DIFadd{Here we determine the optimal scaling factors separately for each system.
+The rotational diffusion coefficients are divided with values between 1--4 with
+the spacing of 0.1. The optimal scaling factor is the value giving 
+the best agreement with the experimental spin relaxation data.
+}\DIFaddend 
 
 \subsection{Simulation and analysis details}
 \begin{sidewaystable}[hp]
@@ -666,11 +669,12 @@ better agreement with the experimental data in  Fig.~\ref{HpTonBrelaxationDATA}.
 
 To see if the discrepancy in spin relaxation times for simulations with tip3p water model
 could be explained by the overestimated overall diffusion of the protein,
-the diffusion coefficients were divided by a constant factor of 2.9 before applying
-Eq. \ref{newCORRF} to calculate the new correlation functions. The spin
-relaxation times calculated from the new correlation functions after scaling
-the rotational diffusion coefficients are, indeed, in good agreement with
-the experimental data in Fig.~\ref{HpTonBrelaxationDATAscaled}
+the diffusion coefficients were divided by \DIFdelbegin \DIFdel{a constant factor
+of 2.9 }\DIFdelend \DIFaddbegin \DIFadd{the optimal scaling factor
+}\DIFaddend before applying Eq. \ref{newCORRF} to calculate the new correlation functions.
+The \DIFaddbegin \DIFadd{scaling factor value of 2.9 gave the best agreement with the experimental spin relaxation data.
+The }\DIFaddend spin relaxation times calculated from the new correlation functions after scaling
+the rotational diffusion coefficients \DIFdelbegin \DIFdel{are, indeed, in good agreement with the experimental data }\DIFdelend \DIFaddbegin \DIFadd{with the optimal scaling factor value are shown }\DIFaddend in Fig.~\ref{HpTonBrelaxationDATAscaled}
 \begin{figure}[!h]
   \includegraphics[width=8.0cm]{../Figs/RELdataHpTonB2.eps}%
   \caption{A) Structures of {\it Hp}TonB-92 from the MD simulations with tip3p at 303~K
@@ -686,25 +690,29 @@ the experimental data in Fig.~\ref{HpTonBrelaxationDATAscaled}
 \end{figure}
 
 Similar comparison for the spin relaxation times of {\it Pa}TonB-96 
-between experiments and simulations with tip4p and OPC4 water models
+between experiments and simulations with \DIFaddbegin \DIFadd{tip3p, }\DIFaddend tip4p and OPC4 water models
 is shown in Fig. \ref{PsTonBrelaxationDATA}.
 The experimentation of the OPC4 water model was inspired by the
 recent study reporting significant improvements in lipid monolayer
 simulations when this water model was used~\cite{javanainen18}. 
-Since tip3p water model was observed to significantly overestimate the
-rotational diffusion of protein, it was not used in {\it Pa}TonB-96
-simulations. The underestimation of $T_1/T_2$ ratio was 
+\DIFdelbegin \DIFdel{Since tip3p water model was observed to significantly overestimate the
+rotational diffusion of protein, it was not used in }%DIFDELCMD < {\it %%%
+\DIFdel{Pa}%DIFDELCMD < }%%%
+\DIFdel{TonB-96
+simulations. }\DIFdelend The underestimation of $T_1/T_2$ ratio was 
 also observed in the simulations of {\it Pa}TonB-96 with
 tip4p and OPC4 water models when compared with the experiments.
-The discrepancy is, however, less severe than for {\it Hp}TonB-92 simulated
-with tip3p in Fig.~\ref{HpTonBrelaxationDATA}, suggesting that 
+The discrepancy is, however, less severe than \DIFdelbegin \DIFdel{for }%DIFDELCMD < {\it %%%
+\DIFdel{Hp}%DIFDELCMD < }%%%
+\DIFdel{TonB-92 simulated
+}\DIFdelend with tip3p\DIFdelbegin \DIFdel{in Fig.~\ref{HpTonBrelaxationDATA}}\DIFdelend , suggesting that 
 the required scaling factor for the overall rotational diffusion should
 be smaller for tip4p and OPC4 water models.
 Indeed, the spin relaxation times calculated
 from {\it Pa}TonB-96 simulation with tip4p water model
-were in good agreement with the experiments in Fig.~\ref{PsTonBrelaxationDATAscaled}
-after the diffusion coefficients were divided with a constant factor of 1.2,
-which is smaller than 2.9 used for the {\it Hp}TonB-92 simulation above.
+were \DIFaddbegin \DIFadd{found to be }\DIFaddend in good agreement with the experiments in Fig.~\ref{PsTonBrelaxationDATAscaled}
+\DIFdelbegin \DIFdel{after }\DIFdelend \DIFaddbegin \DIFadd{when }\DIFaddend the diffusion coefficients were divided with a constant factor of 1.2,
+which is smaller than 2.9 used for the \DIFaddbegin \DIFadd{tip3p simulation of }\DIFaddend {\it Hp}TonB-92 \DIFdelbegin \DIFdel{simulation }\DIFdelend above.
 The scaling factors used to correct the overall rotational diffusion
 of different proteins with different water models are shown in Table S1
 together with the corresponding coefficients for self-diffusion of water \cite{wong08,izadi14}.
@@ -873,19 +881,34 @@ in agreement with the previous report suggesting that the discrepancy arises
 from the inaccuracies in water models~\cite{wong08}.
 Scaling down the anisotropic diffusion coefficients in the simulation data
 led to a good agreement with the experimental data.
+\DIFdelbegin %DIFDELCMD < 
 
-Overall rotational diffusion coefficients were overestimated by a factor of $\sim$3 in
+%DIFDELCMD < %%%
+\DIFdelend Overall rotational diffusion coefficients were overestimated by a factor of $\sim$3 in
 the {\it Hp}TonB-92 simulations with tip3p water model, in line with previous
 studies \cite{prompers02,wong08,anderson12}. Simulations with tip4p and OPC4
 water models gave the spin relaxation times in reasonable agreement with experiments
 with scaling factors of $\sim$1-1.2, which is significantly less than for tip3p.
-It should be noted, however, that the correct scaling factors for 
-the two different proteins, {\it Hp}TonB-92 and {\it Pa}TonB-96, simulated with the
+\DIFdelbegin \DIFdel{It should be noted, however, that the correct scaling factors for 
+the two different proteins, }%DIFDELCMD < {\it %%%
+\DIFdel{Hp}%DIFDELCMD < }%%%
+\DIFdel{TonB-92 and }%DIFDELCMD < {\it %%%
+\DIFdel{Pa}%DIFDELCMD < }%%%
+\DIFdel{TonB-96, simulated with the
 same water model, tip4p, seems to be 1 and 1.2, respectively. This suggests
 that the correction factor is not fully determined by the bulk water properties
 and that the hydration layer and water-protein interactions may play a critical
 role in rotational dynamics of proteins, as also suggested by the hydrodynamical 
-calculations \cite{torre00}. The scaling factors for different proteins with
+calculations \mbox{%DIFAUXCMD
+\cite{torre00}}%DIFAUXCMD
+. }\DIFdelend %DIF > It should be noted, however, that the correct scaling factors for 
+%DIF > the two different proteins, {\it Hp}TonB-92 and {\it Pa}TonB-96, simulated with the
+%DIF > same water model, tip4p, seems to be 1 and 1.2, respectively. This suggests
+%DIF > that the correction factor is not fully determined by the bulk water properties
+%DIF > and that the hydration layer and water-protein interactions may play a critical
+%DIF > role in rotational dynamics of proteins, as also suggested by the hydrodynamical 
+%DIF > calculations \cite{torre00}.
+The scaling factors for different proteins with
 different water models are summarized in Table S1.
 
 Similarity between the correlation functions from the original MD trajectory and
