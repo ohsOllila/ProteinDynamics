@@ -179,9 +179,9 @@ spin relaxation times of $^{15}$N and $^{13}$C nuclei measured
 with nuclear magnetic resonance (NMR) 
 techniques \cite{jarymowycz06,korzhnev01,mulder01,eisenmesser05,bedem15,lewandowski15,lamley15}. 
 The spin relaxation rates have been used to, for example, analyze
-conformational entropies \cite{yang96,kasinath13,allner15,jarymowycz06}, binding entropies \cite{akke93,jarymowycz06},
+conformational entropies \cite{yang96,kasinath13,allner15,jarymowycz06,solomentsev18}, binding entropies \cite{akke93,jarymowycz06},
 resolve sampled structures \cite{mulder01,eisenmesser05,bedem15,medina14}
-and validate molecular dynamics simulations \cite{best04,showalter07a,showalter07b,maragakis08,trbovic08}.
+and validate molecular dynamics simulations \cite{best04,showalter07a,showalter07b,maragakis08,trbovic08,debiec16,hoffmann18,debiec18}.
 These analyzes are almost exclusively based on the
 separation of the internal conformational fluctuations 
 and the overall rotational tumbling \cite{wennerstrom79,Lipari82}.
@@ -196,9 +196,9 @@ promising tools to interpret spin relaxation experiments
 for molecules with significantly anisotropic shape or correlations between
 internal and overall rotational motions. Practical applications
 are, however, limited by inaccuracies in the force field descriptions
-and the available time scales in the simulations \cite{prompers02,maragakis08,trbovic08,wong08,anderson12}.
+and the available time scales in the simulations \cite{prompers02,maragakis08,trbovic08,wong08,anderson12,salvi16,debiec16}.
 The main issues have been the overestimated overall rotational diffusion of proteins
-due to inaccuracies in water models~\cite{wong08} and the
+due to inaccuracies in water models~\cite{wong08,takemura12,debiec16} and the
 insufficient accuracy of correlation functions calculated from
 single molecules in MD simulations~\cite{lu06,anderson12}.
 
@@ -355,12 +355,12 @@ the system as a function of time. Rotational correlation functions for each bond
 can be then directly calculated from the trajectories by Eq. \ref{CORRFdef}
 and used to calculate the spin relaxation times through Eqs. \ref{SPECTdens}-\ref{NOE}.
 The resulting values can be compared to experimental data in order to assess simulation model
-quality \cite{best04,showalter07a,showalter07b,maragakis08,trbovic08,fisette12} or
-to interpret experiments~\cite{fisette12}.
+quality \cite{best04,showalter07a,showalter07b,maragakis08,trbovic08,fisette12,debiec18,debiec16,salvi16,hoffmann18} and
+to interpret experiments~\cite{fisette12,debiec18,anderson17}.
 
 The direct comparison with experiments is, however, often complicated by
 the insufficient statistics for the calculated correlation functions and the overestimated
-rotational diffusion due to inaccuracies in the used water models~\cite{wong08,anderson12}.
+rotational diffusion due to inaccuracies in the used water models~\cite{wong08,anderson12,takemura12}.
 Here we show that the statistical accuracy of the contribution of the
 overall tumbling to the correlation functions, $C_0(t)$ in Eq.~\ref{CORRFsep}, can be increased for
 rigid proteins by directly calculating the diffusion coefficients of the inertia axes.
@@ -378,7 +378,7 @@ time was varied with $\pm$1 ns.
 This requires less simulation data
 for the good statistics than a direct fit of the multiexponential sum in Eq. \ref{CORRFanisot}
 to the rotational correlation function calculated from MD simulation.
-In addition, the overestimated rotational diffusion due to water model~\cite{wong08} can
+In addition, the overestimated rotational diffusion due to water model~\cite{wong08,takemura12,debiec16} can
 be corrected by scaling the diffusion coefficients around all inertia axes
 by a constant factor. This approach takes into account the anisotropic shape of
 the molecule. This is a significant advancement to the previous studies, which assume
@@ -431,9 +431,10 @@ diffusion due to a water model can be corrected at this point  by scaling the ro
 coefficients, i.e. timescales $\tau_j$, with a constant factor before calculating
 new correlation functions from Eq. \ref{newCORRF}.
 Here we determine the optimal scaling factors separately for each system.
-The rotational diffusion coefficients are divided with values between 1--4 with
-the spacing of 0.1. The optimal scaling factor is the value giving 
-the best agreement with the experimental spin relaxation data.
+Scaling factors between 1--4 are explored with the spacing of 0.1 and
+the value giving the best agreement with the experimental spin relaxation data
+is the optimal scaling factor.
+
 
 \subsection{Simulation and analysis details}
 \begin{sidewaystable}[hp]
@@ -468,8 +469,8 @@ to constrain all bond lengths \cite{hess07}. The simulated systems are listed
 in Table \ref{ROTdiffCOEFFS} with the references giving access to the trajectories
 and the related simulation files. Equilibration of the trajectories were followed
 by monitoring the protein RMSD, intertia tensor eigenvalues and rotation angles.
-Sufficient amount of trajectory was omitted to remove signifincant fluctuations in
-these parameters in the beginning of simulation. If significant fluctuations were
+Sufficient amount of trajectory was omitted to remove the significant fluctuations in
+these parameters in the beginning of simulation. If such fluctuations were
 not observed, the first 10ns of the trajectory was omitted as an equilibration period.
 
 The rotational correlation functions are calculated with {\it gmx rotacf} from
@@ -560,7 +561,7 @@ expected from the experimental $T_1/T_2$ ratio analyzed with Eq. \ref{ratioEQ}
 and from the previously reported values for proteins with similar
 sizes~\cite{krishnan98}, especially when tip3p water model is used.
 Similar results were previously explained by the overestimated water
-self-diffusion of tip3p water model~\cite{wong08}.
+self-diffusion of tip3p water model~\cite{wong08,takemura12,debiec16}.
 
 The analysis leading to the new correlation functions in Eq.~\ref{newCORRF}
 (see Methods section) is exemplified in
@@ -626,7 +627,7 @@ Simulations with tip3p water model differ
 from the experimental data and underestimate the $T_1/T_2$ ratio, suggesting too
 fast overall rotational diffusion dynamics \cite{carper97}.
 This is in agreement with the previous study, where the overestimated
-rotational diffusion was attributed to the self-diffusion of tip3p~\cite{wong08}.
+rotational diffusion was attributed to the self-diffusion of tip3p~\cite{wong08,takemura12,debiec16}.
 On the other hand, simulation results with tip4p water model show 
 better agreement with the experimental data in  Fig.~\ref{HpTonBrelaxationDATA}.
 \begin{figure}[!h]
@@ -839,12 +840,12 @@ diffusion coefficients and spin relaxation times between simulations
 and experiments suggested that
 the overall Brownian tumbling of proteins is too rapid in the simulations,
 in agreement with the previous report suggesting that the discrepancy arises
-from the inaccuracies in water models~\cite{wong08}.
+from the inaccuracies in water models~\cite{wong08,takemura12,debiec16}.
 Scaling down the anisotropic diffusion coefficients in the simulation data
 led to a good agreement with the experimental data.
 Overall rotational diffusion coefficients were overestimated by a factor of $\sim$3 in
 the {\it Hp}TonB-92 simulations with tip3p water model, in line with previous
-studies \cite{prompers02,wong08,anderson12}. Simulations with tip4p and OPC4
+studies \cite{prompers02,wong08,anderson12,linke18}. Simulations with tip4p and OPC4
 water models gave the spin relaxation times in reasonable agreement with experiments
 with scaling factors of $\sim$1-1.2, which is significantly less than for tip3p.
 %It should be noted, however, that the correct scaling factors for 
@@ -869,7 +870,7 @@ will succeed for intrinsically disordered proteins without
 the well defined shape. Since the correction of the incorrect overall
 rotational diffusion due to water model may become highly complicated for such proteins,
 it may be necessary to employ a water model giving correct
-overall rotational diffusion coefficients for biomolecules.
+overall rotational diffusion coefficients for biomolecules \cite{takemura12,debiec16}.
 
 As further demonstrated in Ref.~\citenum{oeemig17}, the approach presented in this work can be used to interpret the
 rotational dynamics of proteins with anisotropic shape from $^{15}$N
@@ -904,7 +905,7 @@ data would be measured with multiple magnetic field strengths.
 %The following files are available free of charge.
   \begin{itemize}
   \item Mean square angle deviations of {\it Pa}TonB-96 simulations with tip4p water at 310~K and 298~K
-  \item Table summarising scaling coefficients for the overall rotational diffusion of different proteins simulated with different water models
+  \item Accuracy estimation of the scaling factors for the rotational diffusion
 \end{itemize}
 
 \end{suppinfo}
