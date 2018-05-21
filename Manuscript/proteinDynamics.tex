@@ -152,7 +152,7 @@ Prague 6, Czech Republic}
   Conformational fluctuations and rotational tumbling of proteins can be experimentally accessed
   with nuclear spin relaxation experiments. However, interpretation of molecular dynamics from the
   experimental data is often complicated, especially for molecules with anisotropic
-  shape. Here we apply classical molecular dynamics simulations to interpret the conformational fluctuations
+  shape. Here, we apply classical molecular dynamics simulations to interpret the conformational fluctuations
   and rotational tumbling of proteins with arbitrarily anisotropic shape. The direct calculation
   of spin relaxation times from simulation data did not reproduce the experimental data.
   This was successfully corrected by scaling the overall rotational diffusion coefficients around the
@@ -208,7 +208,7 @@ Diffusion coefficients around inertia axes are
 directly calculated from angular displacements.
 The diffusion coefficients are then used to determine the
 contribution of the overall rotational tumbling to the 
-rotational correlation functions of N-H bonds.
+rotational correlation functions of N-H bonds in the protein backbone.
 This reduces the required simulation length for the accurate determination
 of the rotational correlation functions. Furthermore, the overestimated
 overall Brownian tumbling rates due to the inaccurate water model
@@ -307,8 +307,8 @@ three principal axes of a molecule
   \tau_1&=(4D_{x}+D_{y}+D_{z})^{-1} \\
   \tau_2&=(D_{x}+4D_{y}+D_{z})^{-1} \\
   \tau_3&=(D_{x}+D_{y}+4D_{z})^{-1} \\
-  \tau_4&=[6(D_{\rm av}+(D_{\rm av}^2-L^2)^{-1/2}]^{-1} \\
-  \tau_5&=[6(D_{\rm av}-(D_{\rm av}^2-L^2)^{-1/2}]^{-1}, \\
+  \tau_4&=[6(D_{\rm av}+(D_{\rm av}^2-L^2)^{-1/2})]^{-1} \\
+  \tau_5&=[6(D_{\rm av}-(D_{\rm av}^2-L^2)^{-1/2})]^{-1}, \\
   \end{split}
 \end{equation}
 where $D_{\rm av}=\frac{1}{3}(D_{x}+D_{y}+D_{z})$ and 
@@ -319,7 +319,7 @@ data is the original ''model-free analysis''~\cite{Lipari82},
 where an isotropic diffusion is assumed for the overall rotation of the protein.
 This reduces Eq.~\ref{CORRFanisot} to a monoexponential form and the overall rotational
 dynamics can be described with a single time constant $\tau_c$.
-Also the internal correlation functions for each residue are assumed
+Also, the internal correlation functions for each residue are assumed
 to decay exponentially with a single time constant $\tau_{\rm eff}$
 toward to the square of the order parameter $S^2$. The three parameters
 ($\tau_c$, $\tau_{\rm eff}$, and $S^2$) can be then successfully resolved from a
@@ -361,7 +361,7 @@ to interpret experiments~\cite{fisette12,debiec18,anderson17}.
 The direct comparison with experiments is, however, often complicated by
 the insufficient statistics for the calculated correlation functions and the overestimated
 rotational diffusion due to inaccuracies in the used water models~\cite{wong08,anderson12,takemura12}.
-Here we show that the statistical accuracy of the contribution of the
+Here, we show that the statistical accuracy of the contribution of the
 overall tumbling to the correlation functions, $C_0(t)$ in Eq.~\ref{CORRFsep}, can be increased for
 rigid proteins by directly calculating the diffusion coefficients of the inertia axes.
 The rotational diffusion coefficients can be related to the timescales $\tau_j$
@@ -430,10 +430,10 @@ from Eqs. \ref{SPECTdens}-\ref{NOE}. The incorrect overall rotational
 diffusion due to a water model can be corrected at this point  by scaling the rotational diffusion
 coefficients, i.e. timescales $\tau_j$, with a constant factor before calculating
 new correlation functions from Eq. \ref{newCORRF}.
-Here we determine the optimal scaling factors separately for each system.
+Here, we determine the optimal scaling factors separately for each system.
 Scaling factors between 1--4 are explored with the spacing of 0.1 and
 the value giving the best agreement with the experimental spin relaxation data
-is the optimal scaling factor.
+is selected to be the optimal scaling factor.
 
 
 \subsection{Simulation and analysis details}
@@ -471,7 +471,7 @@ and the related simulation files. Equilibration of the trajectories were followe
 by monitoring the protein RMSD, intertia tensor eigenvalues and rotation angles.
 Sufficient amount of trajectory was omitted to remove the significant fluctuations in
 these parameters in the beginning of simulation. If such fluctuations were
-not observed, the first 10ns of the trajectory was omitted as an equilibration period.
+not observed, the first 10 ns of the trajectory was omitted as an equilibration period.
 
 The rotational correlation functions are calculated with {\it gmx rotacf} from
 Gromacs package \cite{gromacsMANUAL}. The overall rotation was removed
@@ -498,19 +498,21 @@ J(\omega) =  2 \sum_{i=1}^{N}\alpha_i\frac{\tau_i}{1+\omega^2\tau_i^2}.
 \end{equation}
 A similar approach has been previously used for the lamellar lipid and surfactant
 systems in combination with solid state NMR experiments \cite{nowacka13,ferreira15}.
-All the computer programs used for the analysis are available at~\cite{proteindynamicsGIT}.
+All the computer programs used for the analysis are available from Ref.~\citenum{proteindynamicsGIT}.
 
 \subsection{Spin relaxation experiments}
 NMR experiments were recorded on a Bruker Avance III 850 NMR spectrometer equipped
-with cryogenic probe head. The longitudinal ($T_1$), transverse ($T_2$), and
+with a cryogenic probe head. The longitudinal ($T_1$), transverse ($T_2$), and
 $^1$H-$^{15}$N-heteronuclear NOE spin relaxation times
 for the backbone $^{15}$N atoms of {\it Hp}TonB-92~\cite{ciragan16}
-were collected at 303~K using the well-established NMR pulse sequences described previously~\cite{kay89,barbato92}.
+were collected at 303~K using the well-established NMR pulse sequences described previously~\cite{kay89,barbato92,farrow94}.
 The similarly detected spin relaxation data for {\it Pa}TonB-96 at 298~K is also reported in a another publication~\cite{oeemig17}. 
-The $T_1$ and $T_2$ relaxation times were measured using the following delay
-times: 10, 50, 100, 200, 300, 500, 800, 1000, 1200 and 2000 ms,
-and 16, 64, 96, 128, 156, 196, 224 and 256 ms for CPMG pulse train with 1.0 ms interval
-for $T_2$ relaxation times, respectively. The relaxation rates ($R_1=1/T_1$, $R_2=1/T_2$)
+The $T_1$ and $T_2$ relaxation times were measured using the following series of the delays
+times: 10, 50, 100, 200, 300, 500, 800, 1000, 1200 and 2000 ms for $T_1$,
+and 16, 64, 96, 128, 156, 196, 224 and 256 ms for $T_2$.
+Recycle delays of 3.0 s and 2.0 s were used for $T_1$ and $T_2$
+experiments, respectively.
+The relaxation rates ($R_1=1/T_1$, $R_2=1/T_2$)
 were calculated as an exponential fit of a single exponential decay to peak intensity
 values: $I(t) = I_0 \exp(-t/T_1)$, or $I(t)=I_0 \exp(-t/T_2)$,
 where $I(t)$ is the peak volume at a time $t$. The $^{15}$N$ \{ ^1$H$ \} $-NOE measurements were carried out
@@ -617,14 +619,14 @@ in the new correlation functions
 clearly reduces the statistical fluctuations with the long lag times in Fig. \ref{exampleCORRF}.
 The effect is most visible for the flexible C-terminus (residue 341) having
 the smallest, thus the least detectable, contribution from the
-overall rotation of the protein due to the small order parameters .
+overall rotation of the protein due to the small order parameters.
 
 \subsection{Global rotational dynamics in simulations and experiments}
 Spin relaxation times of {\it Hp}TonB-92 are compared 
 between the experiments and simulations using two
 different water models in Fig.~\ref{HpTonBrelaxationDATA}.
-Simulations with tip3p water model differ
-from the experimental data and underestimate the $T_1/T_2$ ratio, suggesting too
+The simulation with tip3p water model differ
+from the experimental data and underestimate the $T_1/T_2$ ratios, suggesting too
 fast overall rotational diffusion dynamics \cite{carper97}.
 This is in agreement with the previous study, where the overestimated
 rotational diffusion was attributed to the self-diffusion of tip3p~\cite{wong08,takemura12,debiec16}.
@@ -643,14 +645,15 @@ the diffusion coefficients were divided by the optimal scaling factor
 before applying Eq. \ref{newCORRF} to calculate the new correlation functions.
 The scaling factor value of 2.9 gave the best agreement with the experimental spin relaxation data.
 The spin relaxation times calculated from the new correlation functions after scaling
-the rotational diffusion coefficients with the optimal scaling factor value are shown in Fig.~\ref{HpTonBrelaxationDATAscaled}
+the rotational diffusion coefficients with the optimal scaling factor value are shown in Fig.~\ref{HpTonBrelaxationDATAscaled}.
 \begin{figure}[!h]
   \includegraphics[width=8.0cm]{../Figs/RELdataHpTonB2.eps}%
   \caption{A) Structures of {\it Hp}TonB-92 from the MD simulations with tip3p at 303~K
-    (100 structures taken from 400ns long trajectory). Secondary structures
+    (100 structures taken from 400 ns long trajectory). Secondary structures
     are color-labeled with Visual Molecular dynamics \cite{frishman95,humphrey96};
-    $\alpha$-helices are red and $\beta$-strands are blue.
+    $\alpha$-helices are highlighted in red and $\beta$-strands in blue.
     Terminal ends are labelled with N and C.
+    The structure is rotated from left to right with approximately 150 degrees.
     B) Spin relaxation times from experiments (circles) and tip3p
     simulations (squares) with rotational diffusion coefficients divided by a
     constant factor of 2.9 at 303~K. Order parameters and effective internal correlation
@@ -720,7 +723,7 @@ in Table~\ref{ROTdiffCOEFFS}.
   \caption{Rotational diffusion coefficients (rad$^2\cdot 10^7$/s) giving the best agreement with experimental spin relaxation data.
     For {\it Hp}TonB-92 construct the values calculated from simulation with tip3p were scaled with 2.9
     (spin relaxation data in Fig.~\ref{HpTonBrelaxationDATAscaled}) and  for {\it Pa}TonB-96
-    the values from tip4p simulation at 298K were scaled by 1.2 (spin relaxation data in
+    the values from tip4p simulation at 298 K were scaled by 1.2 (spin relaxation data in
     Fig.~\ref{PsTonBrelaxationDATAscaled}). 
   }\label{ROTdiffCOEFFSscaled}
   \begin{tabular}{c c c c c}
@@ -768,7 +771,7 @@ are not reproduced by MD simulations.
 and the segments with enhanced conformational fluctuations are labeled with yellow color
 in Fig. \ref{PsTonBrelaxationDATAscaled}.
 Larger number of sampled conformations in both terminal ends
-are characterized by low order parameters and long effective internal correlation times
+are characterized by the low order parameters and long effective internal correlation times
 observed in the simulations. 
 Enhanced conformational fluctuations are also observed for residues 320-326,
 which correspond the loop between two $\beta$-strands.
@@ -781,7 +784,7 @@ deviations of spin relaxation times for residues 210-222 of {\it Hp}TonB-92~\cit
 
 MD simulations can be used to analyze different components contributing to
 the rotational dynamics of individual N-H bonds.
-In this work we have fitted a sum of 471 different
+In this work, we have fitted a sum of 471 different
 timescales to the correlation functions according to Eq.~\ref{gprime_fit}.
 Most of the prefactors ($\alpha_i$ in Eq.~\ref{gprime_fit}) are zero
 in all the correlation functions after the fitting,
@@ -812,7 +815,7 @@ of such fit is not unique.
   \includegraphics[width=8.5cm]{../Figs/coeffsPLOT.eps}%
   \caption{Prefactors $\alpha_i$ corresponding different timescales $\tau_i$
     resulting from a fit of Eq.\ref{gprime_fit} to correlation functions from
-    MD simulation of {\it Pa}TonB-96 at 298K. The used correlation functions give
+    MD simulation of {\it Pa}TonB-96 at 298 K. The used correlation functions give
     a good agreement with experimental spin relaxation times as shown in
     Fig.~\ref{PsTonBrelaxationDATAscaled}.  \label{coeffsPLOT}}%
 \end{figure}
