@@ -307,8 +307,8 @@ three principal axes of a molecule
   \tau_1&=(4D_{x}+D_{y}+D_{z})^{-1} \\
   \tau_2&=(D_{x}+4D_{y}+D_{z})^{-1} \\
   \tau_3&=(D_{x}+D_{y}+4D_{z})^{-1} \\
-  \tau_4&=[6(D_{\rm av}+(D_{\rm av}^2-L^2)^{-1/2})]^{-1} \\
-  \tau_5&=[6(D_{\rm av}-(D_{\rm av}^2-L^2)^{-1/2})]^{-1}, \\
+  \tau_4&=[6(D_{\rm av}+(D_{\rm av}^2-L^2)^{1/2})]^{-1} \\
+  \tau_5&=[6(D_{\rm av}-(D_{\rm av}^2-L^2)^{1/2})]^{-1}, \\
   \end{split}
 \end{equation}
 where $D_{\rm av}=\frac{1}{3}(D_{x}+D_{y}+D_{z})$ and 
@@ -461,6 +461,8 @@ and Amber ff99SB- ILDN~\cite{lindorff10} force field for proteins. The protein w
 to tip3p\cite{jorgensen83}, tip4p \cite{jorgensen83}, or OPC4 \cite{izadi14} water models.
 Initial structures were taken from the lowest energy NMR structures of {\it Hp}TonB-92 (PDB code: 5LW8) \cite{ciragan16} and
 {\it Pa}TonB-96 (PDB code: 6FIP) \cite{oeemig17}.
+The results from different initial conformations of both proteins with tip3p water model are shown in
+section S2 in the Supplementary Information.
 The temperature was coupled to the desired value with the v-rescale thermostat \cite{bussi07} and the pressure was 
 isotropically set to 1 bar using Parrinello-Rahman barostat \cite{parrinello81}.
 Timestep was 2~fs, Lennard-Jones interactions were cut-off at 1.0~nm,
@@ -469,8 +471,8 @@ to constrain all bond lengths \cite{hess07}. The simulated systems are listed
 in Table \ref{ROTdiffCOEFFS} with the references giving access to the trajectories
 and the related simulation files. Equilibration of the trajectories were followed
 by monitoring the protein RMSD, intertia tensor eigenvalues and rotation angles.
-Sufficient amount of trajectory was omitted to remove the significant fluctuations in
-these parameters in the beginning of simulation. If such fluctuations were
+Sufficient amount of data was omitted from the beginning of simulation trajectories
+to remove the significant fluctuations in these parameters. If such fluctuations were
 not observed, the first 10 ns of the trajectory was omitted as an equilibration period.
 
 The rotational correlation functions are calculated with {\it gmx rotacf} from
@@ -625,8 +627,7 @@ overall rotation of the protein due to the small order parameters.
 Spin relaxation times of {\it Hp}TonB-92 are compared 
 between the experiments and simulations using two
 different water models in Fig.~\ref{HpTonBrelaxationDATA}.
-The simulation with tip3p water model differ
-from the experimental data and underestimate the $T_1/T_2$ ratios, suggesting too
+The simulation with tip3p water model underestimate the $T_1/T_2$ ratios, suggesting too
 fast overall rotational diffusion dynamics \cite{carper97}.
 This is in agreement with the previous study, where the overestimated
 rotational diffusion was attributed to the self-diffusion of tip3p~\cite{wong08,takemura12,debiec16}.
@@ -653,7 +654,7 @@ the rotational diffusion coefficients with the optimal scaling factor value are 
     are color-labeled with Visual Molecular dynamics \cite{frishman95,humphrey96};
     $\alpha$-helices are highlighted in red and $\beta$-strands in blue.
     Terminal ends are labelled with N and C.
-    The structure is rotated from left to right with approximately 150 degrees.
+    The structure from left is rotated with approximately 150 degrees to the figure on right.
     B) Spin relaxation times from experiments (circles) and tip3p
     simulations (squares) with rotational diffusion coefficients divided by a
     constant factor of 2.9 at 303~K. Order parameters and effective internal correlation
@@ -699,6 +700,7 @@ the changes due to the scaling of the diffusion coefficient.
     Residues 246-251, 320-326 and 338-342 with increased internal dynamics are yellow and
     $\alpha$-helix fluctuations between two orientations (residues 266-270) is violet in the left column.
     Terminal ends are labelled with N and C.
+    The structure from left is rotated with approximately 100 degrees to the figure on right.
     B) Spin relaxation times from experiments (circles) and tip4p
     simulations (squares) with rotational diffusion coefficients divided by a
     constant factor of 1.2 at 298~K. Order parameters and effective internal correlation
@@ -770,7 +772,7 @@ are not reproduced by MD simulations.
 {\it Pa}TonB-96 exhibits more internal mobility 
 and the segments with enhanced conformational fluctuations are labeled with yellow color
 in Fig. \ref{PsTonBrelaxationDATAscaled}.
-Larger number of sampled conformations in both terminal ends
+The larger number of sampled conformations in both terminal ends
 are characterized by the low order parameters and long effective internal correlation times
 observed in the simulations. 
 Enhanced conformational fluctuations are also observed for residues 320-326,
