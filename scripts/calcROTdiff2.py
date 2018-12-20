@@ -83,27 +83,13 @@ if D**2-L2 < 0.0001:
 tau4=1/(6*(D+math.sqrt(D**2-L2)))
 tau5=1/(6*(D-math.sqrt(D**2-L2)))
 
-#print tau1dot,tau2dot,tau3dot
-
-print("D_xx        ", str(*(D3*100)), D3err*100)
-print("D_yy        ", str(*(D2*100)), D2err*100)
-print("D_zz        ", str(*(D1*100)), D1err*100)
-print("D_||/D_+    ", str(*(2*D1/(D3+D2))), str(*(RATIOerr)))
-print("D_av        ", str(*(D)*100),(D1err+D2err+D3err)*100/3)
-print("tau1        ", str(*(tau1)))
-print("tau2        ", str(*(tau2)))
-print("tau3        ", str(*(tau3)))
-print("tau4        ", str(*(tau4)))
-print("tau5        ", str(*(tau5)))
-
-
 #def fiveexpfunc(x,p1,p2,p3,p4,p5,tau1,tau2,tau3,tau4,tau5):
 scalingF=1
 def fiveexpfunc(x,p1,p2,p3,p4,p5):
   return p1**2*numpy.exp(-x/(scalingF*tau1)) + p2**2*numpy.exp(-x/(scalingF*tau2)) + p3**2*numpy.exp(-x/(scalingF*tau3)) + p4**2*numpy.exp(-x/(scalingF*tau4)) + p5**2*numpy.exp(-x/(scalingF*tau5))
 
 NumberOfCorrfs=int(sys.argv[5])
-for i in range(0,NumberOfCorrfs):
+for i in range(1,NumberOfCorrfs+1):
   xdata = numpy.loadtxt(sys.argv[2]+'/overall/NHrotaCF_' + str(i) + '.xvg', usecols=range(0,1))
   ydata = numpy.loadtxt(sys.argv[2]+'/overall/NHrotaCF_' + str(i) + '.xvg', usecols=range(1,2))
   xdata = xdata*0.001
@@ -121,7 +107,7 @@ for i in range(0,NumberOfCorrfs):
 
   scalingF=1.0
   popt3, pcov3 = curve_fit(fiveexpfunc, dataLOGx, dataLOGy,p0=(0.45,0.45,0.45,0.45,0.45),maxfev=100000)
-  print(i,*(popt3**2))
+  # print(i,*(popt3**2))
 
   #TSTfig=plt.figure()
   #axes = plt.gca()
@@ -194,4 +180,16 @@ for i in range(0,NumberOfCorrfs):
 #plt.plot(frequencyRANGE, R2exp(frequencyRANGE,S,tf,ts),frequencyRANGE, R2(frequencyRANGE,*popt3),Fdata,R2data)
 #plt.xscale('log')
 #Rfig.savefig('Rcomparison.pdf')
+
+print("D_xx        ", str(*(D3*100/scalingF)), D3err*100)
+print("D_yy        ", str(*(D2*100/scalingF)), D2err*100)
+print("D_zz        ", str(*(D1*100/scalingF)), D1err*100)
+print("D_||/D_+    ", str(*(2*D1/(D3+D2))), str(*(RATIOerr)))
+print("D_av        ", str(*(D)*100/scalingF),(D1err+D2err+D3err)*100/3)
+print("tau1        ", str(*(scalingF*tau1)))
+print("tau2        ", str(*(scalingF*tau2)))
+print("tau3        ", str(*(scalingF*tau3)))
+print("tau4        ", str(*(scalingF*tau4)))
+print("tau5        ", str(*(scalingF*tau5)))
+
 
