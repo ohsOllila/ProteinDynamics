@@ -107,7 +107,7 @@ for i in range(1,NumberOfCorrfs+1):
 
   scalingF=1.0
   popt3, pcov3 = curve_fit(fiveexpfunc, dataLOGx, dataLOGy,p0=(0.45,0.45,0.45,0.45,0.45),maxfev=100000)
-  # print(i,*(popt3**2))
+  print(i,*(popt3**2))
 
   #TSTfig=plt.figure()
   #axes = plt.gca()
